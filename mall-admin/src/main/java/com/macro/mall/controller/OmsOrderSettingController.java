@@ -7,16 +7,20 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * 订单设置Controller
- * Created by macro on 2018/10/16.
+ * 订单设置Controller Created by macro on 2018/10/16.
  */
 @Controller
 @Api(tags = "OmsOrderSettingController", description = "订单设置管理")
 @RequestMapping("/orderSetting")
 public class OmsOrderSettingController {
+
     @Autowired
     private OmsOrderSettingService orderSettingService;
 
@@ -32,8 +36,8 @@ public class OmsOrderSettingController {
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update(@PathVariable Long id, @RequestBody OmsOrderSetting orderSetting) {
-        int count = orderSettingService.update(id,orderSetting);
-        if(count>0){
+        int count = orderSettingService.update(id, orderSetting);
+        if (count > 0) {
             return CommonResult.success(count);
         }
         return CommonResult.failed();

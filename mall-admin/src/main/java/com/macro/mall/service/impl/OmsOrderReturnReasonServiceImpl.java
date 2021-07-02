@@ -12,13 +12,14 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 订单原因管理Service实现类
- * Created by macro on 2018/10/17.
+ * 订单原因管理Service实现类 Created by macro on 2018/10/17.
  */
 @Service
 public class OmsOrderReturnReasonServiceImpl implements OmsOrderReturnReasonService {
+
     @Autowired
     private OmsOrderReturnReasonMapper returnReasonMapper;
+
     @Override
     public int create(OmsOrderReturnReason returnReason) {
         returnReason.setCreateTime(new Date());
@@ -40,7 +41,7 @@ public class OmsOrderReturnReasonServiceImpl implements OmsOrderReturnReasonServ
 
     @Override
     public List<OmsOrderReturnReason> list(Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         OmsOrderReturnReasonExample example = new OmsOrderReturnReasonExample();
         example.setOrderByClause("sort desc");
         return returnReasonMapper.selectByExample(example);
@@ -48,14 +49,14 @@ public class OmsOrderReturnReasonServiceImpl implements OmsOrderReturnReasonServ
 
     @Override
     public int updateStatus(List<Long> ids, Integer status) {
-        if(!status.equals(0)&&!status.equals(1)){
+        if (!status.equals(0) && !status.equals(1)) {
             return 0;
         }
         OmsOrderReturnReason record = new OmsOrderReturnReason();
         record.setStatus(status);
         OmsOrderReturnReasonExample example = new OmsOrderReturnReasonExample();
         example.createCriteria().andIdIn(ids);
-        return returnReasonMapper.updateByExampleSelective(record,example);
+        return returnReasonMapper.updateByExampleSelective(record, example);
     }
 
     @Override

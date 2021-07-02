@@ -5,12 +5,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * oss上传成功后的回调参数
- * Created by macro on 2018/5/17.
+ * oss上传成功后的回调参数 Created by macro on 2018/5/17.
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class OssCallbackParam {
+
     @ApiModelProperty("请求的回调地址")
     private String callbackUrl;
     @ApiModelProperty("回调是传入request中的参数")

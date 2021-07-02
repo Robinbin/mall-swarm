@@ -8,18 +8,23 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 /**
- * 首页专题推荐管理Controller
- * Created by macro on 2018/11/6.
+ * 首页专题推荐管理Controller Created by macro on 2018/11/6.
  */
 @Controller
 @Api(tags = "SmsHomeRecommendSubjectController", description = "首页专题推荐管理")
 @RequestMapping("/home/recommendSubject")
 public class SmsHomeRecommendSubjectController {
+
     @Autowired
     private SmsHomeRecommendSubjectService recommendSubjectService;
 
@@ -59,7 +64,8 @@ public class SmsHomeRecommendSubjectController {
     @ApiOperation("批量修改推荐状态")
     @RequestMapping(value = "/update/recommendStatus", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult updateRecommendStatus(@RequestParam("ids") List<Long> ids, @RequestParam Integer recommendStatus) {
+    public CommonResult updateRecommendStatus(@RequestParam("ids") List<Long> ids,
+                                              @RequestParam Integer recommendStatus) {
         int count = recommendSubjectService.updateRecommendStatus(ids, recommendStatus);
         if (count > 0) {
             return CommonResult.success(count);
@@ -70,11 +76,14 @@ public class SmsHomeRecommendSubjectController {
     @ApiOperation("分页查询推荐")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult<CommonPage<SmsHomeRecommendSubject>> list(@RequestParam(value = "subjectName", required = false) String subjectName,
-                                                                  @RequestParam(value = "recommendStatus", required = false) Integer recommendStatus,
-                                                                  @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
-                                                                  @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
-        List<SmsHomeRecommendSubject> homeBrandList = recommendSubjectService.list(subjectName, recommendStatus, pageSize, pageNum);
+    public CommonResult<CommonPage<SmsHomeRecommendSubject>> list(
+        @RequestParam(value = "subjectName", required = false) String subjectName,
+        @RequestParam(value = "recommendStatus", required = false) Integer recommendStatus,
+        @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+        @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+        List<SmsHomeRecommendSubject>
+            homeBrandList =
+            recommendSubjectService.list(subjectName, recommendStatus, pageSize, pageNum);
         return CommonResult.success(CommonPage.restPage(homeBrandList));
     }
 }

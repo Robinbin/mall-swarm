@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OmsOrderItemExample {
+
     protected String orderByClause;
 
     protected boolean distinct;
@@ -65,6 +66,7 @@ public class OmsOrderItemExample {
     }
 
     protected abstract static class GeneratedCriteria {
+
         protected List<Criterion> criteria;
 
         protected GeneratedCriteria() {
@@ -1447,12 +1449,14 @@ public class OmsOrderItemExample {
     }
 
     public static class Criteria extends GeneratedCriteria {
+
         protected Criteria() {
             super();
         }
     }
 
     public static class Criterion {
+
         private String condition;
 
         private Object value;

@@ -6,10 +6,10 @@ import com.macro.mall.model.PmsProductAttributeCategory;
 import java.util.List;
 
 /**
- * 商品属性分类Service
- * Created by macro on 2018/4/26.
+ * 商品属性分类Service Created by macro on 2018/4/26.
  */
 public interface PmsProductAttributeCategoryService {
+
     /**
      * 创建属性分类
      */

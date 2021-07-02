@@ -7,10 +7,10 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 
 /**
- * 商品搜索管理Service
- * Created by macro on 2018/6/19.
+ * 商品搜索管理Service Created by macro on 2018/6/19.
  */
 public interface EsProductService {
+
     /**
      * 从数据库中导入所有商品到ES
      */
@@ -39,7 +39,8 @@ public interface EsProductService {
     /**
      * 根据关键字搜索名称或者副标题复合查询
      */
-    Page<EsProduct> search(String keyword, Long brandId, Long productCategoryId, Integer pageNum, Integer pageSize,Integer sort);
+    Page<EsProduct> search(String keyword, Long brandId, Long productCategoryId, Integer pageNum, Integer pageSize,
+                           Integer sort);
 
     /**
      * 根据商品id推荐相关商品

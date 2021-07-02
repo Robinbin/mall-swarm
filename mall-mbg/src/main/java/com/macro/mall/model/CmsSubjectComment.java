@@ -1,10 +1,10 @@
 package com.macro.mall.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
 public class CmsSubjectComment implements Serializable {
+
     private Long id;
 
     private Long subjectId;

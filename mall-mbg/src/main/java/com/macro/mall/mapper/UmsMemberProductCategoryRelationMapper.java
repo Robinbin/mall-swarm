@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.UmsMemberProductCategoryRelation;
 import com.macro.mall.model.UmsMemberProductCategoryRelationExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UmsMemberProductCategoryRelationMapper {
+
     long countByExample(UmsMemberProductCategoryRelationExample example);
 
     int deleteByExample(UmsMemberProductCategoryRelationExample example);
@@ -20,9 +22,11 @@ public interface UmsMemberProductCategoryRelationMapper {
 
     UmsMemberProductCategoryRelation selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") UmsMemberProductCategoryRelation record, @Param("example") UmsMemberProductCategoryRelationExample example);
+    int updateByExampleSelective(@Param("record") UmsMemberProductCategoryRelation record,
+                                 @Param("example") UmsMemberProductCategoryRelationExample example);
 
-    int updateByExample(@Param("record") UmsMemberProductCategoryRelation record, @Param("example") UmsMemberProductCategoryRelationExample example);
+    int updateByExample(@Param("record") UmsMemberProductCategoryRelation record,
+                        @Param("example") UmsMemberProductCategoryRelationExample example);
 
     int updateByPrimaryKeySelective(UmsMemberProductCategoryRelation record);
 

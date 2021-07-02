@@ -11,14 +11,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**
- * 会员收藏Service实现类
- * Created by macro on 2018/8/2.
+ * 会员收藏Service实现类 Created by macro on 2018/8/2.
  */
 @Service
 public class MemberCollectionServiceImpl implements MemberCollectionService {
+
     @Autowired
     private MemberProductCollectionRepository productCollectionRepository;
     @Autowired
@@ -31,7 +29,10 @@ public class MemberCollectionServiceImpl implements MemberCollectionService {
         productCollection.setMemberId(member.getId());
         productCollection.setMemberNickname(member.getNickname());
         productCollection.setMemberIcon(member.getIcon());
-        MemberProductCollection findCollection = productCollectionRepository.findByMemberIdAndProductId(productCollection.getMemberId(), productCollection.getProductId());
+        MemberProductCollection
+            findCollection =
+            productCollectionRepository
+                .findByMemberIdAndProductId(productCollection.getMemberId(), productCollection.getProductId());
         if (findCollection == null) {
             productCollectionRepository.save(productCollection);
             count = 1;

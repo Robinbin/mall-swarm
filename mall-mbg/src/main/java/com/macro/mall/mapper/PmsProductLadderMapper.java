@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.PmsProductLadder;
 import com.macro.mall.model.PmsProductLadderExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface PmsProductLadderMapper {
+
     long countByExample(PmsProductLadderExample example);
 
     int deleteByExample(PmsProductLadderExample example);
@@ -20,7 +22,8 @@ public interface PmsProductLadderMapper {
 
     PmsProductLadder selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") PmsProductLadder record, @Param("example") PmsProductLadderExample example);
+    int updateByExampleSelective(@Param("record") PmsProductLadder record,
+                                 @Param("example") PmsProductLadderExample example);
 
     int updateByExample(@Param("record") PmsProductLadder record, @Param("example") PmsProductLadderExample example);
 

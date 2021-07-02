@@ -6,13 +6,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
-import springfox.documentation.swagger.web.*;
+import springfox.documentation.swagger.web.SecurityConfiguration;
+import springfox.documentation.swagger.web.SecurityConfigurationBuilder;
+import springfox.documentation.swagger.web.SwaggerResourcesProvider;
+import springfox.documentation.swagger.web.UiConfiguration;
+import springfox.documentation.swagger.web.UiConfigurationBuilder;
 
 import java.util.Optional;
 
 /**
- * 自定义Swagger的各个配置节点
- * Created by macro on 2020/7/9.
+ * 自定义Swagger的各个配置节点 Created by macro on 2020/7/9.
  */
 @RestController
 public class SwaggerHandler {
@@ -36,7 +39,8 @@ public class SwaggerHandler {
     @GetMapping("/swagger-resources/configuration/security")
     public Mono<ResponseEntity<SecurityConfiguration>> securityConfiguration() {
         return Mono.just(new ResponseEntity<>(
-                Optional.ofNullable(securityConfiguration).orElse(SecurityConfigurationBuilder.builder().build()), HttpStatus.OK));
+            Optional.ofNullable(securityConfiguration).orElse(SecurityConfigurationBuilder.builder().build()),
+            HttpStatus.OK));
     }
 
     /**
@@ -45,7 +49,7 @@ public class SwaggerHandler {
     @GetMapping("/swagger-resources/configuration/ui")
     public Mono<ResponseEntity<UiConfiguration>> uiConfiguration() {
         return Mono.just(new ResponseEntity<>(
-                Optional.ofNullable(uiConfiguration).orElse(UiConfigurationBuilder.builder().build()), HttpStatus.OK));
+            Optional.ofNullable(uiConfiguration).orElse(UiConfigurationBuilder.builder().build()), HttpStatus.OK));
     }
 
     /**

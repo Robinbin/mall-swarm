@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.PmsProductOperateLog;
 import com.macro.mall.model.PmsProductOperateLogExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface PmsProductOperateLogMapper {
+
     long countByExample(PmsProductOperateLogExample example);
 
     int deleteByExample(PmsProductOperateLogExample example);
@@ -20,9 +22,11 @@ public interface PmsProductOperateLogMapper {
 
     PmsProductOperateLog selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") PmsProductOperateLog record, @Param("example") PmsProductOperateLogExample example);
+    int updateByExampleSelective(@Param("record") PmsProductOperateLog record,
+                                 @Param("example") PmsProductOperateLogExample example);
 
-    int updateByExample(@Param("record") PmsProductOperateLog record, @Param("example") PmsProductOperateLogExample example);
+    int updateByExample(@Param("record") PmsProductOperateLog record,
+                        @Param("example") PmsProductOperateLogExample example);
 
     int updateByPrimaryKeySelective(PmsProductOperateLog record);
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PmsAlbumPicExample {
+
     protected String orderByClause;
 
     protected boolean distinct;
@@ -64,6 +65,7 @@ public class PmsAlbumPicExample {
     }
 
     protected abstract static class GeneratedCriteria {
+
         protected List<Criterion> criteria;
 
         protected GeneratedCriteria() {
@@ -296,12 +298,14 @@ public class PmsAlbumPicExample {
     }
 
     public static class Criteria extends GeneratedCriteria {
+
         protected Criteria() {
             super();
         }
     }
 
     public static class Criterion {
+
         private String condition;
 
         private Object value;

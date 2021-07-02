@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.SmsCouponProductCategoryRelation;
 import com.macro.mall.model.SmsCouponProductCategoryRelationExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface SmsCouponProductCategoryRelationMapper {
+
     long countByExample(SmsCouponProductCategoryRelationExample example);
 
     int deleteByExample(SmsCouponProductCategoryRelationExample example);
@@ -20,9 +22,11 @@ public interface SmsCouponProductCategoryRelationMapper {
 
     SmsCouponProductCategoryRelation selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") SmsCouponProductCategoryRelation record, @Param("example") SmsCouponProductCategoryRelationExample example);
+    int updateByExampleSelective(@Param("record") SmsCouponProductCategoryRelation record,
+                                 @Param("example") SmsCouponProductCategoryRelationExample example);
 
-    int updateByExample(@Param("record") SmsCouponProductCategoryRelation record, @Param("example") SmsCouponProductCategoryRelationExample example);
+    int updateByExample(@Param("record") SmsCouponProductCategoryRelation record,
+                        @Param("example") SmsCouponProductCategoryRelationExample example);
 
     int updateByPrimaryKeySelective(SmsCouponProductCategoryRelation record);
 

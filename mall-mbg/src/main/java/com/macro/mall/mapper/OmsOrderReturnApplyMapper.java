@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.OmsOrderReturnApply;
 import com.macro.mall.model.OmsOrderReturnApplyExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface OmsOrderReturnApplyMapper {
+
     long countByExample(OmsOrderReturnApplyExample example);
 
     int deleteByExample(OmsOrderReturnApplyExample example);
@@ -20,9 +22,11 @@ public interface OmsOrderReturnApplyMapper {
 
     OmsOrderReturnApply selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") OmsOrderReturnApply record, @Param("example") OmsOrderReturnApplyExample example);
+    int updateByExampleSelective(@Param("record") OmsOrderReturnApply record,
+                                 @Param("example") OmsOrderReturnApplyExample example);
 
-    int updateByExample(@Param("record") OmsOrderReturnApply record, @Param("example") OmsOrderReturnApplyExample example);
+    int updateByExample(@Param("record") OmsOrderReturnApply record,
+                        @Param("example") OmsOrderReturnApplyExample example);
 
     int updateByPrimaryKeySelective(OmsOrderReturnApply record);
 

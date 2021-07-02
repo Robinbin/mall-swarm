@@ -8,7 +8,6 @@ import com.macro.mall.dto.UmsAdminLoginParam;
 import com.macro.mall.dto.UmsAdminParam;
 import com.macro.mall.dto.UpdateAdminPasswordParam;
 import com.macro.mall.model.UmsAdmin;
-import com.macro.mall.model.UmsPermission;
 import com.macro.mall.model.UmsRole;
 import com.macro.mall.service.UmsAdminService;
 import com.macro.mall.service.UmsRoleService;
@@ -17,7 +16,12 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,13 +29,13 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * 后台用户管理
- * Created by macro on 2018/4/26.
+ * 后台用户管理 Created by macro on 2018/4/26.
  */
 @Controller
 @Api(tags = "UmsAdminController", description = "后台用户管理")
 @RequestMapping("/admin")
 public class UmsAdminController {
+
     @Autowired
     private UmsAdminService adminService;
     @Autowired
@@ -52,7 +56,7 @@ public class UmsAdminController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult login(@Validated @RequestBody UmsAdminLoginParam umsAdminLoginParam) {
-        return adminService.login(umsAdminLoginParam.getUsername(),umsAdminLoginParam.getPassword());
+        return adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
     }
 
     @ApiOperation(value = "获取当前登录用户信息")
@@ -65,9 +69,9 @@ public class UmsAdminController {
         data.put("menus", roleService.getMenuList(umsAdmin.getId()));
         data.put("icon", umsAdmin.getIcon());
         List<UmsRole> roleList = adminService.getRoleList(umsAdmin.getId());
-        if(CollUtil.isNotEmpty(roleList)){
+        if (CollUtil.isNotEmpty(roleList)) {
             List<String> roles = roleList.stream().map(UmsRole::getName).collect(Collectors.toList());
-            data.put("roles",roles);
+            data.put("roles", roles);
         }
         return CommonResult.success(data);
     }
@@ -140,10 +144,10 @@ public class UmsAdminController {
     @ApiOperation("修改帐号状态")
     @RequestMapping(value = "/updateStatus/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult updateStatus(@PathVariable Long id,@RequestParam(value = "status") Integer status) {
+    public CommonResult updateStatus(@PathVariable Long id, @RequestParam(value = "status") Integer status) {
         UmsAdmin umsAdmin = new UmsAdmin();
         umsAdmin.setStatus(status);
-        int count = adminService.update(id,umsAdmin);
+        int count = adminService.update(id, umsAdmin);
         if (count > 0) {
             return CommonResult.success(count);
         }

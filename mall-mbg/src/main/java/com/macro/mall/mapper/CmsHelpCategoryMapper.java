@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.CmsHelpCategory;
 import com.macro.mall.model.CmsHelpCategoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface CmsHelpCategoryMapper {
+
     long countByExample(CmsHelpCategoryExample example);
 
     int deleteByExample(CmsHelpCategoryExample example);
@@ -20,7 +22,8 @@ public interface CmsHelpCategoryMapper {
 
     CmsHelpCategory selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") CmsHelpCategory record, @Param("example") CmsHelpCategoryExample example);
+    int updateByExampleSelective(@Param("record") CmsHelpCategory record,
+                                 @Param("example") CmsHelpCategoryExample example);
 
     int updateByExample(@Param("record") CmsHelpCategory record, @Param("example") CmsHelpCategoryExample example);
 

@@ -1,10 +1,12 @@
 package com.macro.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class CmsMemberReport implements Serializable {
+
     private Long id;
 
     @ApiModelProperty(value = "举报类型：0->商品评价；1->话题内容；2->用户评论")

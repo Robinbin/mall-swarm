@@ -11,18 +11,23 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 /**
- * 商品分类模块Controller
- * Created by macro on 2018/4/26.
+ * 商品分类模块Controller Created by macro on 2018/4/26.
  */
 @Controller
 @Api(tags = "PmsProductCategoryController", description = "商品分类管理")
 @RequestMapping("/productCategory")
 public class PmsProductCategoryController {
+
     @Autowired
     private PmsProductCategoryService productCategoryService;
 
@@ -42,8 +47,8 @@ public class PmsProductCategoryController {
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update(@PathVariable Long id,
-                         @Validated
-                         @RequestBody PmsProductCategoryParam productCategoryParam) {
+                               @Validated
+                               @RequestBody PmsProductCategoryParam productCategoryParam) {
         int count = productCategoryService.update(id, productCategoryParam);
         if (count > 0) {
             return CommonResult.success(count);
@@ -85,7 +90,8 @@ public class PmsProductCategoryController {
     @ApiOperation("修改导航栏显示状态")
     @RequestMapping(value = "/update/navStatus", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult updateNavStatus(@RequestParam("ids") List<Long> ids, @RequestParam("navStatus") Integer navStatus) {
+    public CommonResult updateNavStatus(@RequestParam("ids") List<Long> ids,
+                                        @RequestParam("navStatus") Integer navStatus) {
         int count = productCategoryService.updateNavStatus(ids, navStatus);
         if (count > 0) {
             return CommonResult.success(count);
@@ -97,7 +103,8 @@ public class PmsProductCategoryController {
     @ApiOperation("修改显示状态")
     @RequestMapping(value = "/update/showStatus", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult updateShowStatus(@RequestParam("ids") List<Long> ids, @RequestParam("showStatus") Integer showStatus) {
+    public CommonResult updateShowStatus(@RequestParam("ids") List<Long> ids,
+                                         @RequestParam("showStatus") Integer showStatus) {
         int count = productCategoryService.updateShowStatus(ids, showStatus);
         if (count > 0) {
             return CommonResult.success(count);

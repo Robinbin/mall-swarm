@@ -5,11 +5,14 @@ import com.macro.mall.demo.service.FeignSearchService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Feign调用mall-search接口示例
- * Created by macro on 2019/10/22.
+ * Feign调用mall-search接口示例 Created by macro on 2019/10/22.
  */
 @Api(tags = "FeignSearchController", description = "Feign调用mall-search接口示例")
 @RestController

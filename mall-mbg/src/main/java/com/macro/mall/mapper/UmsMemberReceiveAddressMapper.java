@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.UmsMemberReceiveAddress;
 import com.macro.mall.model.UmsMemberReceiveAddressExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UmsMemberReceiveAddressMapper {
+
     long countByExample(UmsMemberReceiveAddressExample example);
 
     int deleteByExample(UmsMemberReceiveAddressExample example);
@@ -20,9 +22,11 @@ public interface UmsMemberReceiveAddressMapper {
 
     UmsMemberReceiveAddress selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") UmsMemberReceiveAddress record, @Param("example") UmsMemberReceiveAddressExample example);
+    int updateByExampleSelective(@Param("record") UmsMemberReceiveAddress record,
+                                 @Param("example") UmsMemberReceiveAddressExample example);
 
-    int updateByExample(@Param("record") UmsMemberReceiveAddress record, @Param("example") UmsMemberReceiveAddressExample example);
+    int updateByExample(@Param("record") UmsMemberReceiveAddress record,
+                        @Param("example") UmsMemberReceiveAddressExample example);
 
     int updateByPrimaryKeySelective(UmsMemberReceiveAddress record);
 

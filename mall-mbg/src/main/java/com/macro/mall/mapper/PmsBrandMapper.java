@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.PmsBrand;
 import com.macro.mall.model.PmsBrandExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface PmsBrandMapper {
+
     long countByExample(PmsBrandExample example);
 
     int deleteByExample(PmsBrandExample example);

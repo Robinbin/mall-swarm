@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator
 import com.macro.mall.common.service.RedisService;
 import com.macro.mall.common.service.impl.RedisServiceImpl;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
@@ -21,8 +20,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import java.time.Duration;
 
 /**
- * Redis基础配置
- * Created by macro on 2020/6/19.
+ * Redis基础配置 Created by macro on 2020/6/19.
  */
 public class BaseRedisConfig {
 
@@ -46,7 +44,7 @@ public class BaseRedisConfig {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         //必须设置，否则无法将JSON转化为对象，会转化成Map类型
-        objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance,ObjectMapper.DefaultTyping.NON_FINAL);
+        objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
         serializer.setObjectMapper(objectMapper);
         return serializer;
     }
@@ -56,13 +54,14 @@ public class BaseRedisConfig {
         RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory);
         //设置Redis缓存有效期为1天
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
-                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer())).entryTtl(Duration.ofDays(1));
+            .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer()))
+            .entryTtl(Duration.ofDays(1));
         return new RedisCacheManager(redisCacheWriter, redisCacheConfiguration);
     }
 
 
     @Bean
-    public RedisService redisService(){
+    public RedisService redisService() {
         return new RedisServiceImpl();
     }
 

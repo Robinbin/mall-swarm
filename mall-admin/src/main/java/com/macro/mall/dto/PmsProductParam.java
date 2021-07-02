@@ -1,6 +1,13 @@
 package com.macro.mall.dto;
 
-import com.macro.mall.model.*;
+import com.macro.mall.model.CmsPrefrenceAreaProductRelation;
+import com.macro.mall.model.CmsSubjectProductRelation;
+import com.macro.mall.model.PmsMemberPrice;
+import com.macro.mall.model.PmsProduct;
+import com.macro.mall.model.PmsProductAttributeValue;
+import com.macro.mall.model.PmsProductFullReduction;
+import com.macro.mall.model.PmsProductLadder;
+import com.macro.mall.model.PmsSkuStock;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,12 +15,12 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 
 /**
- * 创建和修改商品时使用的参数
- * Created by macro on 2018/4/26.
+ * 创建和修改商品时使用的参数 Created by macro on 2018/4/26.
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class PmsProductParam extends PmsProduct{
+public class PmsProductParam extends PmsProduct {
+
     @ApiModelProperty("商品阶梯价格设置")
     private List<PmsProductLadder> productLadderList;
     @ApiModelProperty("商品满减价格设置")

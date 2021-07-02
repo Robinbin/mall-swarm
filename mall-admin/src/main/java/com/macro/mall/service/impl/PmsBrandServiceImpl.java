@@ -17,11 +17,11 @@ import org.springframework.util.StringUtils;
 import java.util.List;
 
 /**
- * 商品品牌Service实现类
- * Created by macro on 2018/4/26.
+ * 商品品牌Service实现类 Created by macro on 2018/4/26.
  */
 @Service
 public class PmsBrandServiceImpl implements PmsBrandService {
+
     @Autowired
     private PmsBrandMapper brandMapper;
     @Autowired
@@ -57,7 +57,7 @@ public class PmsBrandServiceImpl implements PmsBrandService {
         product.setBrandName(pmsBrand.getName());
         PmsProductExample example = new PmsProductExample();
         example.createCriteria().andBrandIdEqualTo(id);
-        productMapper.updateByExampleSelective(product,example);
+        productMapper.updateByExampleSelective(product, example);
         return brandMapper.updateByPrimaryKeySelective(pmsBrand);
     }
 

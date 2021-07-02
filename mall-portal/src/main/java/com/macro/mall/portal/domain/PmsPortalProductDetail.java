@@ -1,6 +1,13 @@
 package com.macro.mall.portal.domain;
 
-import com.macro.mall.model.*;
+import com.macro.mall.model.PmsBrand;
+import com.macro.mall.model.PmsProduct;
+import com.macro.mall.model.PmsProductAttribute;
+import com.macro.mall.model.PmsProductAttributeValue;
+import com.macro.mall.model.PmsProductFullReduction;
+import com.macro.mall.model.PmsProductLadder;
+import com.macro.mall.model.PmsSkuStock;
+import com.macro.mall.model.SmsCoupon;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,12 +15,12 @@ import lombok.Setter;
 import java.util.List;
 
 /**
- * 前台商品详情
- * Created by macro on 2020/4/6.
+ * 前台商品详情 Created by macro on 2020/4/6.
  */
 @Getter
 @Setter
-public class PmsPortalProductDetail{
+public class PmsPortalProductDetail {
+
     @ApiModelProperty("商品信息")
     private PmsProduct product;
     @ApiModelProperty("商品品牌")

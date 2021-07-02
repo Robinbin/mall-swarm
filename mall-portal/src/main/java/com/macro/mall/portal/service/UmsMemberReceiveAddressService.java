@@ -6,10 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * 用户地址管理Service
- * Created by macro on 2018/8/28.
+ * 用户地址管理Service Created by macro on 2018/8/28.
  */
 public interface UmsMemberReceiveAddressService {
+
     /**
      * 添加收货地址
      */
@@ -17,13 +17,15 @@ public interface UmsMemberReceiveAddressService {
 
     /**
      * 删除收货地址
+     *
      * @param id 地址表的id
      */
     int delete(Long id);
 
     /**
      * 修改收货地址
-     * @param id 地址表的id
+     *
+     * @param id      地址表的id
      * @param address 修改的收货地址信息
      */
     @Transactional
@@ -36,6 +38,7 @@ public interface UmsMemberReceiveAddressService {
 
     /**
      * 获取地址详情
+     *
      * @param id 地址id
      */
     UmsMemberReceiveAddress getItem(Long id);

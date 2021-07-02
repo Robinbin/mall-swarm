@@ -1,9 +1,11 @@
 package com.macro.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 public class OmsOrderSetting implements Serializable {
+
     private Long id;
 
     @ApiModelProperty(value = "秒杀订单超时关闭时间(分)")

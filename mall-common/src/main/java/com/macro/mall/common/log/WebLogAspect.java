@@ -9,7 +9,11 @@ import net.logstash.logback.marker.Markers;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,22 +25,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 
 /**
- * 统一日志处理切面
- * Created by macro on 2018/4/26.
+ * 统一日志处理切面 Created by macro on 2018/4/26.
  */
 @Aspect
 @Component
 @Order(1)
 public class WebLogAspect {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(WebLogAspect.class);
 
     @Pointcut("execution(public * com.macro.mall.controller.*.*(..))||execution(public * com.macro.mall.*.controller.*.*(..))")
@@ -78,12 +82,12 @@ public class WebLogAspect {
         webLog.setStartTime(startTime);
         webLog.setUri(request.getRequestURI());
         webLog.setUrl(request.getRequestURL().toString());
-        Map<String,Object> logMap = new HashMap<>();
-        logMap.put("url",webLog.getUrl());
-        logMap.put("method",webLog.getMethod());
-        logMap.put("parameter",webLog.getParameter());
-        logMap.put("spendTime",webLog.getSpendTime());
-        logMap.put("description",webLog.getDescription());
+        Map<String, Object> logMap = new HashMap<>();
+        logMap.put("url", webLog.getUrl());
+        logMap.put("method", webLog.getMethod());
+        logMap.put("parameter", webLog.getParameter());
+        logMap.put("spendTime", webLog.getSpendTime());
+        logMap.put("description", webLog.getDescription());
 //        LOGGER.info("{}", JSONUtil.parse(webLog));
         LOGGER.info(Markers.appendEntries(logMap), JSONUtil.parse(webLog).toString());
         return result;

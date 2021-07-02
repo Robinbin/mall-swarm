@@ -8,18 +8,23 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 /**
- * 首页轮播广告管理Controller
- * Created by macro on 2018/11/7.
+ * 首页轮播广告管理Controller Created by macro on 2018/11/7.
  */
 @Controller
 @Api(tags = "SmsHomeAdvertiseController", description = "首页轮播广告管理")
 @RequestMapping("/home/advertise")
 public class SmsHomeAdvertiseController {
+
     @Autowired
     private SmsHomeAdvertiseService advertiseService;
 
@@ -28,8 +33,9 @@ public class SmsHomeAdvertiseController {
     @ResponseBody
     public CommonResult create(@RequestBody SmsHomeAdvertise advertise) {
         int count = advertiseService.create(advertise);
-        if (count > 0)
+        if (count > 0) {
             return CommonResult.success(count);
+        }
         return CommonResult.failed();
     }
 
@@ -38,8 +44,9 @@ public class SmsHomeAdvertiseController {
     @ResponseBody
     public CommonResult delete(@RequestParam("ids") List<Long> ids) {
         int count = advertiseService.delete(ids);
-        if (count > 0)
+        if (count > 0) {
             return CommonResult.success(count);
+        }
         return CommonResult.failed();
     }
 
@@ -48,8 +55,9 @@ public class SmsHomeAdvertiseController {
     @ResponseBody
     public CommonResult updateStatus(@PathVariable Long id, Integer status) {
         int count = advertiseService.updateStatus(id, status);
-        if (count > 0)
+        if (count > 0) {
             return CommonResult.success(count);
+        }
         return CommonResult.failed();
     }
 
@@ -66,8 +74,9 @@ public class SmsHomeAdvertiseController {
     @ResponseBody
     public CommonResult update(@PathVariable Long id, @RequestBody SmsHomeAdvertise advertise) {
         int count = advertiseService.update(id, advertise);
-        if (count > 0)
+        if (count > 0) {
             return CommonResult.success(count);
+        }
         return CommonResult.failed();
     }
 

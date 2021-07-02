@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.CmsPrefrenceArea;
 import com.macro.mall.model.CmsPrefrenceAreaExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface CmsPrefrenceAreaMapper {
+
     long countByExample(CmsPrefrenceAreaExample example);
 
     int deleteByExample(CmsPrefrenceAreaExample example);
@@ -22,9 +24,11 @@ public interface CmsPrefrenceAreaMapper {
 
     CmsPrefrenceArea selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") CmsPrefrenceArea record, @Param("example") CmsPrefrenceAreaExample example);
+    int updateByExampleSelective(@Param("record") CmsPrefrenceArea record,
+                                 @Param("example") CmsPrefrenceAreaExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") CmsPrefrenceArea record, @Param("example") CmsPrefrenceAreaExample example);
+    int updateByExampleWithBLOBs(@Param("record") CmsPrefrenceArea record,
+                                 @Param("example") CmsPrefrenceAreaExample example);
 
     int updateByExample(@Param("record") CmsPrefrenceArea record, @Param("example") CmsPrefrenceAreaExample example);
 

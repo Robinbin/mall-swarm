@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * 网关白名单配置
- * Created by macro on 2020/6/17.
+ * 网关白名单配置 Created by macro on 2020/6/17.
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Component
-@ConfigurationProperties(prefix="secure.ignore")
+@ConfigurationProperties(prefix = "secure.ignore")
 public class IgnoreUrlsConfig {
+
     private List<String> urls;
 }

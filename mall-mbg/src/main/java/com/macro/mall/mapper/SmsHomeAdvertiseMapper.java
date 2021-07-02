@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.SmsHomeAdvertise;
 import com.macro.mall.model.SmsHomeAdvertiseExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface SmsHomeAdvertiseMapper {
+
     long countByExample(SmsHomeAdvertiseExample example);
 
     int deleteByExample(SmsHomeAdvertiseExample example);
@@ -20,7 +22,8 @@ public interface SmsHomeAdvertiseMapper {
 
     SmsHomeAdvertise selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") SmsHomeAdvertise record, @Param("example") SmsHomeAdvertiseExample example);
+    int updateByExampleSelective(@Param("record") SmsHomeAdvertise record,
+                                 @Param("example") SmsHomeAdvertiseExample example);
 
     int updateByExample(@Param("record") SmsHomeAdvertise record, @Param("example") SmsHomeAdvertiseExample example);
 

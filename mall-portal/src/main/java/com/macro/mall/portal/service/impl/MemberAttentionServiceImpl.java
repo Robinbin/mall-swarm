@@ -12,14 +12,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
 
 /**
- * 会员关注Service实现类
- * Created by macro on 2018/8/2.
+ * 会员关注Service实现类 Created by macro on 2018/8/2.
  */
 @Service
 public class MemberAttentionServiceImpl implements MemberAttentionService {
+
     @Autowired
     private MemberBrandAttentionRepository memberBrandAttentionRepository;
     @Autowired
@@ -33,7 +32,10 @@ public class MemberAttentionServiceImpl implements MemberAttentionService {
         memberBrandAttention.setMemberNickname(member.getNickname());
         memberBrandAttention.setMemberIcon(member.getIcon());
         memberBrandAttention.setCreateTime(new Date());
-        MemberBrandAttention findAttention = memberBrandAttentionRepository.findByMemberIdAndBrandId(memberBrandAttention.getMemberId(), memberBrandAttention.getBrandId());
+        MemberBrandAttention
+            findAttention =
+            memberBrandAttentionRepository
+                .findByMemberIdAndBrandId(memberBrandAttention.getMemberId(), memberBrandAttention.getBrandId());
         if (findAttention == null) {
             memberBrandAttentionRepository.save(memberBrandAttention);
             count = 1;
@@ -44,14 +46,14 @@ public class MemberAttentionServiceImpl implements MemberAttentionService {
     @Override
     public int delete(Long brandId) {
         UmsMember member = memberService.getCurrentMember();
-        return memberBrandAttentionRepository.deleteByMemberIdAndBrandId(member.getId(),brandId);
+        return memberBrandAttentionRepository.deleteByMemberIdAndBrandId(member.getId(), brandId);
     }
 
     @Override
     public Page<MemberBrandAttention> list(Integer pageNum, Integer pageSize) {
         UmsMember member = memberService.getCurrentMember();
-        Pageable pageable = PageRequest.of(pageNum-1,pageSize);
-        return memberBrandAttentionRepository.findByMemberId(member.getId(),pageable);
+        Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
+        return memberBrandAttentionRepository.findByMemberId(member.getId(), pageable);
     }
 
     @Override

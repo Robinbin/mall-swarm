@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.OmsCompanyAddress;
 import com.macro.mall.model.OmsCompanyAddressExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface OmsCompanyAddressMapper {
+
     long countByExample(OmsCompanyAddressExample example);
 
     int deleteByExample(OmsCompanyAddressExample example);
@@ -20,7 +22,8 @@ public interface OmsCompanyAddressMapper {
 
     OmsCompanyAddress selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") OmsCompanyAddress record, @Param("example") OmsCompanyAddressExample example);
+    int updateByExampleSelective(@Param("record") OmsCompanyAddress record,
+                                 @Param("example") OmsCompanyAddressExample example);
 
     int updateByExample(@Param("record") OmsCompanyAddress record, @Param("example") OmsCompanyAddressExample example);
 

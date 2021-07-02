@@ -12,13 +12,14 @@ import org.springframework.util.StringUtils;
 import java.util.List;
 
 /**
- * 首页品牌管理Service实现类
- * Created by macro on 2018/11/6.
+ * 首页品牌管理Service实现类 Created by macro on 2018/11/6.
  */
 @Service
 public class SmsHomeBrandServiceImpl implements SmsHomeBrandService {
+
     @Autowired
     private SmsHomeBrandMapper homeBrandMapper;
+
     @Override
     public int create(List<SmsHomeBrand> homeBrandList) {
         for (SmsHomeBrand smsHomeBrand : homeBrandList) {
@@ -50,18 +51,18 @@ public class SmsHomeBrandServiceImpl implements SmsHomeBrandService {
         example.createCriteria().andIdIn(ids);
         SmsHomeBrand record = new SmsHomeBrand();
         record.setRecommendStatus(recommendStatus);
-        return homeBrandMapper.updateByExampleSelective(record,example);
+        return homeBrandMapper.updateByExampleSelective(record, example);
     }
 
     @Override
     public List<SmsHomeBrand> list(String brandName, Integer recommendStatus, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         SmsHomeBrandExample example = new SmsHomeBrandExample();
         SmsHomeBrandExample.Criteria criteria = example.createCriteria();
-        if(!StringUtils.isEmpty(brandName)){
-            criteria.andBrandNameLike("%"+brandName+"%");
+        if (!StringUtils.isEmpty(brandName)) {
+            criteria.andBrandNameLike("%" + brandName + "%");
         }
-        if(recommendStatus!=null){
+        if (recommendStatus != null) {
             criteria.andRecommendStatusEqualTo(recommendStatus);
         }
         example.setOrderByClause("sort desc");

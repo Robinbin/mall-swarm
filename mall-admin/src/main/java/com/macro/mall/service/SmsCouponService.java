@@ -7,10 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * 优惠券管理Service
- * Created by macro on 2018/8/28.
+ * 优惠券管理Service Created by macro on 2018/8/28.
  */
 public interface SmsCouponService {
+
     /**
      * 添加优惠券
      */
@@ -36,6 +36,7 @@ public interface SmsCouponService {
 
     /**
      * 获取优惠券详情
+     *
      * @param id 优惠券表id
      */
     SmsCouponParam getItem(Long id);

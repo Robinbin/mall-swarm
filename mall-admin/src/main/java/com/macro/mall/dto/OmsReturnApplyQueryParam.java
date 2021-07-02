@@ -5,12 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 订单退货申请查询参数
- * Created by macro on 2018/10/18.
+ * 订单退货申请查询参数 Created by macro on 2018/10/18.
  */
 @Getter
 @Setter
 public class OmsReturnApplyQueryParam {
+
     @ApiModelProperty("服务单号")
     private Long id;
     @ApiModelProperty(value = "收货人姓名/号码")

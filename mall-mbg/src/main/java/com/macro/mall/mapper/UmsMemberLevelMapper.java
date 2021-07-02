@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.UmsMemberLevel;
 import com.macro.mall.model.UmsMemberLevelExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UmsMemberLevelMapper {
+
     long countByExample(UmsMemberLevelExample example);
 
     int deleteByExample(UmsMemberLevelExample example);
@@ -20,7 +22,8 @@ public interface UmsMemberLevelMapper {
 
     UmsMemberLevel selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") UmsMemberLevel record, @Param("example") UmsMemberLevelExample example);
+    int updateByExampleSelective(@Param("record") UmsMemberLevel record,
+                                 @Param("example") UmsMemberLevelExample example);
 
     int updateByExample(@Param("record") UmsMemberLevel record, @Param("example") UmsMemberLevelExample example);
 

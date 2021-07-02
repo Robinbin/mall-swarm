@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class SmsCouponHistoryExample {
+
     protected String orderByClause;
 
     protected boolean distinct;
@@ -65,6 +66,7 @@ public class SmsCouponHistoryExample {
     }
 
     protected abstract static class GeneratedCriteria {
+
         protected List<Criterion> criteria;
 
         protected GeneratedCriteria() {
@@ -797,12 +799,14 @@ public class SmsCouponHistoryExample {
     }
 
     public static class Criteria extends GeneratedCriteria {
+
         protected Criteria() {
             super();
         }
     }
 
     public static class Criterion {
+
         private String condition;
 
         private Object value;

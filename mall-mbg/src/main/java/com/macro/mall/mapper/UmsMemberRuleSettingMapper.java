@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.UmsMemberRuleSetting;
 import com.macro.mall.model.UmsMemberRuleSettingExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UmsMemberRuleSettingMapper {
+
     long countByExample(UmsMemberRuleSettingExample example);
 
     int deleteByExample(UmsMemberRuleSettingExample example);
@@ -20,9 +22,11 @@ public interface UmsMemberRuleSettingMapper {
 
     UmsMemberRuleSetting selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") UmsMemberRuleSetting record, @Param("example") UmsMemberRuleSettingExample example);
+    int updateByExampleSelective(@Param("record") UmsMemberRuleSetting record,
+                                 @Param("example") UmsMemberRuleSettingExample example);
 
-    int updateByExample(@Param("record") UmsMemberRuleSetting record, @Param("example") UmsMemberRuleSettingExample example);
+    int updateByExample(@Param("record") UmsMemberRuleSetting record,
+                        @Param("example") UmsMemberRuleSettingExample example);
 
     int updateByPrimaryKeySelective(UmsMemberRuleSetting record);
 

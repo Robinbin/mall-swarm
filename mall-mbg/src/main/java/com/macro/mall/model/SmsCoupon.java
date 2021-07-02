@@ -1,11 +1,13 @@
 package com.macro.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class SmsCoupon implements Serializable {
+
     private Long id;
 
     @ApiModelProperty(value = "优惠券类型；0->全场赠券；1->会员赠券；2->购物赠券；3->注册赠券")

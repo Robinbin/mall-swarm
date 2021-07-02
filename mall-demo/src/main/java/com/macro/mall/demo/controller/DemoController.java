@@ -12,7 +12,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -22,6 +27,7 @@ import java.util.List;
 @Api(tags = "DemoController", description = "商品管理示例接口")
 @Controller
 public class DemoController {
+
     @Autowired
     private DemoService demoService;
 
@@ -83,8 +89,9 @@ public class DemoController {
     @ApiOperation(value = "分页获取品牌列表")
     @RequestMapping(value = "/brand/list", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                                        @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize) {
+    public CommonResult<CommonPage<PmsBrand>> listBrand(
+        @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+        @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize) {
         List<PmsBrand> brandList = demoService.listBrand(pageNum, pageSize);
         return CommonResult.success(CommonPage.restPage(brandList));
     }

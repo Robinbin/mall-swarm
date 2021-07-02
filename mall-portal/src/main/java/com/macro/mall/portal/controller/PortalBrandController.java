@@ -9,13 +9,16 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 /**
- * 首页品牌推荐管理Controller
- * Created by macro on 2020/5/15.
+ * 首页品牌推荐管理Controller Created by macro on 2020/5/15.
  */
 @Controller
 @Api(tags = "PortalBrandController", description = "前台品牌管理")
@@ -28,8 +31,9 @@ public class PortalBrandController {
     @ApiOperation("分页获取推荐品牌")
     @RequestMapping(value = "/recommendList", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult<List<PmsBrand>> recommendList(@RequestParam(value = "pageSize", defaultValue = "6") Integer pageSize,
-                                                      @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+    public CommonResult<List<PmsBrand>> recommendList(
+        @RequestParam(value = "pageSize", defaultValue = "6") Integer pageSize,
+        @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         List<PmsBrand> brandList = homeBrandService.recommendList(pageNum, pageSize);
         return CommonResult.success(brandList);
     }
@@ -48,7 +52,7 @@ public class PortalBrandController {
     public CommonResult<CommonPage<PmsProduct>> productList(@RequestParam Long brandId,
                                                             @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                                             @RequestParam(value = "pageSize", defaultValue = "6") Integer pageSize) {
-        CommonPage<PmsProduct> result = homeBrandService.productList(brandId,pageNum, pageSize);
+        CommonPage<PmsProduct> result = homeBrandService.productList(brandId, pageNum, pageSize);
         return CommonResult.success(result);
     }
 }

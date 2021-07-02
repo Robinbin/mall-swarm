@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.SmsHomeRecommendSubject;
 import com.macro.mall.model.SmsHomeRecommendSubjectExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface SmsHomeRecommendSubjectMapper {
+
     long countByExample(SmsHomeRecommendSubjectExample example);
 
     int deleteByExample(SmsHomeRecommendSubjectExample example);
@@ -20,9 +22,11 @@ public interface SmsHomeRecommendSubjectMapper {
 
     SmsHomeRecommendSubject selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") SmsHomeRecommendSubject record, @Param("example") SmsHomeRecommendSubjectExample example);
+    int updateByExampleSelective(@Param("record") SmsHomeRecommendSubject record,
+                                 @Param("example") SmsHomeRecommendSubjectExample example);
 
-    int updateByExample(@Param("record") SmsHomeRecommendSubject record, @Param("example") SmsHomeRecommendSubjectExample example);
+    int updateByExample(@Param("record") SmsHomeRecommendSubject record,
+                        @Param("example") SmsHomeRecommendSubjectExample example);
 
     int updateByPrimaryKeySelective(SmsHomeRecommendSubject record);
 

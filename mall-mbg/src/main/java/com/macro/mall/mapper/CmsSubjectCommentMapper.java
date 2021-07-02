@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.CmsSubjectComment;
 import com.macro.mall.model.CmsSubjectCommentExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface CmsSubjectCommentMapper {
+
     long countByExample(CmsSubjectCommentExample example);
 
     int deleteByExample(CmsSubjectCommentExample example);
@@ -20,7 +22,8 @@ public interface CmsSubjectCommentMapper {
 
     CmsSubjectComment selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") CmsSubjectComment record, @Param("example") CmsSubjectCommentExample example);
+    int updateByExampleSelective(@Param("record") CmsSubjectComment record,
+                                 @Param("example") CmsSubjectCommentExample example);
 
     int updateByExample(@Param("record") CmsSubjectComment record, @Param("example") CmsSubjectCommentExample example);
 

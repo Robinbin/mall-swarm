@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.UmsRole;
 import com.macro.mall.model.UmsRoleExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UmsRoleMapper {
+
     long countByExample(UmsRoleExample example);
 
     int deleteByExample(UmsRoleExample example);

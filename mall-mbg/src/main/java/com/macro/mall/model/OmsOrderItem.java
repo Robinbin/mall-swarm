@@ -1,10 +1,12 @@
 package com.macro.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class OmsOrderItem implements Serializable {
+
     private Long id;
 
     @ApiModelProperty(value = "订单id")

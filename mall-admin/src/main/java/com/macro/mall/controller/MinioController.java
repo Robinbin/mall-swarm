@@ -5,7 +5,13 @@ import cn.hutool.json.JSONUtil;
 import com.macro.mall.common.api.CommonResult;
 import com.macro.mall.dto.BucketPolicyConfigDto;
 import com.macro.mall.dto.MinioUploadDto;
-import io.minio.*;
+import io.minio.BucketExistsArgs;
+import io.minio.MakeBucketArgs;
+import io.minio.MinioClient;
+import io.minio.ObjectWriteArgs;
+import io.minio.PutObjectArgs;
+import io.minio.RemoveObjectArgs;
+import io.minio.SetBucketPolicyArgs;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -22,8 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * MinIO对象存储管理
- * Created by macro on 2019/12/25.
+ * MinIO对象存储管理 Created by macro on 2019/12/25.
  */
 @Api(tags = "MinioController", description = "MinIO对象存储管理")
 @Controller
@@ -46,10 +51,10 @@ public class MinioController {
     public CommonResult upload(@RequestParam("file") MultipartFile file) {
         try {
             //创建一个MinIO的Java客户端
-            MinioClient minioClient =MinioClient.builder()
-                    .endpoint(ENDPOINT)
-                    .credentials(ACCESS_KEY,SECRET_KEY)
-                    .build();
+            MinioClient minioClient = MinioClient.builder()
+                .endpoint(ENDPOINT)
+                .credentials(ACCESS_KEY, SECRET_KEY)
+                .build();
             boolean isExist = minioClient.bucketExists(BucketExistsArgs.builder().bucket(BUCKET_NAME).build());
             if (isExist) {
                 LOGGER.info("存储桶已经存在！");
@@ -58,9 +63,9 @@ public class MinioController {
                 minioClient.makeBucket(MakeBucketArgs.builder().bucket(BUCKET_NAME).build());
                 BucketPolicyConfigDto bucketPolicyConfigDto = createBucketPolicyConfigDto(BUCKET_NAME);
                 SetBucketPolicyArgs setBucketPolicyArgs = SetBucketPolicyArgs.builder()
-                        .bucket(BUCKET_NAME)
-                        .config(JSONUtil.toJsonStr(bucketPolicyConfigDto))
-                        .build();
+                    .bucket(BUCKET_NAME)
+                    .config(JSONUtil.toJsonStr(bucketPolicyConfigDto))
+                    .build();
                 minioClient.setBucketPolicy(setBucketPolicyArgs);
             }
             String filename = file.getOriginalFilename();
@@ -69,10 +74,10 @@ public class MinioController {
             String objectName = sdf.format(new Date()) + "/" + filename;
             // 使用putObject上传一个文件到存储桶中
             PutObjectArgs putObjectArgs = PutObjectArgs.builder()
-                    .bucket(BUCKET_NAME)
-                    .object(objectName)
-                    .contentType(file.getContentType())
-                    .stream(file.getInputStream(), file.getSize(), ObjectWriteArgs.MIN_MULTIPART_SIZE).build();
+                .bucket(BUCKET_NAME)
+                .object(objectName)
+                .contentType(file.getContentType())
+                .stream(file.getInputStream(), file.getSize(), ObjectWriteArgs.MIN_MULTIPART_SIZE).build();
             minioClient.putObject(putObjectArgs);
             LOGGER.info("文件上传成功!");
             MinioUploadDto minioUploadDto = new MinioUploadDto();
@@ -88,14 +93,14 @@ public class MinioController {
 
     private BucketPolicyConfigDto createBucketPolicyConfigDto(String bucketName) {
         BucketPolicyConfigDto.Statement statement = BucketPolicyConfigDto.Statement.builder()
-                .Effect("Allow")
-                .Principal("*")
-                .Action("s3:GetObject")
-                .Resource("arn:aws:s3:::"+bucketName+"/*.**").build();
+            .Effect("Allow")
+            .Principal("*")
+            .Action("s3:GetObject")
+            .Resource("arn:aws:s3:::" + bucketName + "/*.**").build();
         return BucketPolicyConfigDto.builder()
-                .Version("2012-10-17")
-                .Statement(CollUtil.toList(statement))
-                .build();
+            .Version("2012-10-17")
+            .Statement(CollUtil.toList(statement))
+            .build();
     }
 
     @ApiOperation("文件删除")
@@ -104,9 +109,9 @@ public class MinioController {
     public CommonResult delete(@RequestParam("objectName") String objectName) {
         try {
             MinioClient minioClient = MinioClient.builder()
-                    .endpoint(ENDPOINT)
-                    .credentials(ACCESS_KEY,SECRET_KEY)
-                    .build();
+                .endpoint(ENDPOINT)
+                .credentials(ACCESS_KEY, SECRET_KEY)
+                .build();
             minioClient.removeObject(RemoveObjectArgs.builder().bucket(BUCKET_NAME).object(objectName).build());
             return CommonResult.success(null);
         } catch (Exception e) {

@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.SmsFlashPromotionLog;
 import com.macro.mall.model.SmsFlashPromotionLogExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface SmsFlashPromotionLogMapper {
+
     long countByExample(SmsFlashPromotionLogExample example);
 
     int deleteByExample(SmsFlashPromotionLogExample example);
@@ -20,9 +22,11 @@ public interface SmsFlashPromotionLogMapper {
 
     SmsFlashPromotionLog selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") SmsFlashPromotionLog record, @Param("example") SmsFlashPromotionLogExample example);
+    int updateByExampleSelective(@Param("record") SmsFlashPromotionLog record,
+                                 @Param("example") SmsFlashPromotionLogExample example);
 
-    int updateByExample(@Param("record") SmsFlashPromotionLog record, @Param("example") SmsFlashPromotionLogExample example);
+    int updateByExample(@Param("record") SmsFlashPromotionLog record,
+                        @Param("example") SmsFlashPromotionLogExample example);
 
     int updateByPrimaryKeySelective(SmsFlashPromotionLog record);
 

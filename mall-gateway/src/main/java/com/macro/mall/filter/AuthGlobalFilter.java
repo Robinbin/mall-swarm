@@ -16,8 +16,7 @@ import reactor.core.publisher.Mono;
 import java.text.ParseException;
 
 /**
- * 将登录用户的JWT转化成用户信息的全局过滤器
- * Created by macro on 2020/6/17.
+ * 将登录用户的JWT转化成用户信息的全局过滤器 Created by macro on 2020/6/17.
  */
 @Component
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
@@ -35,8 +34,10 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             String realToken = token.replace(AuthConstant.JWT_TOKEN_PREFIX, "");
             JWSObject jwsObject = JWSObject.parse(realToken);
             String userStr = jwsObject.getPayload().toString();
-            LOGGER.info("AuthGlobalFilter.filter() user:{}",userStr);
-            ServerHttpRequest request = exchange.getRequest().mutate().header(AuthConstant.USER_TOKEN_HEADER, userStr).build();
+            LOGGER.info("AuthGlobalFilter.filter() user:{}", userStr);
+            ServerHttpRequest
+                request =
+                exchange.getRequest().mutate().header(AuthConstant.USER_TOKEN_HEADER, userStr).build();
             exchange = exchange.mutate().request(request).build();
         } catch (ParseException e) {
             e.printStackTrace();

@@ -3,7 +3,11 @@ package com.macro.mall.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.macro.mall.dao.OmsOrderDao;
 import com.macro.mall.dao.OmsOrderOperateHistoryDao;
-import com.macro.mall.dto.*;
+import com.macro.mall.dto.OmsMoneyInfoParam;
+import com.macro.mall.dto.OmsOrderDeliveryParam;
+import com.macro.mall.dto.OmsOrderDetail;
+import com.macro.mall.dto.OmsOrderQueryParam;
+import com.macro.mall.dto.OmsReceiverInfoParam;
 import com.macro.mall.mapper.OmsOrderMapper;
 import com.macro.mall.mapper.OmsOrderOperateHistoryMapper;
 import com.macro.mall.model.OmsOrder;
@@ -18,11 +22,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 订单管理Service实现类
- * Created by macro on 2018/10/11.
+ * 订单管理Service实现类 Created by macro on 2018/10/11.
  */
 @Service
 public class OmsOrderServiceImpl implements OmsOrderService {
+
     @Autowired
     private OmsOrderMapper orderMapper;
     @Autowired
@@ -44,15 +48,15 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         int count = orderDao.delivery(deliveryParamList);
         //添加操作记录
         List<OmsOrderOperateHistory> operateHistoryList = deliveryParamList.stream()
-                .map(omsOrderDeliveryParam -> {
-                    OmsOrderOperateHistory history = new OmsOrderOperateHistory();
-                    history.setOrderId(omsOrderDeliveryParam.getOrderId());
-                    history.setCreateTime(new Date());
-                    history.setOperateMan("后台管理员");
-                    history.setOrderStatus(2);
-                    history.setNote("完成发货");
-                    return history;
-                }).collect(Collectors.toList());
+            .map(omsOrderDeliveryParam -> {
+                OmsOrderOperateHistory history = new OmsOrderOperateHistory();
+                history.setOrderId(omsOrderDeliveryParam.getOrderId());
+                history.setCreateTime(new Date());
+                history.setOperateMan("后台管理员");
+                history.setOrderStatus(2);
+                history.setNote("完成发货");
+                return history;
+            }).collect(Collectors.toList());
         orderOperateHistoryDao.insertList(operateHistoryList);
         return count;
     }
@@ -70,7 +74,7 @@ public class OmsOrderServiceImpl implements OmsOrderService {
             history.setCreateTime(new Date());
             history.setOperateMan("后台管理员");
             history.setOrderStatus(4);
-            history.setNote("订单关闭:"+note);
+            history.setNote("订单关闭:" + note);
             return history;
         }).collect(Collectors.toList());
         orderOperateHistoryDao.insertList(historyList);
@@ -146,7 +150,7 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         history.setCreateTime(new Date());
         history.setOperateMan("后台管理员");
         history.setOrderStatus(status);
-        history.setNote("修改备注信息："+note);
+        history.setNote("修改备注信息：" + note);
         orderOperateHistoryMapper.insert(history);
         return count;
     }

@@ -10,18 +10,23 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 /**
- * 购物车管理Controller
- * Created by macro on 2018/8/2.
+ * 购物车管理Controller Created by macro on 2018/8/2.
  */
 @Controller
 @Api(tags = "OmsCartItemController", description = "购物车管理")
 @RequestMapping("/cart")
 public class OmsCartItemController {
+
     @Autowired
     private OmsCartItemService cartItemService;
     @Autowired
@@ -50,7 +55,9 @@ public class OmsCartItemController {
     @RequestMapping(value = "/list/promotion", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<CartPromotionItem>> listPromotion(@RequestParam(required = false) List<Long> cartIds) {
-        List<CartPromotionItem> cartPromotionItemList = cartItemService.listPromotion(memberService.getCurrentMember().getId(), cartIds);
+        List<CartPromotionItem>
+            cartPromotionItemList =
+            cartItemService.listPromotion(memberService.getCurrentMember().getId(), cartIds);
         return CommonResult.success(cartPromotionItemList);
     }
 

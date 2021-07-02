@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.OmsOrder;
 import com.macro.mall.model.OmsOrderExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface OmsOrderMapper {
+
     long countByExample(OmsOrderExample example);
 
     int deleteByExample(OmsOrderExample example);

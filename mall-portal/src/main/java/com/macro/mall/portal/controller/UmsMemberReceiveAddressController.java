@@ -7,18 +7,22 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 /**
- * 会员收货地址管理Controller
- * Created by macro on 2018/8/28.
+ * 会员收货地址管理Controller Created by macro on 2018/8/28.
  */
 @Controller
 @Api(tags = "UmsMemberReceiveAddressController", description = "会员收货地址管理")
 @RequestMapping("/member/address")
 public class UmsMemberReceiveAddressController {
+
     @Autowired
     private UmsMemberReceiveAddressService memberReceiveAddressService;
 

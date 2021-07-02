@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 /**
- * 认证服务远程调用
- * Created by macro on 2020/7/19.
+ * 认证服务远程调用 Created by macro on 2020/7/19.
  */
 @FeignClient("mall-auth")
 public interface AuthService {

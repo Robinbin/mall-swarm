@@ -12,23 +12,29 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 /**
- * 商品属性管理Controller
- * Created by macro on 2018/4/26.
+ * 商品属性管理Controller Created by macro on 2018/4/26.
  */
 @Controller
 @Api(tags = "PmsProductAttributeController", description = "商品属性管理")
 @RequestMapping("/productAttribute")
 public class PmsProductAttributeController {
+
     @Autowired
     private PmsProductAttributeService productAttributeService;
 
     @ApiOperation("根据分类查询属性列表或参数列表")
-    @ApiImplicitParams({@ApiImplicitParam(name = "type", value = "0表示属性，1表示参数", required = true, paramType = "query", dataType = "integer")})
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "type", value = "0表示属性，1表示参数", required = true, paramType = "query", dataType = "integer")})
     @RequestMapping(value = "/list/{cid}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsProductAttribute>> getList(@PathVariable Long cid,

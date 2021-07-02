@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.UmsIntegrationConsumeSetting;
 import com.macro.mall.model.UmsIntegrationConsumeSettingExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UmsIntegrationConsumeSettingMapper {
+
     long countByExample(UmsIntegrationConsumeSettingExample example);
 
     int deleteByExample(UmsIntegrationConsumeSettingExample example);
@@ -20,9 +22,11 @@ public interface UmsIntegrationConsumeSettingMapper {
 
     UmsIntegrationConsumeSetting selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") UmsIntegrationConsumeSetting record, @Param("example") UmsIntegrationConsumeSettingExample example);
+    int updateByExampleSelective(@Param("record") UmsIntegrationConsumeSetting record,
+                                 @Param("example") UmsIntegrationConsumeSettingExample example);
 
-    int updateByExample(@Param("record") UmsIntegrationConsumeSetting record, @Param("example") UmsIntegrationConsumeSettingExample example);
+    int updateByExample(@Param("record") UmsIntegrationConsumeSetting record,
+                        @Param("example") UmsIntegrationConsumeSettingExample example);
 
     int updateByPrimaryKeySelective(UmsIntegrationConsumeSetting record);
 

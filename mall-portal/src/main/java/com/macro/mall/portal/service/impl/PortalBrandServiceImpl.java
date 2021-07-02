@@ -15,11 +15,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 前台品牌管理Service实现类
- * Created by macro on 2020/5/15.
+ * 前台品牌管理Service实现类 Created by macro on 2020/5/15.
  */
 @Service
 public class PortalBrandServiceImpl implements PortalBrandService {
+
     @Autowired
     private HomeDao homeDao;
     @Autowired
@@ -40,10 +40,10 @@ public class PortalBrandServiceImpl implements PortalBrandService {
 
     @Override
     public CommonPage<PmsProduct> productList(Long brandId, Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         PmsProductExample example = new PmsProductExample();
         example.createCriteria().andDeleteStatusEqualTo(0)
-                .andBrandIdEqualTo(brandId);
+            .andBrandIdEqualTo(brandId);
         List<PmsProduct> productList = productMapper.selectByExample(example);
         return CommonPage.restPage(productList);
     }

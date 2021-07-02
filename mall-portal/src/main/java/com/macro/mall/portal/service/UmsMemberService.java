@@ -6,10 +6,10 @@ import com.macro.mall.model.UmsMember;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * 会员管理Service
- * Created by macro on 2018/8/3.
+ * 会员管理Service Created by macro on 2018/8/3.
  */
 public interface UmsMemberService {
+
     /**
      * 根据用户名获取会员
      */
@@ -45,7 +45,7 @@ public interface UmsMemberService {
     /**
      * 根据会员id修改会员积分
      */
-    void updateIntegration(Long id,Integer integration);
+    void updateIntegration(Long id, Integer integration);
 
 
     /**

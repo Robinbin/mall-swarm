@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.SmsCouponHistory;
 import com.macro.mall.model.SmsCouponHistoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface SmsCouponHistoryMapper {
+
     long countByExample(SmsCouponHistoryExample example);
 
     int deleteByExample(SmsCouponHistoryExample example);
@@ -20,7 +22,8 @@ public interface SmsCouponHistoryMapper {
 
     SmsCouponHistory selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") SmsCouponHistory record, @Param("example") SmsCouponHistoryExample example);
+    int updateByExampleSelective(@Param("record") SmsCouponHistory record,
+                                 @Param("example") SmsCouponHistoryExample example);
 
     int updateByExample(@Param("record") SmsCouponHistory record, @Param("example") SmsCouponHistoryExample example);
 

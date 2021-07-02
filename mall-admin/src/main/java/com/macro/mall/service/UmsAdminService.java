@@ -4,16 +4,18 @@ import com.macro.mall.common.api.CommonResult;
 import com.macro.mall.common.domain.UserDto;
 import com.macro.mall.dto.UmsAdminParam;
 import com.macro.mall.dto.UpdateAdminPasswordParam;
-import com.macro.mall.model.*;
+import com.macro.mall.model.UmsAdmin;
+import com.macro.mall.model.UmsResource;
+import com.macro.mall.model.UmsRole;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
- * 后台管理员Service
- * Created by macro on 2018/4/26.
+ * 后台管理员Service Created by macro on 2018/4/26.
  */
 public interface UmsAdminService {
+
     /**
      * 根据用户名获取后台管理员
      */
@@ -26,6 +28,7 @@ public interface UmsAdminService {
 
     /**
      * 登录功能
+     *
      * @param username 用户名
      * @param password 密码
      * @return 调用认证中心返回结果

@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.UmsIntegrationChangeHistory;
 import com.macro.mall.model.UmsIntegrationChangeHistoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UmsIntegrationChangeHistoryMapper {
+
     long countByExample(UmsIntegrationChangeHistoryExample example);
 
     int deleteByExample(UmsIntegrationChangeHistoryExample example);
@@ -20,9 +22,11 @@ public interface UmsIntegrationChangeHistoryMapper {
 
     UmsIntegrationChangeHistory selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") UmsIntegrationChangeHistory record, @Param("example") UmsIntegrationChangeHistoryExample example);
+    int updateByExampleSelective(@Param("record") UmsIntegrationChangeHistory record,
+                                 @Param("example") UmsIntegrationChangeHistoryExample example);
 
-    int updateByExample(@Param("record") UmsIntegrationChangeHistory record, @Param("example") UmsIntegrationChangeHistoryExample example);
+    int updateByExample(@Param("record") UmsIntegrationChangeHistory record,
+                        @Param("example") UmsIntegrationChangeHistoryExample example);
 
     int updateByPrimaryKeySelective(UmsIntegrationChangeHistory record);
 

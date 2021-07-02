@@ -8,14 +8,18 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * 后台资源管理Controller
- * Created by macro on 2020/2/4.
+ * 后台资源管理Controller Created by macro on 2020/2/4.
  */
 @Controller
 @Api(tags = "UmsResourceController", description = "后台资源管理")
@@ -78,7 +82,7 @@ public class UmsResourceController {
                                                       @RequestParam(required = false) String urlKeyword,
                                                       @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                                                       @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
-        List<UmsResource> resourceList = resourceService.list(categoryId,nameKeyword, urlKeyword, pageSize, pageNum);
+        List<UmsResource> resourceList = resourceService.list(categoryId, nameKeyword, urlKeyword, pageSize, pageNum);
         return CommonResult.success(CommonPage.restPage(resourceList));
     }
 

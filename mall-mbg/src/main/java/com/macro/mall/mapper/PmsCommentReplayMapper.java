@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.PmsCommentReplay;
 import com.macro.mall.model.PmsCommentReplayExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface PmsCommentReplayMapper {
+
     long countByExample(PmsCommentReplayExample example);
 
     int deleteByExample(PmsCommentReplayExample example);
@@ -20,7 +22,8 @@ public interface PmsCommentReplayMapper {
 
     PmsCommentReplay selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") PmsCommentReplay record, @Param("example") PmsCommentReplayExample example);
+    int updateByExampleSelective(@Param("record") PmsCommentReplay record,
+                                 @Param("example") PmsCommentReplayExample example);
 
     int updateByExample(@Param("record") PmsCommentReplay record, @Param("example") PmsCommentReplayExample example);
 

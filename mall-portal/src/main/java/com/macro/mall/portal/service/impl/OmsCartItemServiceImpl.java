@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 购物车管理Service实现类
- * Created by macro on 2018/8/2.
+ * 购物车管理Service实现类 Created by macro on 2018/8/2.
  */
 @Service
 public class OmsCartItemServiceImpl implements OmsCartItemService {
+
     @Autowired
     private OmsCartItemMapper cartItemMapper;
     @Autowired
@@ -39,7 +39,7 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
     @Override
     public int add(OmsCartItem cartItem) {
         int count;
-        UmsMember currentMember =memberService.getCurrentMember();
+        UmsMember currentMember = memberService.getCurrentMember();
         cartItem.setMemberId(currentMember.getId());
         cartItem.setMemberNickname(currentMember.getNickname());
         cartItem.setDeleteStatus(0);
@@ -61,7 +61,7 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
     private OmsCartItem getCartItem(OmsCartItem cartItem) {
         OmsCartItemExample example = new OmsCartItemExample();
         OmsCartItemExample.Criteria criteria = example.createCriteria().andMemberIdEqualTo(cartItem.getMemberId())
-                .andProductIdEqualTo(cartItem.getProductId()).andDeleteStatusEqualTo(0);
+            .andProductIdEqualTo(cartItem.getProductId()).andDeleteStatusEqualTo(0);
         if (!StringUtils.isEmpty(cartItem.getProductSkuId())) {
             criteria.andProductSkuIdEqualTo(cartItem.getProductSkuId());
         }
@@ -82,11 +82,12 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
     @Override
     public List<CartPromotionItem> listPromotion(Long memberId, List<Long> cartIds) {
         List<OmsCartItem> cartItemList = list(memberId);
-        if(CollUtil.isNotEmpty(cartIds)){
-            cartItemList = cartItemList.stream().filter(item->cartIds.contains(item.getId())).collect(Collectors.toList());
+        if (CollUtil.isNotEmpty(cartIds)) {
+            cartItemList =
+                cartItemList.stream().filter(item -> cartIds.contains(item.getId())).collect(Collectors.toList());
         }
         List<CartPromotionItem> cartPromotionItemList = new ArrayList<>();
-        if(!CollectionUtils.isEmpty(cartItemList)){
+        if (!CollectionUtils.isEmpty(cartItemList)) {
             cartPromotionItemList = promotionService.calcCartPromotion(cartItemList);
         }
         return cartPromotionItemList;
@@ -98,7 +99,7 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
         cartItem.setQuantity(quantity);
         OmsCartItemExample example = new OmsCartItemExample();
         example.createCriteria().andDeleteStatusEqualTo(0)
-                .andIdEqualTo(id).andMemberIdEqualTo(memberId);
+            .andIdEqualTo(id).andMemberIdEqualTo(memberId);
         return cartItemMapper.updateByExampleSelective(cartItem, example);
     }
 
@@ -135,6 +136,6 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
         record.setDeleteStatus(1);
         OmsCartItemExample example = new OmsCartItemExample();
         example.createCriteria().andMemberIdEqualTo(memberId);
-        return cartItemMapper.updateByExampleSelective(record,example);
+        return cartItemMapper.updateByExampleSelective(record, example);
     }
 }

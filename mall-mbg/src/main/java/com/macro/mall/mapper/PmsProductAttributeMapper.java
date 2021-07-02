@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.PmsProductAttribute;
 import com.macro.mall.model.PmsProductAttributeExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface PmsProductAttributeMapper {
+
     long countByExample(PmsProductAttributeExample example);
 
     int deleteByExample(PmsProductAttributeExample example);
@@ -20,9 +22,11 @@ public interface PmsProductAttributeMapper {
 
     PmsProductAttribute selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") PmsProductAttribute record, @Param("example") PmsProductAttributeExample example);
+    int updateByExampleSelective(@Param("record") PmsProductAttribute record,
+                                 @Param("example") PmsProductAttributeExample example);
 
-    int updateByExample(@Param("record") PmsProductAttribute record, @Param("example") PmsProductAttributeExample example);
+    int updateByExample(@Param("record") PmsProductAttribute record,
+                        @Param("example") PmsProductAttributeExample example);
 
     int updateByPrimaryKeySelective(PmsProductAttribute record);
 

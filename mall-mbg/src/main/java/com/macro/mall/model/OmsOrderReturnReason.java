@@ -1,10 +1,12 @@
 package com.macro.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class OmsOrderReturnReason implements Serializable {
+
     private Long id;
 
     @ApiModelProperty(value = "退货类型")

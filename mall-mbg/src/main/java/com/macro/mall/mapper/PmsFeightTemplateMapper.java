@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.PmsFeightTemplate;
 import com.macro.mall.model.PmsFeightTemplateExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface PmsFeightTemplateMapper {
+
     long countByExample(PmsFeightTemplateExample example);
 
     int deleteByExample(PmsFeightTemplateExample example);
@@ -20,7 +22,8 @@ public interface PmsFeightTemplateMapper {
 
     PmsFeightTemplate selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") PmsFeightTemplate record, @Param("example") PmsFeightTemplateExample example);
+    int updateByExampleSelective(@Param("record") PmsFeightTemplate record,
+                                 @Param("example") PmsFeightTemplateExample example);
 
     int updateByExample(@Param("record") PmsFeightTemplate record, @Param("example") PmsFeightTemplateExample example);
 

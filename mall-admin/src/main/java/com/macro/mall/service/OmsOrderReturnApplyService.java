@@ -8,10 +8,10 @@ import com.macro.mall.model.OmsOrderReturnApply;
 import java.util.List;
 
 /**
- * 退货申请管理Service
- * Created by macro on 2018/10/18.
+ * 退货申请管理Service Created by macro on 2018/10/18.
  */
 public interface OmsOrderReturnApplyService {
+
     /**
      * 分页查询申请
      */

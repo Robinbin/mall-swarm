@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.CmsHelp;
 import com.macro.mall.model.CmsHelpExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface CmsHelpMapper {
+
     long countByExample(CmsHelpExample example);
 
     int deleteByExample(CmsHelpExample example);

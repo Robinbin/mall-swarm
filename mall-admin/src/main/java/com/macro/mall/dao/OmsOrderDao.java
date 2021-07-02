@@ -9,10 +9,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * 订单自定义查询Dao
- * Created by macro on 2018/10/12.
+ * 订单自定义查询Dao Created by macro on 2018/10/12.
  */
 public interface OmsOrderDao {
+
     /**
      * 条件查询订单
      */

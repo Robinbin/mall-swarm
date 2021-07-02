@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.UmsMemberStatisticsInfo;
 import com.macro.mall.model.UmsMemberStatisticsInfoExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UmsMemberStatisticsInfoMapper {
+
     long countByExample(UmsMemberStatisticsInfoExample example);
 
     int deleteByExample(UmsMemberStatisticsInfoExample example);
@@ -20,9 +22,11 @@ public interface UmsMemberStatisticsInfoMapper {
 
     UmsMemberStatisticsInfo selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") UmsMemberStatisticsInfo record, @Param("example") UmsMemberStatisticsInfoExample example);
+    int updateByExampleSelective(@Param("record") UmsMemberStatisticsInfo record,
+                                 @Param("example") UmsMemberStatisticsInfoExample example);
 
-    int updateByExample(@Param("record") UmsMemberStatisticsInfo record, @Param("example") UmsMemberStatisticsInfoExample example);
+    int updateByExample(@Param("record") UmsMemberStatisticsInfo record,
+                        @Param("example") UmsMemberStatisticsInfoExample example);
 
     int updateByPrimaryKeySelective(UmsMemberStatisticsInfo record);
 

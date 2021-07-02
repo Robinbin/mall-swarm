@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.UmsGrowthChangeHistory;
 import com.macro.mall.model.UmsGrowthChangeHistoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UmsGrowthChangeHistoryMapper {
+
     long countByExample(UmsGrowthChangeHistoryExample example);
 
     int deleteByExample(UmsGrowthChangeHistoryExample example);
@@ -20,9 +22,11 @@ public interface UmsGrowthChangeHistoryMapper {
 
     UmsGrowthChangeHistory selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") UmsGrowthChangeHistory record, @Param("example") UmsGrowthChangeHistoryExample example);
+    int updateByExampleSelective(@Param("record") UmsGrowthChangeHistory record,
+                                 @Param("example") UmsGrowthChangeHistoryExample example);
 
-    int updateByExample(@Param("record") UmsGrowthChangeHistory record, @Param("example") UmsGrowthChangeHistoryExample example);
+    int updateByExample(@Param("record") UmsGrowthChangeHistory record,
+                        @Param("example") UmsGrowthChangeHistoryExample example);
 
     int updateByPrimaryKeySelective(UmsGrowthChangeHistory record);
 

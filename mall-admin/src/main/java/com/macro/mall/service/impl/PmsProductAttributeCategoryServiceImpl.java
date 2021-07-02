@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * PmsProductAttributeCategoryService实现类
- * Created by macro on 2018/4/26.
+ * PmsProductAttributeCategoryService实现类 Created by macro on 2018/4/26.
  */
 @Service
 public class PmsProductAttributeCategoryServiceImpl implements PmsProductAttributeCategoryService {
+
     @Autowired
     private PmsProductAttributeCategoryMapper productAttributeCategoryMapper;
     @Autowired
@@ -50,7 +50,7 @@ public class PmsProductAttributeCategoryServiceImpl implements PmsProductAttribu
 
     @Override
     public List<PmsProductAttributeCategory> getList(Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         return productAttributeCategoryMapper.selectByExample(new PmsProductAttributeCategoryExample());
     }
 

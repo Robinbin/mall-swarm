@@ -1,10 +1,12 @@
 package com.macro.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class SmsFlashPromotionProductRelation implements Serializable {
+
     @ApiModelProperty(value = "编号")
     private Long id;
 

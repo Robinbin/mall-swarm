@@ -1,10 +1,12 @@
 package com.macro.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class PmsSkuStock implements Serializable {
+
     private Long id;
 
     private Long productId;

@@ -30,11 +30,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * 鉴权管理器，用于判断是否有资源的访问权限
- * Created by macro on 2020/6/19.
+ * 鉴权管理器，用于判断是否有资源的访问权限 Created by macro on 2020/6/19.
  */
 @Component
 public class AuthorizationManager implements ReactiveAuthorizationManager<AuthorizationContext> {
+
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
     @Autowired
@@ -53,23 +53,25 @@ public class AuthorizationManager implements ReactiveAuthorizationManager<Author
             }
         }
         //对应跨域的预检请求直接放行
-        if(request.getMethod()==HttpMethod.OPTIONS){
+        if (request.getMethod() == HttpMethod.OPTIONS) {
             return Mono.just(new AuthorizationDecision(true));
         }
         //不同用户体系登录不允许互相访问
         try {
             String token = request.getHeaders().getFirst(AuthConstant.JWT_TOKEN_HEADER);
-            if(StrUtil.isEmpty(token)){
+            if (StrUtil.isEmpty(token)) {
                 return Mono.just(new AuthorizationDecision(false));
             }
             String realToken = token.replace(AuthConstant.JWT_TOKEN_PREFIX, "");
             JWSObject jwsObject = JWSObject.parse(realToken);
             String userStr = jwsObject.getPayload().toString();
             UserDto userDto = JSONUtil.toBean(userStr, UserDto.class);
-            if (AuthConstant.ADMIN_CLIENT_ID.equals(userDto.getClientId()) && !pathMatcher.match(AuthConstant.ADMIN_URL_PATTERN, uri.getPath())) {
+            if (AuthConstant.ADMIN_CLIENT_ID.equals(userDto.getClientId()) && !pathMatcher
+                .match(AuthConstant.ADMIN_URL_PATTERN, uri.getPath())) {
                 return Mono.just(new AuthorizationDecision(false));
             }
-            if (AuthConstant.PORTAL_CLIENT_ID.equals(userDto.getClientId()) && pathMatcher.match(AuthConstant.ADMIN_URL_PATTERN, uri.getPath())) {
+            if (AuthConstant.PORTAL_CLIENT_ID.equals(userDto.getClientId()) && pathMatcher
+                .match(AuthConstant.ADMIN_URL_PATTERN, uri.getPath())) {
                 return Mono.just(new AuthorizationDecision(false));
             }
         } catch (ParseException e) {
@@ -93,12 +95,12 @@ public class AuthorizationManager implements ReactiveAuthorizationManager<Author
         authorities = authorities.stream().map(i -> i = AuthConstant.AUTHORITY_PREFIX + i).collect(Collectors.toList());
         //认证通过且角色匹配的用户可访问当前路径
         return mono
-                .filter(Authentication::isAuthenticated)
-                .flatMapIterable(Authentication::getAuthorities)
-                .map(GrantedAuthority::getAuthority)
-                .any(authorities::contains)
-                .map(AuthorizationDecision::new)
-                .defaultIfEmpty(new AuthorizationDecision(false));
+            .filter(Authentication::isAuthenticated)
+            .flatMapIterable(Authentication::getAuthorities)
+            .map(GrantedAuthority::getAuthority)
+            .any(authorities::contains)
+            .map(AuthorizationDecision::new)
+            .defaultIfEmpty(new AuthorizationDecision(false));
     }
 
 }

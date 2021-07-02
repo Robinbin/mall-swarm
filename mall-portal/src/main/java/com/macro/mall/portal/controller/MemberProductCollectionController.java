@@ -9,18 +9,20 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * 会员收藏管理Controller
- * Created by macro on 2018/8/2.
+ * 会员收藏管理Controller Created by macro on 2018/8/2.
  */
 @Controller
 @Api(tags = "MemberCollectionController", description = "会员收藏管理")
 @RequestMapping("/member/productCollection")
 public class MemberProductCollectionController {
+
     @Autowired
     private MemberCollectionService memberCollectionService;
 
@@ -51,9 +53,10 @@ public class MemberProductCollectionController {
     @ApiOperation("显示收藏列表")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult<CommonPage<MemberProductCollection>> list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                                                  @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
-        Page<MemberProductCollection> page = memberCollectionService.list(pageNum,pageSize);
+    public CommonResult<CommonPage<MemberProductCollection>> list(
+        @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+        @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+        Page<MemberProductCollection> page = memberCollectionService.list(pageNum, pageSize);
         return CommonResult.success(CommonPage.restPage(page));
     }
 

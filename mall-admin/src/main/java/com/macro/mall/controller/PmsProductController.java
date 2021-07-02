@@ -11,18 +11,23 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 /**
- * 商品管理Controller
- * Created by macro on 2018/4/26.
+ * 商品管理Controller Created by macro on 2018/4/26.
  */
 @Controller
 @Api(tags = "PmsProductController", description = "商品管理")
 @RequestMapping("/product")
 public class PmsProductController {
+
     @Autowired
     private PmsProductService productService;
 

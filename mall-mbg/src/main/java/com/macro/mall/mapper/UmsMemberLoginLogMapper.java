@@ -2,10 +2,12 @@ package com.macro.mall.mapper;
 
 import com.macro.mall.model.UmsMemberLoginLog;
 import com.macro.mall.model.UmsMemberLoginLogExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UmsMemberLoginLogMapper {
+
     long countByExample(UmsMemberLoginLogExample example);
 
     int deleteByExample(UmsMemberLoginLogExample example);
@@ -20,7 +22,8 @@ public interface UmsMemberLoginLogMapper {
 
     UmsMemberLoginLog selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") UmsMemberLoginLog record, @Param("example") UmsMemberLoginLogExample example);
+    int updateByExampleSelective(@Param("record") UmsMemberLoginLog record,
+                                 @Param("example") UmsMemberLoginLogExample example);
 
     int updateByExample(@Param("record") UmsMemberLoginLog record, @Param("example") UmsMemberLoginLogExample example);
 

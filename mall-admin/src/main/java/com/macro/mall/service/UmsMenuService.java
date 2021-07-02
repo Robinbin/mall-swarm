@@ -6,10 +6,10 @@ import com.macro.mall.model.UmsMenu;
 import java.util.List;
 
 /**
- * 后台菜单管理Service
- * Created by macro on 2020/2/2.
+ * 后台菜单管理Service Created by macro on 2020/2/2.
  */
 public interface UmsMenuService {
+
     /**
      * 创建后台菜单
      */

@@ -23,8 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 认证服务器配置
- * Created by macro on 2020/6/19.
+ * 认证服务器配置 Created by macro on 2020/6/19.
  */
 @AllArgsConstructor
 @Configuration
@@ -39,19 +38,19 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("admin-app")
-                .secret(passwordEncoder.encode("123456"))
-                .scopes("all")
-                .authorizedGrantTypes("password", "refresh_token")
-                .accessTokenValiditySeconds(3600*24)
-                .refreshTokenValiditySeconds(3600*24*7)
-                .and()
-                .withClient("portal-app")
-                .secret(passwordEncoder.encode("123456"))
-                .scopes("all")
-                .authorizedGrantTypes("password", "refresh_token")
-                .accessTokenValiditySeconds(3600*24)
-                .refreshTokenValiditySeconds(3600*24*7);
+            .withClient("admin-app")
+            .secret(passwordEncoder.encode("123456"))
+            .scopes("all")
+            .authorizedGrantTypes("password", "refresh_token")
+            .accessTokenValiditySeconds(3600 * 24)
+            .refreshTokenValiditySeconds(3600 * 24 * 7)
+            .and()
+            .withClient("portal-app")
+            .secret(passwordEncoder.encode("123456"))
+            .scopes("all")
+            .authorizedGrantTypes("password", "refresh_token")
+            .accessTokenValiditySeconds(3600 * 24)
+            .refreshTokenValiditySeconds(3600 * 24 * 7);
     }
 
     @Override
@@ -62,9 +61,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         delegates.add(accessTokenConverter());
         enhancerChain.setTokenEnhancers(delegates); //配置JWT的内容增强器
         endpoints.authenticationManager(authenticationManager)
-                .userDetailsService(userDetailsService) //配置加载用户信息的服务
-                .accessTokenConverter(accessTokenConverter())
-                .tokenEnhancer(enhancerChain);
+            .userDetailsService(userDetailsService) //配置加载用户信息的服务
+            .accessTokenConverter(accessTokenConverter())
+            .tokenEnhancer(enhancerChain);
     }
 
     @Override
@@ -82,7 +81,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     @Bean
     public KeyPair keyPair() {
         //从classpath下的证书中获取秘钥对
-        KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(new ClassPathResource("jwt.jks"), "123456".toCharArray());
+        KeyStoreKeyFactory
+            keyStoreKeyFactory =
+            new KeyStoreKeyFactory(new ClassPathResource("jwt.jks"), "123456".toCharArray());
         return keyStoreKeyFactory.getKeyPair("jwt", "123456".toCharArray());
     }
 

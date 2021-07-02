@@ -1,9 +1,11 @@
 package com.macro.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 public class OmsCompanyAddress implements Serializable {
+
     private Long id;
 
     @ApiModelProperty(value = "地址名称")

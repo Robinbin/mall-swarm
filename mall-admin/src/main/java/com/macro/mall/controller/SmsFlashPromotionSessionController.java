@@ -8,18 +8,22 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 /**
- * 限时购场次管理Controller
- * Created by macro on 2018/11/16.
+ * 限时购场次管理Controller Created by macro on 2018/11/16.
  */
 @Controller
 @Api(tags = "SmsFlashPromotionSessionController", description = "限时购场次管理")
 @RequestMapping("/flashSession")
 public class SmsFlashPromotionSessionController {
+
     @Autowired
     private SmsFlashPromotionSessionService flashPromotionSessionService;
 
@@ -87,7 +91,9 @@ public class SmsFlashPromotionSessionController {
     @RequestMapping(value = "/selectList", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<SmsFlashPromotionSessionDetail>> selectList(Long flashPromotionId) {
-        List<SmsFlashPromotionSessionDetail> promotionSessionList = flashPromotionSessionService.selectList(flashPromotionId);
+        List<SmsFlashPromotionSessionDetail>
+            promotionSessionList =
+            flashPromotionSessionService.selectList(flashPromotionId);
         return CommonResult.success(promotionSessionList);
     }
 }
