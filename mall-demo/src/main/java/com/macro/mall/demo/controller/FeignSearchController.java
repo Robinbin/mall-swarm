@@ -28,4 +28,11 @@ public class FeignSearchController {
 
         return feignSearchService.search(keyword, pageNum, pageSize);
     }
+
+    @ApiOperation(value = "导入商品")
+    @RequestMapping(value = "/importAll", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<Integer> importAll() {
+        return feignSearchService.importAllList();
+    }
 }
