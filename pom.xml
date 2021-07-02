@@ -54,6 +54,7 @@
         <nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>
         <mall-common.version>1.0-SNAPSHOT</mall-common.version>
         <mall-mbg.version>1.0-SNAPSHOT</mall-mbg.version>
+        <sonar.maven.plugin.verion>3.9.0.2155</sonar.maven.plugin.verion>
     </properties>
 
     <dependencies>
@@ -219,6 +220,11 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>${sonar.maven.plugin.verion}</version>
                 </plugin>
                 <plugin>
                     <groupId>com.spotify</groupId>
