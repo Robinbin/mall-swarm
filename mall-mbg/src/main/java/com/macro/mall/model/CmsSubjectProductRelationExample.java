@@ -1,5 +1,9 @@
 package com.macro.mall.model;
 
+import static com.macro.mall.constant.MbgConstants.ID;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_ID;
+import static com.macro.mall.constant.MbgConstants.SUBJECT_ID;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,52 +121,52 @@ public class CmsSubjectProductRelationExample {
         }
 
         public Criteria andIdEqualTo(Long value) {
-            addCriterion("id =", value, "id");
+            addCriterion("id =", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("id <>", value, "id");
+            addCriterion("id <>", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThan(Long value) {
-            addCriterion("id >", value, "id");
+            addCriterion("id >", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("id >=", value, "id");
+            addCriterion("id >=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThan(Long value) {
-            addCriterion("id <", value, "id");
+            addCriterion("id <", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("id <=", value, "id");
+            addCriterion("id <=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdIn(List<Long> values) {
-            addCriterion("id in", values, "id");
+            addCriterion("id in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("id not in", values, "id");
+            addCriterion("id not in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("id between", value1, value2, "id");
+            addCriterion("id between", value1, value2, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("id not between", value1, value2, "id");
+            addCriterion("id not between", value1, value2, ID);
             return (Criteria) this;
         }
 
@@ -177,52 +181,52 @@ public class CmsSubjectProductRelationExample {
         }
 
         public Criteria andSubjectIdEqualTo(Long value) {
-            addCriterion("subject_id =", value, "subjectId");
+            addCriterion("subject_id =", value, SUBJECT_ID);
             return (Criteria) this;
         }
 
         public Criteria andSubjectIdNotEqualTo(Long value) {
-            addCriterion("subject_id <>", value, "subjectId");
+            addCriterion("subject_id <>", value, SUBJECT_ID);
             return (Criteria) this;
         }
 
         public Criteria andSubjectIdGreaterThan(Long value) {
-            addCriterion("subject_id >", value, "subjectId");
+            addCriterion("subject_id >", value, SUBJECT_ID);
             return (Criteria) this;
         }
 
         public Criteria andSubjectIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("subject_id >=", value, "subjectId");
+            addCriterion("subject_id >=", value, SUBJECT_ID);
             return (Criteria) this;
         }
 
         public Criteria andSubjectIdLessThan(Long value) {
-            addCriterion("subject_id <", value, "subjectId");
+            addCriterion("subject_id <", value, SUBJECT_ID);
             return (Criteria) this;
         }
 
         public Criteria andSubjectIdLessThanOrEqualTo(Long value) {
-            addCriterion("subject_id <=", value, "subjectId");
+            addCriterion("subject_id <=", value, SUBJECT_ID);
             return (Criteria) this;
         }
 
         public Criteria andSubjectIdIn(List<Long> values) {
-            addCriterion("subject_id in", values, "subjectId");
+            addCriterion("subject_id in", values, SUBJECT_ID);
             return (Criteria) this;
         }
 
         public Criteria andSubjectIdNotIn(List<Long> values) {
-            addCriterion("subject_id not in", values, "subjectId");
+            addCriterion("subject_id not in", values, SUBJECT_ID);
             return (Criteria) this;
         }
 
         public Criteria andSubjectIdBetween(Long value1, Long value2) {
-            addCriterion("subject_id between", value1, value2, "subjectId");
+            addCriterion("subject_id between", value1, value2, SUBJECT_ID);
             return (Criteria) this;
         }
 
         public Criteria andSubjectIdNotBetween(Long value1, Long value2) {
-            addCriterion("subject_id not between", value1, value2, "subjectId");
+            addCriterion("subject_id not between", value1, value2, SUBJECT_ID);
             return (Criteria) this;
         }
 
@@ -237,52 +241,52 @@ public class CmsSubjectProductRelationExample {
         }
 
         public Criteria andProductIdEqualTo(Long value) {
-            addCriterion("product_id =", value, "productId");
+            addCriterion("product_id =", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdNotEqualTo(Long value) {
-            addCriterion("product_id <>", value, "productId");
+            addCriterion("product_id <>", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdGreaterThan(Long value) {
-            addCriterion("product_id >", value, "productId");
+            addCriterion("product_id >", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("product_id >=", value, "productId");
+            addCriterion("product_id >=", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdLessThan(Long value) {
-            addCriterion("product_id <", value, "productId");
+            addCriterion("product_id <", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdLessThanOrEqualTo(Long value) {
-            addCriterion("product_id <=", value, "productId");
+            addCriterion("product_id <=", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdIn(List<Long> values) {
-            addCriterion("product_id in", values, "productId");
+            addCriterion("product_id in", values, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdNotIn(List<Long> values) {
-            addCriterion("product_id not in", values, "productId");
+            addCriterion("product_id not in", values, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdBetween(Long value1, Long value2) {
-            addCriterion("product_id between", value1, value2, "productId");
+            addCriterion("product_id between", value1, value2, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdNotBetween(Long value1, Long value2) {
-            addCriterion("product_id not between", value1, value2, "productId");
+            addCriterion("product_id not between", value1, value2, PRODUCT_ID);
             return (Criteria) this;
         }
     }
@@ -296,7 +300,7 @@ public class CmsSubjectProductRelationExample {
 
     public static class Criterion {
 
-        private String condition;
+        private final String condition;
 
         private Object value;
 
@@ -310,7 +314,7 @@ public class CmsSubjectProductRelationExample {
 
         private boolean listValue;
 
-        private String typeHandler;
+        private final String typeHandler;
 
         public String getCondition() {
             return condition;

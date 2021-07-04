@@ -29,6 +29,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -60,12 +61,13 @@ public class UmsMemberCouponServiceImpl implements UmsMemberCouponService {
         SmsCoupon coupon = couponMapper.selectByPrimaryKey(couponId);
         if (coupon == null) {
             Asserts.fail("优惠券不存在");
-        }
-        if (coupon.getCount() <= 0) {
-            Asserts.fail("优惠券已经领完了");
+        } else {
+            if (Objects.nonNull(coupon.getCount()) && coupon.getCount() <= 0) {
+                Asserts.fail("优惠券已经领完了");
+            }
         }
         Date now = new Date();
-        if (now.before(coupon.getEnableTime())) {
+        if (now.before(Objects.requireNonNull(coupon).getEnableTime())) {
             Asserts.fail("优惠券还没到领取时间");
         }
         //判断用户领取的优惠券数量是否超过限制

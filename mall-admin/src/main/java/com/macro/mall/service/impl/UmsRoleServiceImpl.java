@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.dao.UmsRoleDao;
 import com.macro.mall.mapper.UmsRoleMapper;
 import com.macro.mall.mapper.UmsRoleMenuRelationMapper;
@@ -69,7 +70,7 @@ public class UmsRoleServiceImpl implements UmsRoleService {
 
     @Override
     public List<UmsRole> list(String keyword, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         UmsRoleExample example = new UmsRoleExample();
         if (!StringUtils.isEmpty(keyword)) {
             example.createCriteria().andNameLike("%" + keyword + "%");

@@ -1,10 +1,12 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.mapper.SmsHomeAdvertiseMapper;
 import com.macro.mall.model.SmsHomeAdvertise;
 import com.macro.mall.model.SmsHomeAdvertiseExample;
 import com.macro.mall.service.SmsHomeAdvertiseService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -18,6 +20,7 @@ import java.util.List;
  * 首页广告管理Service实现类 Created by macro on 2018/11/7.
  */
 @Service
+@Slf4j
 public class SmsHomeAdvertiseServiceImpl implements SmsHomeAdvertiseService {
 
     @Autowired
@@ -58,7 +61,7 @@ public class SmsHomeAdvertiseServiceImpl implements SmsHomeAdvertiseService {
 
     @Override
     public List<SmsHomeAdvertise> list(String name, Integer type, String endTime, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         SmsHomeAdvertiseExample example = new SmsHomeAdvertiseExample();
         SmsHomeAdvertiseExample.Criteria criteria = example.createCriteria();
         if (!StringUtils.isEmpty(name)) {
@@ -75,13 +78,13 @@ public class SmsHomeAdvertiseServiceImpl implements SmsHomeAdvertiseService {
             try {
                 start = sdf.parse(startStr);
             } catch (ParseException e) {
-                e.printStackTrace();
+                log.info("开始日期格式不正确: {}，正确的格式 [yyyy-MM-dd HH:mm:ss]", startStr);
             }
             Date end = null;
             try {
                 end = sdf.parse(endStr);
             } catch (ParseException e) {
-                e.printStackTrace();
+                log.info("结束日期格式不正确: {}，正确的格式 [yyyy-MM-dd HH:mm:ss]", endStr);
             }
             if (start != null && end != null) {
                 criteria.andEndTimeBetween(start, end);

@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.dao.SmsCouponDao;
 import com.macro.mall.dao.SmsCouponProductCategoryRelationDao;
 import com.macro.mall.dao.SmsCouponProductRelationDao;
@@ -124,7 +125,7 @@ public class SmsCouponServiceImpl implements SmsCouponService {
         if (type != null) {
             criteria.andTypeEqualTo(type);
         }
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         return couponMapper.selectByExample(example);
     }
 

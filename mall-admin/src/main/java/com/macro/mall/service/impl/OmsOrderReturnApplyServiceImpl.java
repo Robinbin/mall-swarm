@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.dao.OmsOrderReturnApplyDao;
 import com.macro.mall.dto.OmsOrderReturnApplyResult;
 import com.macro.mall.dto.OmsReturnApplyQueryParam;
@@ -28,7 +29,7 @@ public class OmsOrderReturnApplyServiceImpl implements OmsOrderReturnApplyServic
 
     @Override
     public List<OmsOrderReturnApply> list(OmsReturnApplyQueryParam queryParam, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         return returnApplyDao.getList(queryParam);
     }
 

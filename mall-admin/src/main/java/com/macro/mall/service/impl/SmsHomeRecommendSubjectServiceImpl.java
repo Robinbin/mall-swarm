@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.mapper.SmsHomeRecommendSubjectMapper;
 import com.macro.mall.model.SmsHomeRecommendSubject;
 import com.macro.mall.model.SmsHomeRecommendSubjectExample;
@@ -57,7 +58,7 @@ public class SmsHomeRecommendSubjectServiceImpl implements SmsHomeRecommendSubje
     @Override
     public List<SmsHomeRecommendSubject> list(String subjectName, Integer recommendStatus, Integer pageSize,
                                               Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         SmsHomeRecommendSubjectExample example = new SmsHomeRecommendSubjectExample();
         SmsHomeRecommendSubjectExample.Criteria criteria = example.createCriteria();
         if (!StringUtils.isEmpty(subjectName)) {

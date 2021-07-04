@@ -1,5 +1,7 @@
 package com.macro.mall.model;
 
+import static com.macro.mall.constant.MbgConstants.ID;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -119,52 +121,52 @@ public class OmsOrderReturnApplyExample {
         }
 
         public Criteria andIdEqualTo(Long value) {
-            addCriterion("id =", value, "id");
+            addCriterion("id =", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("id <>", value, "id");
+            addCriterion("id <>", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThan(Long value) {
-            addCriterion("id >", value, "id");
+            addCriterion("id >", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("id >=", value, "id");
+            addCriterion("id >=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThan(Long value) {
-            addCriterion("id <", value, "id");
+            addCriterion("id <", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("id <=", value, "id");
+            addCriterion("id <=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdIn(List<Long> values) {
-            addCriterion("id in", values, "id");
+            addCriterion("id in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("id not in", values, "id");
+            addCriterion("id not in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("id between", value1, value2, "id");
+            addCriterion("id between", value1, value2, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("id not between", value1, value2, "id");
+            addCriterion("id not between", value1, value2, ID);
             return (Criteria) this;
         }
 
@@ -1888,7 +1890,7 @@ public class OmsOrderReturnApplyExample {
 
     public static class Criterion {
 
-        private String condition;
+        private final String condition;
 
         private Object value;
 
@@ -1902,7 +1904,7 @@ public class OmsOrderReturnApplyExample {
 
         private boolean listValue;
 
-        private String typeHandler;
+        private final String typeHandler;
 
         public String getCondition() {
             return condition;

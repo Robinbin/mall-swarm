@@ -1,5 +1,9 @@
 package com.macro.mall.model;
 
+import static com.macro.mall.constant.MbgConstants.ID;
+import static com.macro.mall.constant.MbgConstants.PREFRENCE_AREA_ID;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_ID;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,52 +121,52 @@ public class CmsPrefrenceAreaProductRelationExample {
         }
 
         public Criteria andIdEqualTo(Long value) {
-            addCriterion("id =", value, "id");
+            addCriterion("id =", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("id <>", value, "id");
+            addCriterion("id <>", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThan(Long value) {
-            addCriterion("id >", value, "id");
+            addCriterion("id >", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("id >=", value, "id");
+            addCriterion("id >=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThan(Long value) {
-            addCriterion("id <", value, "id");
+            addCriterion("id <", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("id <=", value, "id");
+            addCriterion("id <=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdIn(List<Long> values) {
-            addCriterion("id in", values, "id");
+            addCriterion("id in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("id not in", values, "id");
+            addCriterion("id not in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("id between", value1, value2, "id");
+            addCriterion("id between", value1, value2, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("id not between", value1, value2, "id");
+            addCriterion("id not between", value1, value2, ID);
             return (Criteria) this;
         }
 
@@ -177,52 +181,52 @@ public class CmsPrefrenceAreaProductRelationExample {
         }
 
         public Criteria andPrefrenceAreaIdEqualTo(Long value) {
-            addCriterion("prefrence_area_id =", value, "prefrenceAreaId");
+            addCriterion("prefrence_area_id =", value, PREFRENCE_AREA_ID);
             return (Criteria) this;
         }
 
         public Criteria andPrefrenceAreaIdNotEqualTo(Long value) {
-            addCriterion("prefrence_area_id <>", value, "prefrenceAreaId");
+            addCriterion("prefrence_area_id <>", value, PREFRENCE_AREA_ID);
             return (Criteria) this;
         }
 
         public Criteria andPrefrenceAreaIdGreaterThan(Long value) {
-            addCriterion("prefrence_area_id >", value, "prefrenceAreaId");
+            addCriterion("prefrence_area_id >", value, PREFRENCE_AREA_ID);
             return (Criteria) this;
         }
 
         public Criteria andPrefrenceAreaIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("prefrence_area_id >=", value, "prefrenceAreaId");
+            addCriterion("prefrence_area_id >=", value, PREFRENCE_AREA_ID);
             return (Criteria) this;
         }
 
         public Criteria andPrefrenceAreaIdLessThan(Long value) {
-            addCriterion("prefrence_area_id <", value, "prefrenceAreaId");
+            addCriterion("prefrence_area_id <", value, PREFRENCE_AREA_ID);
             return (Criteria) this;
         }
 
         public Criteria andPrefrenceAreaIdLessThanOrEqualTo(Long value) {
-            addCriterion("prefrence_area_id <=", value, "prefrenceAreaId");
+            addCriterion("prefrence_area_id <=", value, PREFRENCE_AREA_ID);
             return (Criteria) this;
         }
 
         public Criteria andPrefrenceAreaIdIn(List<Long> values) {
-            addCriterion("prefrence_area_id in", values, "prefrenceAreaId");
+            addCriterion("prefrence_area_id in", values, PREFRENCE_AREA_ID);
             return (Criteria) this;
         }
 
         public Criteria andPrefrenceAreaIdNotIn(List<Long> values) {
-            addCriterion("prefrence_area_id not in", values, "prefrenceAreaId");
+            addCriterion("prefrence_area_id not in", values, PREFRENCE_AREA_ID);
             return (Criteria) this;
         }
 
         public Criteria andPrefrenceAreaIdBetween(Long value1, Long value2) {
-            addCriterion("prefrence_area_id between", value1, value2, "prefrenceAreaId");
+            addCriterion("prefrence_area_id between", value1, value2, PREFRENCE_AREA_ID);
             return (Criteria) this;
         }
 
         public Criteria andPrefrenceAreaIdNotBetween(Long value1, Long value2) {
-            addCriterion("prefrence_area_id not between", value1, value2, "prefrenceAreaId");
+            addCriterion("prefrence_area_id not between", value1, value2, PREFRENCE_AREA_ID);
             return (Criteria) this;
         }
 
@@ -237,52 +241,52 @@ public class CmsPrefrenceAreaProductRelationExample {
         }
 
         public Criteria andProductIdEqualTo(Long value) {
-            addCriterion("product_id =", value, "productId");
+            addCriterion("product_id =", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdNotEqualTo(Long value) {
-            addCriterion("product_id <>", value, "productId");
+            addCriterion("product_id <>", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdGreaterThan(Long value) {
-            addCriterion("product_id >", value, "productId");
+            addCriterion("product_id >", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("product_id >=", value, "productId");
+            addCriterion("product_id >=", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdLessThan(Long value) {
-            addCriterion("product_id <", value, "productId");
+            addCriterion("product_id <", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdLessThanOrEqualTo(Long value) {
-            addCriterion("product_id <=", value, "productId");
+            addCriterion("product_id <=", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdIn(List<Long> values) {
-            addCriterion("product_id in", values, "productId");
+            addCriterion("product_id in", values, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdNotIn(List<Long> values) {
-            addCriterion("product_id not in", values, "productId");
+            addCriterion("product_id not in", values, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdBetween(Long value1, Long value2) {
-            addCriterion("product_id between", value1, value2, "productId");
+            addCriterion("product_id between", value1, value2, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdNotBetween(Long value1, Long value2) {
-            addCriterion("product_id not between", value1, value2, "productId");
+            addCriterion("product_id not between", value1, value2, PRODUCT_ID);
             return (Criteria) this;
         }
     }
@@ -296,7 +300,7 @@ public class CmsPrefrenceAreaProductRelationExample {
 
     public static class Criterion {
 
-        private String condition;
+        private final String condition;
 
         private Object value;
 
@@ -310,7 +314,7 @@ public class CmsPrefrenceAreaProductRelationExample {
 
         private boolean listValue;
 
-        private String typeHandler;
+        private final String typeHandler;
 
         public String getCondition() {
             return condition;

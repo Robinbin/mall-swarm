@@ -1,0 +1,55 @@
+package com.macro.mall.constant;
+
+public interface MbgConstants {
+
+    String HELP_COUNT = "helpCount";
+    String SHOW_STATUS = "showStatus";
+    String SORT = "sort";
+    String ID = "id";
+    String CATEGORY_ID = "categoryId";
+    String ICON = "icon";
+    String TITLE = "title";
+    String CREATE_TIME = "createTime";
+    String READ_COUNT = "readCount";
+    String NAME = "name";
+    String REPORT_TYPE = "reportType";
+    String REPORT_MEMBER_NAME = "reportMemberName";
+    String REPORT_OBJECT = "reportObject";
+    String REPORT_STATUS = "reportStatus";
+    String HANDLE_STATUS = "handleStatus";
+    String NOTE = "note";
+    String PREFRENCE_AREA_ID = "prefrenceAreaId";
+    String PRODUCT_ID = "productId";
+    String SUBJECT_COUNT = "subjectCount";
+    String SUBJECT_ID = "subjectId";
+    String MEMBER_NICK_NAME = "memberNickName";
+    String MEMBER_ICON = "memberIcon";
+    String CONTENT = "content";
+    String PIC = "pic";
+    String PRODUCT_COUNT = "productCount";
+    String RECOMMEND_STATUS = "recommendStatus";
+    String COLLECT_COUNT = "collectCount";
+    String COMMENT_COUNT = "commentCount";
+    String ALBUM_PICS = "albumPics";
+    String DESCRIPTION = "description";
+    String FORWARD_COUNT = "forwardCount";
+    String CATEGORY_NAME = "categoryName";
+    String TOPIC_ID = "topicId";
+    String PRODUCT_SKU_ID = "productSkuId";
+    String MEMBER_ID = "memberId";
+    String QUANTITY = "quantity";
+    String PRICE = "price";
+    String PRODUCT_PIC = "productPic";
+    String PRODUCT_NAME = "productName";
+    String PRODUCT_SUB_TITLE = "productSubTitle";
+    String PRODUCT_SKU_CODE = "productSkuCode";
+    String MEMBER_NICKNAME = "memberNickname";
+    String CREATE_DATE = "createDate";
+    String MODIFY_DATE = "modifyDate";
+    String DELETE_STATUS = "deleteStatus";
+    String PRODUCT_CATEGORY_ID = "productCategoryId";
+    String PRODUCT_BRAND = "productBrand";
+    String PRODUCT_SN = "productSn";
+    String PRODUCT_ATTR = "productAttr";
+    String SUB_TITLE = "subTitle";
+}

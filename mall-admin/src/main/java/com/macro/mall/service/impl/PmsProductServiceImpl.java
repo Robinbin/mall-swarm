@@ -1,7 +1,8 @@
 package com.macro.mall.service.impl;
 
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import cn.hutool.core.collection.CollUtil;
-import com.github.pagehelper.PageHelper;
 import com.macro.mall.dao.CmsPrefrenceAreaProductRelationDao;
 import com.macro.mall.dao.CmsSubjectProductRelationDao;
 import com.macro.mall.dao.PmsMemberPriceDao;
@@ -239,7 +240,7 @@ public class PmsProductServiceImpl implements PmsProductService {
 
     @Override
     public List<PmsProduct> list(PmsProductQueryParam productQueryParam, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         PmsProductExample productExample = new PmsProductExample();
         PmsProductExample.Criteria criteria = productExample.createCriteria();
         criteria.andDeleteStatusEqualTo(0);

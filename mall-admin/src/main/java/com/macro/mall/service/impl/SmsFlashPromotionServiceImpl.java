@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.mapper.SmsFlashPromotionMapper;
 import com.macro.mall.model.SmsFlashPromotion;
 import com.macro.mall.model.SmsFlashPromotionExample;
@@ -53,7 +54,7 @@ public class SmsFlashPromotionServiceImpl implements SmsFlashPromotionService {
 
     @Override
     public List<SmsFlashPromotion> list(String keyword, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         SmsFlashPromotionExample example = new SmsFlashPromotionExample();
         if (!StringUtils.isEmpty(keyword)) {
             example.createCriteria().andTitleLike("%" + keyword + "%");

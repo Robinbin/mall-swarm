@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.dto.PmsBrandParam;
 import com.macro.mall.mapper.PmsBrandMapper;
 import com.macro.mall.mapper.PmsProductMapper;
@@ -75,7 +76,7 @@ public class PmsBrandServiceImpl implements PmsBrandService {
 
     @Override
     public List<PmsBrand> listBrand(String keyword, int pageNum, int pageSize) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         PmsBrandExample pmsBrandExample = new PmsBrandExample();
         pmsBrandExample.setOrderByClause("sort desc");
         PmsBrandExample.Criteria criteria = pmsBrandExample.createCriteria();

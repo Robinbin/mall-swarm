@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.mapper.SmsCouponHistoryMapper;
 import com.macro.mall.model.SmsCouponHistory;
 import com.macro.mall.model.SmsCouponHistoryExample;
@@ -23,7 +24,7 @@ public class SmsCouponHistoryServiceImpl implements SmsCouponHistoryService {
     @Override
     public List<SmsCouponHistory> list(Long couponId, Integer useStatus, String orderSn, Integer pageSize,
                                        Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         SmsCouponHistoryExample example = new SmsCouponHistoryExample();
         SmsCouponHistoryExample.Criteria criteria = example.createCriteria();
         if (couponId != null) {

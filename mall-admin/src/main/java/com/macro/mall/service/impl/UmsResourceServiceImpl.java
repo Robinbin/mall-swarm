@@ -1,7 +1,8 @@
 package com.macro.mall.service.impl;
 
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import cn.hutool.core.util.StrUtil;
-import com.github.pagehelper.PageHelper;
 import com.macro.mall.common.constant.AuthConstant;
 import com.macro.mall.common.service.RedisService;
 import com.macro.mall.mapper.UmsResourceMapper;
@@ -73,7 +74,7 @@ public class UmsResourceServiceImpl implements UmsResourceService {
     @Override
     public List<UmsResource> list(Long categoryId, String nameKeyword, String urlKeyword, Integer pageSize,
                                   Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         UmsResourceExample example = new UmsResourceExample();
         UmsResourceExample.Criteria criteria = example.createCriteria();
         if (categoryId != null) {

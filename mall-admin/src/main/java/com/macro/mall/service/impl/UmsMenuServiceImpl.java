@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.dto.UmsMenuNode;
 import com.macro.mall.mapper.UmsMenuMapper;
 import com.macro.mall.model.UmsMenu;
@@ -67,7 +68,7 @@ public class UmsMenuServiceImpl implements UmsMenuService {
 
     @Override
     public List<UmsMenu> list(Long parentId, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         UmsMenuExample example = new UmsMenuExample();
         example.setOrderByClause("sort desc");
         example.createCriteria().andParentIdEqualTo(parentId);

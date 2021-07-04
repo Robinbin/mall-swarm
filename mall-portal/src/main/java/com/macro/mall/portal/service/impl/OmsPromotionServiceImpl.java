@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TreeMap;
 
 /**
@@ -41,7 +42,7 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
             Long productId = entry.getKey();
             PromotionProduct promotionProduct = getPromotionProductById(productId, promotionProductList);
             List<OmsCartItem> itemList = entry.getValue();
-            Integer promotionType = promotionProduct.getPromotionType();
+            Integer promotionType = Objects.requireNonNull(promotionProduct).getPromotionType();
             if (promotionType == 1) {
                 //单品促销
                 for (OmsCartItem item : itemList) {
@@ -50,7 +51,7 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
                     cartPromotionItem.setPromotionMessage("单品促销");
                     //商品原价-促销价
                     PmsSkuStock skuStock = getOriginalPrice(promotionProduct, item.getProductSkuId());
-                    BigDecimal originalPrice = skuStock.getPrice();
+                    BigDecimal originalPrice = Objects.requireNonNull(skuStock).getPrice();
                     //单品促销使用原价
                     cartPromotionItem.setPrice(originalPrice);
                     cartPromotionItem.setReduceAmount(originalPrice.subtract(skuStock.getPromotionPrice()));
@@ -71,7 +72,7 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
                         cartPromotionItem.setPromotionMessage(message);
                         //商品原价-折扣*商品原价
                         PmsSkuStock skuStock = getOriginalPrice(promotionProduct, item.getProductSkuId());
-                        BigDecimal originalPrice = skuStock.getPrice();
+                        BigDecimal originalPrice = Objects.requireNonNull(skuStock).getPrice();
                         BigDecimal reduceAmount = originalPrice.subtract(ladder.getDiscount().multiply(originalPrice));
                         cartPromotionItem.setReduceAmount(reduceAmount);
                         cartPromotionItem.setRealStock(skuStock.getStock() - skuStock.getLockStock());
@@ -96,7 +97,7 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
                         cartPromotionItem.setPromotionMessage(message);
                         //(商品原价/总价)*满减金额
                         PmsSkuStock skuStock = getOriginalPrice(promotionProduct, item.getProductSkuId());
-                        BigDecimal originalPrice = skuStock.getPrice();
+                        BigDecimal originalPrice = Objects.requireNonNull(skuStock).getPrice();
                         BigDecimal
                             reduceAmount =
                             originalPrice.divide(totalAmount, RoundingMode.HALF_EVEN)
@@ -252,8 +253,9 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
         for (OmsCartItem item : itemList) {
             //计算出商品原价
             PromotionProduct promotionProduct = getPromotionProductById(item.getProductId(), promotionProductList);
-            PmsSkuStock skuStock = getOriginalPrice(promotionProduct, item.getProductSkuId());
-            amount = amount.add(skuStock.getPrice().multiply(new BigDecimal(item.getQuantity())));
+            PmsSkuStock skuStock = getOriginalPrice(Objects.requireNonNull(promotionProduct), item.getProductSkuId());
+            amount =
+                amount.add(Objects.requireNonNull(skuStock).getPrice().multiply(new BigDecimal(item.getQuantity())));
         }
         return amount;
     }

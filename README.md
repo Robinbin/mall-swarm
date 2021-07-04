@@ -19,7 +19,9 @@
 
 ## 项目介绍
 
-`mall-swarm`是一套微服务商城系统，采用了 Spring Cloud Hoxton & Alibaba、Spring Boot 2.3、Oauth2、MyBatis、Elasticsearch、Docker、Kubernetes等核心技术，同时提供了基于Vue的管理后台方便快速搭建系统。`mall-swarm`在电商业务的基础集成了注册中心、配置中心、监控中心、网关等系统功能。文档齐全，附带全套Spring Cloud教程。 
+`mall-swarm`是一套微服务商城系统，采用了 Spring Cloud Hoxton & Alibaba、Spring Boot
+2.3、Oauth2、MyBatis、Elasticsearch、Docker、Kubernetes等核心技术，同时提供了基于Vue的管理后台方便快速搭建系统。`mall-swarm`
+在电商业务的基础集成了注册中心、配置中心、监控中心、网关等系统功能。文档齐全，附带全套Spring Cloud教程。
 
 ## 系统架构图
 
@@ -44,11 +46,12 @@ mall
 ## 项目文档
 
 - 项目文档`mall`系列教程：[http://www.macrozheng.com](http://www.macrozheng.com)
-- 配套`Spring Cloud`系列教程：[https://github.com/macrozheng/springcloud-learning](https://github.com/macrozheng/springcloud-learning)
+- 配套`Spring Cloud`
+  系列教程：[https://github.com/macrozheng/springcloud-learning](https://github.com/macrozheng/springcloud-learning)
 
 ## 项目演示
 
-- 后台管理系统： [http://www.macrozheng.com/admin/index.html](http://www.macrozheng.com/admin/index.html)  
+- 后台管理系统： [http://www.macrozheng.com/admin/index.html](http://www.macrozheng.com/admin/index.html)
 - 移动端商城系统：[http://www.macrozheng.com/app/index.html](http://www.macrozheng.com/app/index.html)
 
 ## 技术选型
@@ -91,7 +94,6 @@ mall
 | Element    | 前端UI框架            | https://element.eleme.io/      |
 | Axios      | 前端HTTP框架          | https://github.com/axios/axios |
 | v-charts   | 基于Echarts的图表框架 | https://v-charts.js.org/       |
-
 
 ## 环境搭建
 

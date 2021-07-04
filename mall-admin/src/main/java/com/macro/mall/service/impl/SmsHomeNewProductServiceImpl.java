@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.mapper.SmsHomeNewProductMapper;
 import com.macro.mall.model.SmsHomeNewProduct;
 import com.macro.mall.model.SmsHomeNewProductExample;
@@ -57,7 +58,7 @@ public class SmsHomeNewProductServiceImpl implements SmsHomeNewProductService {
     @Override
     public List<SmsHomeNewProduct> list(String productName, Integer recommendStatus, Integer pageSize,
                                         Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         SmsHomeNewProductExample example = new SmsHomeNewProductExample();
         SmsHomeNewProductExample.Criteria criteria = example.createCriteria();
         if (!StringUtils.isEmpty(productName)) {

@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.mapper.CmsSubjectMapper;
 import com.macro.mall.model.CmsSubject;
 import com.macro.mall.model.CmsSubjectExample;
@@ -27,7 +28,7 @@ public class CmsSubjectServiceImpl implements CmsSubjectService {
 
     @Override
     public List<CmsSubject> list(String keyword, Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         CmsSubjectExample example = new CmsSubjectExample();
         CmsSubjectExample.Criteria criteria = example.createCriteria();
         if (!StringUtils.isEmpty(keyword)) {

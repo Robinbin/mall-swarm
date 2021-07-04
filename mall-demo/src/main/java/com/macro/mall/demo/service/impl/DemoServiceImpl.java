@@ -1,6 +1,7 @@
 package com.macro.mall.demo.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.demo.dto.PmsBrandDto;
 import com.macro.mall.demo.service.DemoService;
 import com.macro.mall.mapper.PmsBrandMapper;
@@ -48,7 +49,7 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public List<PmsBrand> listBrand(int pageNum, int pageSize) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         return brandMapper.selectByExample(new PmsBrandExample());
     }
 

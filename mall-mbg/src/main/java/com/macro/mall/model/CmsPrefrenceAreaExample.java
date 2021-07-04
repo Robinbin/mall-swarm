@@ -1,5 +1,11 @@
 package com.macro.mall.model;
 
+import static com.macro.mall.constant.MbgConstants.ID;
+import static com.macro.mall.constant.MbgConstants.NAME;
+import static com.macro.mall.constant.MbgConstants.SHOW_STATUS;
+import static com.macro.mall.constant.MbgConstants.SORT;
+import static com.macro.mall.constant.MbgConstants.SUB_TITLE;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,52 +123,52 @@ public class CmsPrefrenceAreaExample {
         }
 
         public Criteria andIdEqualTo(Long value) {
-            addCriterion("id =", value, "id");
+            addCriterion("id =", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("id <>", value, "id");
+            addCriterion("id <>", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThan(Long value) {
-            addCriterion("id >", value, "id");
+            addCriterion("id >", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("id >=", value, "id");
+            addCriterion("id >=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThan(Long value) {
-            addCriterion("id <", value, "id");
+            addCriterion("id <", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("id <=", value, "id");
+            addCriterion("id <=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdIn(List<Long> values) {
-            addCriterion("id in", values, "id");
+            addCriterion("id in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("id not in", values, "id");
+            addCriterion("id not in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("id between", value1, value2, "id");
+            addCriterion("id between", value1, value2, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("id not between", value1, value2, "id");
+            addCriterion("id not between", value1, value2, ID);
             return (Criteria) this;
         }
 
@@ -177,62 +183,62 @@ public class CmsPrefrenceAreaExample {
         }
 
         public Criteria andNameEqualTo(String value) {
-            addCriterion("name =", value, "name");
+            addCriterion("name =", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameNotEqualTo(String value) {
-            addCriterion("name <>", value, "name");
+            addCriterion("name <>", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameGreaterThan(String value) {
-            addCriterion("name >", value, "name");
+            addCriterion("name >", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("name >=", value, "name");
+            addCriterion("name >=", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameLessThan(String value) {
-            addCriterion("name <", value, "name");
+            addCriterion("name <", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("name <=", value, "name");
+            addCriterion("name <=", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameLike(String value) {
-            addCriterion("name like", value, "name");
+            addCriterion("name like", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameNotLike(String value) {
-            addCriterion("name not like", value, "name");
+            addCriterion("name not like", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameIn(List<String> values) {
-            addCriterion("name in", values, "name");
+            addCriterion("name in", values, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameNotIn(List<String> values) {
-            addCriterion("name not in", values, "name");
+            addCriterion("name not in", values, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("name between", value1, value2, "name");
+            addCriterion("name between", value1, value2, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("name not between", value1, value2, "name");
+            addCriterion("name not between", value1, value2, NAME);
             return (Criteria) this;
         }
 
@@ -247,62 +253,62 @@ public class CmsPrefrenceAreaExample {
         }
 
         public Criteria andSubTitleEqualTo(String value) {
-            addCriterion("sub_title =", value, "subTitle");
+            addCriterion("sub_title =", value, SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andSubTitleNotEqualTo(String value) {
-            addCriterion("sub_title <>", value, "subTitle");
+            addCriterion("sub_title <>", value, SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andSubTitleGreaterThan(String value) {
-            addCriterion("sub_title >", value, "subTitle");
+            addCriterion("sub_title >", value, SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andSubTitleGreaterThanOrEqualTo(String value) {
-            addCriterion("sub_title >=", value, "subTitle");
+            addCriterion("sub_title >=", value, SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andSubTitleLessThan(String value) {
-            addCriterion("sub_title <", value, "subTitle");
+            addCriterion("sub_title <", value, SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andSubTitleLessThanOrEqualTo(String value) {
-            addCriterion("sub_title <=", value, "subTitle");
+            addCriterion("sub_title <=", value, SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andSubTitleLike(String value) {
-            addCriterion("sub_title like", value, "subTitle");
+            addCriterion("sub_title like", value, SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andSubTitleNotLike(String value) {
-            addCriterion("sub_title not like", value, "subTitle");
+            addCriterion("sub_title not like", value, SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andSubTitleIn(List<String> values) {
-            addCriterion("sub_title in", values, "subTitle");
+            addCriterion("sub_title in", values, SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andSubTitleNotIn(List<String> values) {
-            addCriterion("sub_title not in", values, "subTitle");
+            addCriterion("sub_title not in", values, SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andSubTitleBetween(String value1, String value2) {
-            addCriterion("sub_title between", value1, value2, "subTitle");
+            addCriterion("sub_title between", value1, value2, SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andSubTitleNotBetween(String value1, String value2) {
-            addCriterion("sub_title not between", value1, value2, "subTitle");
+            addCriterion("sub_title not between", value1, value2, SUB_TITLE);
             return (Criteria) this;
         }
 
@@ -317,52 +323,52 @@ public class CmsPrefrenceAreaExample {
         }
 
         public Criteria andSortEqualTo(Integer value) {
-            addCriterion("sort =", value, "sort");
+            addCriterion("sort =", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortNotEqualTo(Integer value) {
-            addCriterion("sort <>", value, "sort");
+            addCriterion("sort <>", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortGreaterThan(Integer value) {
-            addCriterion("sort >", value, "sort");
+            addCriterion("sort >", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sort >=", value, "sort");
+            addCriterion("sort >=", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortLessThan(Integer value) {
-            addCriterion("sort <", value, "sort");
+            addCriterion("sort <", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortLessThanOrEqualTo(Integer value) {
-            addCriterion("sort <=", value, "sort");
+            addCriterion("sort <=", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortIn(List<Integer> values) {
-            addCriterion("sort in", values, "sort");
+            addCriterion("sort in", values, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortNotIn(List<Integer> values) {
-            addCriterion("sort not in", values, "sort");
+            addCriterion("sort not in", values, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortBetween(Integer value1, Integer value2) {
-            addCriterion("sort between", value1, value2, "sort");
+            addCriterion("sort between", value1, value2, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortNotBetween(Integer value1, Integer value2) {
-            addCriterion("sort not between", value1, value2, "sort");
+            addCriterion("sort not between", value1, value2, SORT);
             return (Criteria) this;
         }
 
@@ -377,52 +383,52 @@ public class CmsPrefrenceAreaExample {
         }
 
         public Criteria andShowStatusEqualTo(Integer value) {
-            addCriterion("show_status =", value, "showStatus");
+            addCriterion("show_status =", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusNotEqualTo(Integer value) {
-            addCriterion("show_status <>", value, "showStatus");
+            addCriterion("show_status <>", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusGreaterThan(Integer value) {
-            addCriterion("show_status >", value, "showStatus");
+            addCriterion("show_status >", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusGreaterThanOrEqualTo(Integer value) {
-            addCriterion("show_status >=", value, "showStatus");
+            addCriterion("show_status >=", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusLessThan(Integer value) {
-            addCriterion("show_status <", value, "showStatus");
+            addCriterion("show_status <", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusLessThanOrEqualTo(Integer value) {
-            addCriterion("show_status <=", value, "showStatus");
+            addCriterion("show_status <=", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusIn(List<Integer> values) {
-            addCriterion("show_status in", values, "showStatus");
+            addCriterion("show_status in", values, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusNotIn(List<Integer> values) {
-            addCriterion("show_status not in", values, "showStatus");
+            addCriterion("show_status not in", values, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusBetween(Integer value1, Integer value2) {
-            addCriterion("show_status between", value1, value2, "showStatus");
+            addCriterion("show_status between", value1, value2, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusNotBetween(Integer value1, Integer value2) {
-            addCriterion("show_status not between", value1, value2, "showStatus");
+            addCriterion("show_status not between", value1, value2, SHOW_STATUS);
             return (Criteria) this;
         }
     }
@@ -436,7 +442,7 @@ public class CmsPrefrenceAreaExample {
 
     public static class Criterion {
 
-        private String condition;
+        private final String condition;
 
         private Object value;
 
@@ -450,7 +456,7 @@ public class CmsPrefrenceAreaExample {
 
         private boolean listValue;
 
-        private String typeHandler;
+        private final String typeHandler;
 
         public String getCondition() {
             return condition;

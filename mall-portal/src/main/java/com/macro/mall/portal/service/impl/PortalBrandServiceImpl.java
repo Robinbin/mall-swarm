@@ -1,6 +1,7 @@
 package com.macro.mall.portal.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.common.api.CommonPage;
 import com.macro.mall.mapper.PmsBrandMapper;
 import com.macro.mall.mapper.PmsProductMapper;
@@ -40,7 +41,7 @@ public class PortalBrandServiceImpl implements PortalBrandService {
 
     @Override
     public CommonPage<PmsProduct> productList(Long brandId, Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         PmsProductExample example = new PmsProductExample();
         example.createCriteria().andDeleteStatusEqualTo(0)
             .andBrandIdEqualTo(brandId);

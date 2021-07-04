@@ -27,11 +27,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
+import java.security.SecureRandom;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -55,6 +55,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
     private AuthService authService;
     @Autowired
     private HttpServletRequest request;
+    private final SecureRandom random = new SecureRandom();
 
     @Override
     public UmsMember getByUsername(String username) {
@@ -107,7 +108,6 @@ public class UmsMemberServiceImpl implements UmsMemberService {
     @Override
     public String generateAuthCode(String telephone) {
         StringBuilder sb = new StringBuilder();
-        Random random = new Random();
         for (int i = 0; i < 6; i++) {
             sb.append(random.nextInt(10));
         }

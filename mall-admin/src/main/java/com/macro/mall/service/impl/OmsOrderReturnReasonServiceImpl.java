@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.mapper.OmsOrderReturnReasonMapper;
 import com.macro.mall.model.OmsOrderReturnReason;
 import com.macro.mall.model.OmsOrderReturnReasonExample;
@@ -41,7 +42,7 @@ public class OmsOrderReturnReasonServiceImpl implements OmsOrderReturnReasonServ
 
     @Override
     public List<OmsOrderReturnReason> list(Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         OmsOrderReturnReasonExample example = new OmsOrderReturnReasonExample();
         example.setOrderByClause("sort desc");
         return returnReasonMapper.selectByExample(example);

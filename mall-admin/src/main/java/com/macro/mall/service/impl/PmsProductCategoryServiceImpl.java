@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.dao.PmsProductCategoryAttributeRelationDao;
 import com.macro.mall.dao.PmsProductCategoryDao;
 import com.macro.mall.dto.PmsProductCategoryParam;
@@ -105,7 +106,7 @@ public class PmsProductCategoryServiceImpl implements PmsProductCategoryService 
 
     @Override
     public List<PmsProductCategory> getList(Long parentId, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         PmsProductCategoryExample example = new PmsProductCategoryExample();
         example.setOrderByClause("sort desc");
         example.createCriteria().andParentIdEqualTo(parentId);

@@ -1,6 +1,7 @@
 package com.macro.mall.portal.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.mapper.CmsSubjectMapper;
 import com.macro.mall.mapper.PmsProductCategoryMapper;
 import com.macro.mall.mapper.PmsProductMapper;
@@ -74,7 +75,7 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public List<PmsProduct> recommendProductList(Integer pageSize, Integer pageNum) {
         // TODO: 2019/1/29 暂时默认推荐所有商品
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         PmsProductExample example = new PmsProductExample();
         example.createCriteria()
             .andDeleteStatusEqualTo(0)
@@ -94,7 +95,7 @@ public class HomeServiceImpl implements HomeService {
 
     @Override
     public List<CmsSubject> getSubjectList(Long cateId, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         CmsSubjectExample example = new CmsSubjectExample();
         CmsSubjectExample.Criteria criteria = example.createCriteria();
         criteria.andShowStatusEqualTo(1);

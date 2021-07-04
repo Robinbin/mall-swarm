@@ -1,10 +1,11 @@
 package com.macro.mall.service.impl;
 
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.digest.BCrypt;
 import cn.hutool.json.JSONUtil;
-import com.github.pagehelper.PageHelper;
 import com.macro.mall.common.api.CommonResult;
 import com.macro.mall.common.api.ResultCode;
 import com.macro.mall.common.constant.AuthConstant;
@@ -153,7 +154,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
 
     @Override
     public List<UmsAdmin> list(String keyword, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         UmsAdminExample example = new UmsAdminExample();
         UmsAdminExample.Criteria criteria = example.createCriteria();
         if (!StringUtils.isEmpty(keyword)) {

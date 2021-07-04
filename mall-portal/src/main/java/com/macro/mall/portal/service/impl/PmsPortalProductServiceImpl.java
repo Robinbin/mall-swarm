@@ -1,8 +1,9 @@
 package com.macro.mall.portal.service.impl;
 
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
-import com.github.pagehelper.PageHelper;
 import com.macro.mall.mapper.PmsBrandMapper;
 import com.macro.mall.mapper.PmsProductAttributeMapper;
 import com.macro.mall.mapper.PmsProductAttributeValueMapper;
@@ -65,7 +66,7 @@ public class PmsPortalProductServiceImpl implements PmsPortalProductService {
     @Override
     public List<PmsProduct> search(String keyword, Long brandId, Long productCategoryId, Integer pageNum,
                                    Integer pageSize, Integer sort) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         PmsProductExample example = new PmsProductExample();
         PmsProductExample.Criteria criteria = example.createCriteria();
         criteria.andDeleteStatusEqualTo(0);

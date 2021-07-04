@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.dao.PmsProductAttributeDao;
 import com.macro.mall.dto.PmsProductAttributeParam;
 import com.macro.mall.dto.ProductAttrInfo;
@@ -31,7 +32,7 @@ public class PmsProductAttributeServiceImpl implements PmsProductAttributeServic
 
     @Override
     public List<PmsProductAttribute> getList(Long cid, Integer type, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         PmsProductAttributeExample example = new PmsProductAttributeExample();
         example.setOrderByClause("sort desc");
         example.createCriteria().andProductAttributeCategoryIdEqualTo(cid).andTypeEqualTo(type);

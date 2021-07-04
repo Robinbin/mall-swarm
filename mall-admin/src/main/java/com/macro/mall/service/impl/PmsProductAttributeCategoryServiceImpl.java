@@ -1,6 +1,7 @@
 package com.macro.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import com.macro.mall.dao.PmsProductAttributeCategoryDao;
 import com.macro.mall.dto.PmsProductAttributeCategoryItem;
 import com.macro.mall.mapper.PmsProductAttributeCategoryMapper;
@@ -50,7 +51,7 @@ public class PmsProductAttributeCategoryServiceImpl implements PmsProductAttribu
 
     @Override
     public List<PmsProductAttributeCategory> getList(Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         return productAttributeCategoryMapper.selectByExample(new PmsProductAttributeCategoryExample());
     }
 

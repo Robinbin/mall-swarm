@@ -1,5 +1,8 @@
 package com.macro.mall.model;
 
+import static com.macro.mall.constant.MbgConstants.ID;
+import static com.macro.mall.constant.MbgConstants.SORT;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -118,52 +121,52 @@ public class SmsFlashPromotionProductRelationExample {
         }
 
         public Criteria andIdEqualTo(Long value) {
-            addCriterion("id =", value, "id");
+            addCriterion("id =", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("id <>", value, "id");
+            addCriterion("id <>", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThan(Long value) {
-            addCriterion("id >", value, "id");
+            addCriterion("id >", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("id >=", value, "id");
+            addCriterion("id >=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThan(Long value) {
-            addCriterion("id <", value, "id");
+            addCriterion("id <", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("id <=", value, "id");
+            addCriterion("id <=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdIn(List<Long> values) {
-            addCriterion("id in", values, "id");
+            addCriterion("id in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("id not in", values, "id");
+            addCriterion("id not in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("id between", value1, value2, "id");
+            addCriterion("id between", value1, value2, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("id not between", value1, value2, "id");
+            addCriterion("id not between", value1, value2, ID);
             return (Criteria) this;
         }
 
@@ -538,52 +541,52 @@ public class SmsFlashPromotionProductRelationExample {
         }
 
         public Criteria andSortEqualTo(Integer value) {
-            addCriterion("sort =", value, "sort");
+            addCriterion("sort =", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortNotEqualTo(Integer value) {
-            addCriterion("sort <>", value, "sort");
+            addCriterion("sort <>", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortGreaterThan(Integer value) {
-            addCriterion("sort >", value, "sort");
+            addCriterion("sort >", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sort >=", value, "sort");
+            addCriterion("sort >=", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortLessThan(Integer value) {
-            addCriterion("sort <", value, "sort");
+            addCriterion("sort <", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortLessThanOrEqualTo(Integer value) {
-            addCriterion("sort <=", value, "sort");
+            addCriterion("sort <=", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortIn(List<Integer> values) {
-            addCriterion("sort in", values, "sort");
+            addCriterion("sort in", values, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortNotIn(List<Integer> values) {
-            addCriterion("sort not in", values, "sort");
+            addCriterion("sort not in", values, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortBetween(Integer value1, Integer value2) {
-            addCriterion("sort between", value1, value2, "sort");
+            addCriterion("sort between", value1, value2, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortNotBetween(Integer value1, Integer value2) {
-            addCriterion("sort not between", value1, value2, "sort");
+            addCriterion("sort not between", value1, value2, SORT);
             return (Criteria) this;
         }
     }
@@ -597,7 +600,7 @@ public class SmsFlashPromotionProductRelationExample {
 
     public static class Criterion {
 
-        private String condition;
+        private final String condition;
 
         private Object value;
 
@@ -611,7 +614,7 @@ public class SmsFlashPromotionProductRelationExample {
 
         private boolean listValue;
 
-        private String typeHandler;
+        private final String typeHandler;
 
         public String getCondition() {
             return condition;

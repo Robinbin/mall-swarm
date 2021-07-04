@@ -14,6 +14,7 @@ import io.minio.RemoveObjectArgs;
 import io.minio.SetBucketPolicyArgs;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,6 +31,7 @@ import java.util.Date;
 /**
  * MinIO对象存储管理 Created by macro on 2019/12/25.
  */
+@Slf4j
 @Api(tags = "MinioController", description = "MinIO对象存储管理")
 @Controller
 @RequestMapping("/minio")
@@ -85,8 +87,7 @@ public class MinioController {
             minioUploadDto.setUrl(ENDPOINT + "/" + BUCKET_NAME + "/" + objectName);
             return CommonResult.success(minioUploadDto);
         } catch (Exception e) {
-            e.printStackTrace();
-            LOGGER.info("上传发生错误: {}！", e.getMessage());
+            LOGGER.info("上传发生错误: {}！", e.getMessage(), e);
         }
         return CommonResult.failed();
     }
@@ -115,7 +116,7 @@ public class MinioController {
             minioClient.removeObject(RemoveObjectArgs.builder().bucket(BUCKET_NAME).object(objectName).build());
             return CommonResult.success(null);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.info("删除对象错误: {}！", e.getMessage(), e);
         }
         return CommonResult.failed();
     }

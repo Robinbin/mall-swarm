@@ -1,5 +1,24 @@
 package com.macro.mall.model;
 
+import static com.macro.mall.constant.MbgConstants.CREATE_DATE;
+import static com.macro.mall.constant.MbgConstants.DELETE_STATUS;
+import static com.macro.mall.constant.MbgConstants.ID;
+import static com.macro.mall.constant.MbgConstants.MEMBER_ID;
+import static com.macro.mall.constant.MbgConstants.MEMBER_NICKNAME;
+import static com.macro.mall.constant.MbgConstants.MODIFY_DATE;
+import static com.macro.mall.constant.MbgConstants.PRICE;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_ATTR;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_BRAND;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_CATEGORY_ID;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_ID;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_NAME;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_PIC;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_SKU_CODE;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_SKU_ID;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_SN;
+import static com.macro.mall.constant.MbgConstants.PRODUCT_SUB_TITLE;
+import static com.macro.mall.constant.MbgConstants.QUANTITY;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -119,52 +138,52 @@ public class OmsCartItemExample {
         }
 
         public Criteria andIdEqualTo(Long value) {
-            addCriterion("id =", value, "id");
+            addCriterion("id =", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("id <>", value, "id");
+            addCriterion("id <>", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThan(Long value) {
-            addCriterion("id >", value, "id");
+            addCriterion("id >", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("id >=", value, "id");
+            addCriterion("id >=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThan(Long value) {
-            addCriterion("id <", value, "id");
+            addCriterion("id <", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("id <=", value, "id");
+            addCriterion("id <=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdIn(List<Long> values) {
-            addCriterion("id in", values, "id");
+            addCriterion("id in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("id not in", values, "id");
+            addCriterion("id not in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("id between", value1, value2, "id");
+            addCriterion("id between", value1, value2, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("id not between", value1, value2, "id");
+            addCriterion("id not between", value1, value2, ID);
             return (Criteria) this;
         }
 
@@ -179,52 +198,52 @@ public class OmsCartItemExample {
         }
 
         public Criteria andProductIdEqualTo(Long value) {
-            addCriterion("product_id =", value, "productId");
+            addCriterion("product_id =", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdNotEqualTo(Long value) {
-            addCriterion("product_id <>", value, "productId");
+            addCriterion("product_id <>", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdGreaterThan(Long value) {
-            addCriterion("product_id >", value, "productId");
+            addCriterion("product_id >", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("product_id >=", value, "productId");
+            addCriterion("product_id >=", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdLessThan(Long value) {
-            addCriterion("product_id <", value, "productId");
+            addCriterion("product_id <", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdLessThanOrEqualTo(Long value) {
-            addCriterion("product_id <=", value, "productId");
+            addCriterion("product_id <=", value, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdIn(List<Long> values) {
-            addCriterion("product_id in", values, "productId");
+            addCriterion("product_id in", values, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdNotIn(List<Long> values) {
-            addCriterion("product_id not in", values, "productId");
+            addCriterion("product_id not in", values, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdBetween(Long value1, Long value2) {
-            addCriterion("product_id between", value1, value2, "productId");
+            addCriterion("product_id between", value1, value2, PRODUCT_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductIdNotBetween(Long value1, Long value2) {
-            addCriterion("product_id not between", value1, value2, "productId");
+            addCriterion("product_id not between", value1, value2, PRODUCT_ID);
             return (Criteria) this;
         }
 
@@ -239,52 +258,52 @@ public class OmsCartItemExample {
         }
 
         public Criteria andProductSkuIdEqualTo(Long value) {
-            addCriterion("product_sku_id =", value, "productSkuId");
+            addCriterion("product_sku_id =", value, PRODUCT_SKU_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuIdNotEqualTo(Long value) {
-            addCriterion("product_sku_id <>", value, "productSkuId");
+            addCriterion("product_sku_id <>", value, PRODUCT_SKU_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuIdGreaterThan(Long value) {
-            addCriterion("product_sku_id >", value, "productSkuId");
+            addCriterion("product_sku_id >", value, PRODUCT_SKU_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("product_sku_id >=", value, "productSkuId");
+            addCriterion("product_sku_id >=", value, PRODUCT_SKU_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuIdLessThan(Long value) {
-            addCriterion("product_sku_id <", value, "productSkuId");
+            addCriterion("product_sku_id <", value, PRODUCT_SKU_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuIdLessThanOrEqualTo(Long value) {
-            addCriterion("product_sku_id <=", value, "productSkuId");
+            addCriterion("product_sku_id <=", value, PRODUCT_SKU_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuIdIn(List<Long> values) {
-            addCriterion("product_sku_id in", values, "productSkuId");
+            addCriterion("product_sku_id in", values, PRODUCT_SKU_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuIdNotIn(List<Long> values) {
-            addCriterion("product_sku_id not in", values, "productSkuId");
+            addCriterion("product_sku_id not in", values, PRODUCT_SKU_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuIdBetween(Long value1, Long value2) {
-            addCriterion("product_sku_id between", value1, value2, "productSkuId");
+            addCriterion("product_sku_id between", value1, value2, PRODUCT_SKU_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuIdNotBetween(Long value1, Long value2) {
-            addCriterion("product_sku_id not between", value1, value2, "productSkuId");
+            addCriterion("product_sku_id not between", value1, value2, PRODUCT_SKU_ID);
             return (Criteria) this;
         }
 
@@ -299,52 +318,52 @@ public class OmsCartItemExample {
         }
 
         public Criteria andMemberIdEqualTo(Long value) {
-            addCriterion("member_id =", value, "memberId");
+            addCriterion("member_id =", value, MEMBER_ID);
             return (Criteria) this;
         }
 
         public Criteria andMemberIdNotEqualTo(Long value) {
-            addCriterion("member_id <>", value, "memberId");
+            addCriterion("member_id <>", value, MEMBER_ID);
             return (Criteria) this;
         }
 
         public Criteria andMemberIdGreaterThan(Long value) {
-            addCriterion("member_id >", value, "memberId");
+            addCriterion("member_id >", value, MEMBER_ID);
             return (Criteria) this;
         }
 
         public Criteria andMemberIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("member_id >=", value, "memberId");
+            addCriterion("member_id >=", value, MEMBER_ID);
             return (Criteria) this;
         }
 
         public Criteria andMemberIdLessThan(Long value) {
-            addCriterion("member_id <", value, "memberId");
+            addCriterion("member_id <", value, MEMBER_ID);
             return (Criteria) this;
         }
 
         public Criteria andMemberIdLessThanOrEqualTo(Long value) {
-            addCriterion("member_id <=", value, "memberId");
+            addCriterion("member_id <=", value, MEMBER_ID);
             return (Criteria) this;
         }
 
         public Criteria andMemberIdIn(List<Long> values) {
-            addCriterion("member_id in", values, "memberId");
+            addCriterion("member_id in", values, MEMBER_ID);
             return (Criteria) this;
         }
 
         public Criteria andMemberIdNotIn(List<Long> values) {
-            addCriterion("member_id not in", values, "memberId");
+            addCriterion("member_id not in", values, MEMBER_ID);
             return (Criteria) this;
         }
 
         public Criteria andMemberIdBetween(Long value1, Long value2) {
-            addCriterion("member_id between", value1, value2, "memberId");
+            addCriterion("member_id between", value1, value2, MEMBER_ID);
             return (Criteria) this;
         }
 
         public Criteria andMemberIdNotBetween(Long value1, Long value2) {
-            addCriterion("member_id not between", value1, value2, "memberId");
+            addCriterion("member_id not between", value1, value2, MEMBER_ID);
             return (Criteria) this;
         }
 
@@ -359,52 +378,52 @@ public class OmsCartItemExample {
         }
 
         public Criteria andQuantityEqualTo(Integer value) {
-            addCriterion("quantity =", value, "quantity");
+            addCriterion("quantity =", value, QUANTITY);
             return (Criteria) this;
         }
 
         public Criteria andQuantityNotEqualTo(Integer value) {
-            addCriterion("quantity <>", value, "quantity");
+            addCriterion("quantity <>", value, QUANTITY);
             return (Criteria) this;
         }
 
         public Criteria andQuantityGreaterThan(Integer value) {
-            addCriterion("quantity >", value, "quantity");
+            addCriterion("quantity >", value, QUANTITY);
             return (Criteria) this;
         }
 
         public Criteria andQuantityGreaterThanOrEqualTo(Integer value) {
-            addCriterion("quantity >=", value, "quantity");
+            addCriterion("quantity >=", value, QUANTITY);
             return (Criteria) this;
         }
 
         public Criteria andQuantityLessThan(Integer value) {
-            addCriterion("quantity <", value, "quantity");
+            addCriterion("quantity <", value, QUANTITY);
             return (Criteria) this;
         }
 
         public Criteria andQuantityLessThanOrEqualTo(Integer value) {
-            addCriterion("quantity <=", value, "quantity");
+            addCriterion("quantity <=", value, QUANTITY);
             return (Criteria) this;
         }
 
         public Criteria andQuantityIn(List<Integer> values) {
-            addCriterion("quantity in", values, "quantity");
+            addCriterion("quantity in", values, QUANTITY);
             return (Criteria) this;
         }
 
         public Criteria andQuantityNotIn(List<Integer> values) {
-            addCriterion("quantity not in", values, "quantity");
+            addCriterion("quantity not in", values, QUANTITY);
             return (Criteria) this;
         }
 
         public Criteria andQuantityBetween(Integer value1, Integer value2) {
-            addCriterion("quantity between", value1, value2, "quantity");
+            addCriterion("quantity between", value1, value2, QUANTITY);
             return (Criteria) this;
         }
 
         public Criteria andQuantityNotBetween(Integer value1, Integer value2) {
-            addCriterion("quantity not between", value1, value2, "quantity");
+            addCriterion("quantity not between", value1, value2, QUANTITY);
             return (Criteria) this;
         }
 
@@ -419,52 +438,52 @@ public class OmsCartItemExample {
         }
 
         public Criteria andPriceEqualTo(BigDecimal value) {
-            addCriterion("price =", value, "price");
+            addCriterion("price =", value, PRICE);
             return (Criteria) this;
         }
 
         public Criteria andPriceNotEqualTo(BigDecimal value) {
-            addCriterion("price <>", value, "price");
+            addCriterion("price <>", value, PRICE);
             return (Criteria) this;
         }
 
         public Criteria andPriceGreaterThan(BigDecimal value) {
-            addCriterion("price >", value, "price");
+            addCriterion("price >", value, PRICE);
             return (Criteria) this;
         }
 
         public Criteria andPriceGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("price >=", value, "price");
+            addCriterion("price >=", value, PRICE);
             return (Criteria) this;
         }
 
         public Criteria andPriceLessThan(BigDecimal value) {
-            addCriterion("price <", value, "price");
+            addCriterion("price <", value, PRICE);
             return (Criteria) this;
         }
 
         public Criteria andPriceLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("price <=", value, "price");
+            addCriterion("price <=", value, PRICE);
             return (Criteria) this;
         }
 
         public Criteria andPriceIn(List<BigDecimal> values) {
-            addCriterion("price in", values, "price");
+            addCriterion("price in", values, PRICE);
             return (Criteria) this;
         }
 
         public Criteria andPriceNotIn(List<BigDecimal> values) {
-            addCriterion("price not in", values, "price");
+            addCriterion("price not in", values, PRICE);
             return (Criteria) this;
         }
 
         public Criteria andPriceBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("price between", value1, value2, "price");
+            addCriterion("price between", value1, value2, PRICE);
             return (Criteria) this;
         }
 
         public Criteria andPriceNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("price not between", value1, value2, "price");
+            addCriterion("price not between", value1, value2, PRICE);
             return (Criteria) this;
         }
 
@@ -479,62 +498,62 @@ public class OmsCartItemExample {
         }
 
         public Criteria andProductPicEqualTo(String value) {
-            addCriterion("product_pic =", value, "productPic");
+            addCriterion("product_pic =", value, PRODUCT_PIC);
             return (Criteria) this;
         }
 
         public Criteria andProductPicNotEqualTo(String value) {
-            addCriterion("product_pic <>", value, "productPic");
+            addCriterion("product_pic <>", value, PRODUCT_PIC);
             return (Criteria) this;
         }
 
         public Criteria andProductPicGreaterThan(String value) {
-            addCriterion("product_pic >", value, "productPic");
+            addCriterion("product_pic >", value, PRODUCT_PIC);
             return (Criteria) this;
         }
 
         public Criteria andProductPicGreaterThanOrEqualTo(String value) {
-            addCriterion("product_pic >=", value, "productPic");
+            addCriterion("product_pic >=", value, PRODUCT_PIC);
             return (Criteria) this;
         }
 
         public Criteria andProductPicLessThan(String value) {
-            addCriterion("product_pic <", value, "productPic");
+            addCriterion("product_pic <", value, PRODUCT_PIC);
             return (Criteria) this;
         }
 
         public Criteria andProductPicLessThanOrEqualTo(String value) {
-            addCriterion("product_pic <=", value, "productPic");
+            addCriterion("product_pic <=", value, PRODUCT_PIC);
             return (Criteria) this;
         }
 
         public Criteria andProductPicLike(String value) {
-            addCriterion("product_pic like", value, "productPic");
+            addCriterion("product_pic like", value, PRODUCT_PIC);
             return (Criteria) this;
         }
 
         public Criteria andProductPicNotLike(String value) {
-            addCriterion("product_pic not like", value, "productPic");
+            addCriterion("product_pic not like", value, PRODUCT_PIC);
             return (Criteria) this;
         }
 
         public Criteria andProductPicIn(List<String> values) {
-            addCriterion("product_pic in", values, "productPic");
+            addCriterion("product_pic in", values, PRODUCT_PIC);
             return (Criteria) this;
         }
 
         public Criteria andProductPicNotIn(List<String> values) {
-            addCriterion("product_pic not in", values, "productPic");
+            addCriterion("product_pic not in", values, PRODUCT_PIC);
             return (Criteria) this;
         }
 
         public Criteria andProductPicBetween(String value1, String value2) {
-            addCriterion("product_pic between", value1, value2, "productPic");
+            addCriterion("product_pic between", value1, value2, PRODUCT_PIC);
             return (Criteria) this;
         }
 
         public Criteria andProductPicNotBetween(String value1, String value2) {
-            addCriterion("product_pic not between", value1, value2, "productPic");
+            addCriterion("product_pic not between", value1, value2, PRODUCT_PIC);
             return (Criteria) this;
         }
 
@@ -549,62 +568,62 @@ public class OmsCartItemExample {
         }
 
         public Criteria andProductNameEqualTo(String value) {
-            addCriterion("product_name =", value, "productName");
+            addCriterion("product_name =", value, PRODUCT_NAME);
             return (Criteria) this;
         }
 
         public Criteria andProductNameNotEqualTo(String value) {
-            addCriterion("product_name <>", value, "productName");
+            addCriterion("product_name <>", value, PRODUCT_NAME);
             return (Criteria) this;
         }
 
         public Criteria andProductNameGreaterThan(String value) {
-            addCriterion("product_name >", value, "productName");
+            addCriterion("product_name >", value, PRODUCT_NAME);
             return (Criteria) this;
         }
 
         public Criteria andProductNameGreaterThanOrEqualTo(String value) {
-            addCriterion("product_name >=", value, "productName");
+            addCriterion("product_name >=", value, PRODUCT_NAME);
             return (Criteria) this;
         }
 
         public Criteria andProductNameLessThan(String value) {
-            addCriterion("product_name <", value, "productName");
+            addCriterion("product_name <", value, PRODUCT_NAME);
             return (Criteria) this;
         }
 
         public Criteria andProductNameLessThanOrEqualTo(String value) {
-            addCriterion("product_name <=", value, "productName");
+            addCriterion("product_name <=", value, PRODUCT_NAME);
             return (Criteria) this;
         }
 
         public Criteria andProductNameLike(String value) {
-            addCriterion("product_name like", value, "productName");
+            addCriterion("product_name like", value, PRODUCT_NAME);
             return (Criteria) this;
         }
 
         public Criteria andProductNameNotLike(String value) {
-            addCriterion("product_name not like", value, "productName");
+            addCriterion("product_name not like", value, PRODUCT_NAME);
             return (Criteria) this;
         }
 
         public Criteria andProductNameIn(List<String> values) {
-            addCriterion("product_name in", values, "productName");
+            addCriterion("product_name in", values, PRODUCT_NAME);
             return (Criteria) this;
         }
 
         public Criteria andProductNameNotIn(List<String> values) {
-            addCriterion("product_name not in", values, "productName");
+            addCriterion("product_name not in", values, PRODUCT_NAME);
             return (Criteria) this;
         }
 
         public Criteria andProductNameBetween(String value1, String value2) {
-            addCriterion("product_name between", value1, value2, "productName");
+            addCriterion("product_name between", value1, value2, PRODUCT_NAME);
             return (Criteria) this;
         }
 
         public Criteria andProductNameNotBetween(String value1, String value2) {
-            addCriterion("product_name not between", value1, value2, "productName");
+            addCriterion("product_name not between", value1, value2, PRODUCT_NAME);
             return (Criteria) this;
         }
 
@@ -619,62 +638,62 @@ public class OmsCartItemExample {
         }
 
         public Criteria andProductSubTitleEqualTo(String value) {
-            addCriterion("product_sub_title =", value, "productSubTitle");
+            addCriterion("product_sub_title =", value, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andProductSubTitleNotEqualTo(String value) {
-            addCriterion("product_sub_title <>", value, "productSubTitle");
+            addCriterion("product_sub_title <>", value, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andProductSubTitleGreaterThan(String value) {
-            addCriterion("product_sub_title >", value, "productSubTitle");
+            addCriterion("product_sub_title >", value, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andProductSubTitleGreaterThanOrEqualTo(String value) {
-            addCriterion("product_sub_title >=", value, "productSubTitle");
+            addCriterion("product_sub_title >=", value, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andProductSubTitleLessThan(String value) {
-            addCriterion("product_sub_title <", value, "productSubTitle");
+            addCriterion("product_sub_title <", value, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andProductSubTitleLessThanOrEqualTo(String value) {
-            addCriterion("product_sub_title <=", value, "productSubTitle");
+            addCriterion("product_sub_title <=", value, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andProductSubTitleLike(String value) {
-            addCriterion("product_sub_title like", value, "productSubTitle");
+            addCriterion("product_sub_title like", value, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andProductSubTitleNotLike(String value) {
-            addCriterion("product_sub_title not like", value, "productSubTitle");
+            addCriterion("product_sub_title not like", value, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andProductSubTitleIn(List<String> values) {
-            addCriterion("product_sub_title in", values, "productSubTitle");
+            addCriterion("product_sub_title in", values, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andProductSubTitleNotIn(List<String> values) {
-            addCriterion("product_sub_title not in", values, "productSubTitle");
+            addCriterion("product_sub_title not in", values, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andProductSubTitleBetween(String value1, String value2) {
-            addCriterion("product_sub_title between", value1, value2, "productSubTitle");
+            addCriterion("product_sub_title between", value1, value2, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
         public Criteria andProductSubTitleNotBetween(String value1, String value2) {
-            addCriterion("product_sub_title not between", value1, value2, "productSubTitle");
+            addCriterion("product_sub_title not between", value1, value2, PRODUCT_SUB_TITLE);
             return (Criteria) this;
         }
 
@@ -689,62 +708,62 @@ public class OmsCartItemExample {
         }
 
         public Criteria andProductSkuCodeEqualTo(String value) {
-            addCriterion("product_sku_code =", value, "productSkuCode");
+            addCriterion("product_sku_code =", value, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuCodeNotEqualTo(String value) {
-            addCriterion("product_sku_code <>", value, "productSkuCode");
+            addCriterion("product_sku_code <>", value, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuCodeGreaterThan(String value) {
-            addCriterion("product_sku_code >", value, "productSkuCode");
+            addCriterion("product_sku_code >", value, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuCodeGreaterThanOrEqualTo(String value) {
-            addCriterion("product_sku_code >=", value, "productSkuCode");
+            addCriterion("product_sku_code >=", value, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuCodeLessThan(String value) {
-            addCriterion("product_sku_code <", value, "productSkuCode");
+            addCriterion("product_sku_code <", value, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuCodeLessThanOrEqualTo(String value) {
-            addCriterion("product_sku_code <=", value, "productSkuCode");
+            addCriterion("product_sku_code <=", value, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuCodeLike(String value) {
-            addCriterion("product_sku_code like", value, "productSkuCode");
+            addCriterion("product_sku_code like", value, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuCodeNotLike(String value) {
-            addCriterion("product_sku_code not like", value, "productSkuCode");
+            addCriterion("product_sku_code not like", value, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuCodeIn(List<String> values) {
-            addCriterion("product_sku_code in", values, "productSkuCode");
+            addCriterion("product_sku_code in", values, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuCodeNotIn(List<String> values) {
-            addCriterion("product_sku_code not in", values, "productSkuCode");
+            addCriterion("product_sku_code not in", values, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuCodeBetween(String value1, String value2) {
-            addCriterion("product_sku_code between", value1, value2, "productSkuCode");
+            addCriterion("product_sku_code between", value1, value2, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
         public Criteria andProductSkuCodeNotBetween(String value1, String value2) {
-            addCriterion("product_sku_code not between", value1, value2, "productSkuCode");
+            addCriterion("product_sku_code not between", value1, value2, PRODUCT_SKU_CODE);
             return (Criteria) this;
         }
 
@@ -759,62 +778,62 @@ public class OmsCartItemExample {
         }
 
         public Criteria andMemberNicknameEqualTo(String value) {
-            addCriterion("member_nickname =", value, "memberNickname");
+            addCriterion("member_nickname =", value, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
         public Criteria andMemberNicknameNotEqualTo(String value) {
-            addCriterion("member_nickname <>", value, "memberNickname");
+            addCriterion("member_nickname <>", value, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
         public Criteria andMemberNicknameGreaterThan(String value) {
-            addCriterion("member_nickname >", value, "memberNickname");
+            addCriterion("member_nickname >", value, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
         public Criteria andMemberNicknameGreaterThanOrEqualTo(String value) {
-            addCriterion("member_nickname >=", value, "memberNickname");
+            addCriterion("member_nickname >=", value, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
         public Criteria andMemberNicknameLessThan(String value) {
-            addCriterion("member_nickname <", value, "memberNickname");
+            addCriterion("member_nickname <", value, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
         public Criteria andMemberNicknameLessThanOrEqualTo(String value) {
-            addCriterion("member_nickname <=", value, "memberNickname");
+            addCriterion("member_nickname <=", value, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
         public Criteria andMemberNicknameLike(String value) {
-            addCriterion("member_nickname like", value, "memberNickname");
+            addCriterion("member_nickname like", value, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
         public Criteria andMemberNicknameNotLike(String value) {
-            addCriterion("member_nickname not like", value, "memberNickname");
+            addCriterion("member_nickname not like", value, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
         public Criteria andMemberNicknameIn(List<String> values) {
-            addCriterion("member_nickname in", values, "memberNickname");
+            addCriterion("member_nickname in", values, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
         public Criteria andMemberNicknameNotIn(List<String> values) {
-            addCriterion("member_nickname not in", values, "memberNickname");
+            addCriterion("member_nickname not in", values, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
         public Criteria andMemberNicknameBetween(String value1, String value2) {
-            addCriterion("member_nickname between", value1, value2, "memberNickname");
+            addCriterion("member_nickname between", value1, value2, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
         public Criteria andMemberNicknameNotBetween(String value1, String value2) {
-            addCriterion("member_nickname not between", value1, value2, "memberNickname");
+            addCriterion("member_nickname not between", value1, value2, MEMBER_NICKNAME);
             return (Criteria) this;
         }
 
@@ -829,52 +848,52 @@ public class OmsCartItemExample {
         }
 
         public Criteria andCreateDateEqualTo(Date value) {
-            addCriterion("create_date =", value, "createDate");
+            addCriterion("create_date =", value, CREATE_DATE);
             return (Criteria) this;
         }
 
         public Criteria andCreateDateNotEqualTo(Date value) {
-            addCriterion("create_date <>", value, "createDate");
+            addCriterion("create_date <>", value, CREATE_DATE);
             return (Criteria) this;
         }
 
         public Criteria andCreateDateGreaterThan(Date value) {
-            addCriterion("create_date >", value, "createDate");
+            addCriterion("create_date >", value, CREATE_DATE);
             return (Criteria) this;
         }
 
         public Criteria andCreateDateGreaterThanOrEqualTo(Date value) {
-            addCriterion("create_date >=", value, "createDate");
+            addCriterion("create_date >=", value, CREATE_DATE);
             return (Criteria) this;
         }
 
         public Criteria andCreateDateLessThan(Date value) {
-            addCriterion("create_date <", value, "createDate");
+            addCriterion("create_date <", value, CREATE_DATE);
             return (Criteria) this;
         }
 
         public Criteria andCreateDateLessThanOrEqualTo(Date value) {
-            addCriterion("create_date <=", value, "createDate");
+            addCriterion("create_date <=", value, CREATE_DATE);
             return (Criteria) this;
         }
 
         public Criteria andCreateDateIn(List<Date> values) {
-            addCriterion("create_date in", values, "createDate");
+            addCriterion("create_date in", values, CREATE_DATE);
             return (Criteria) this;
         }
 
         public Criteria andCreateDateNotIn(List<Date> values) {
-            addCriterion("create_date not in", values, "createDate");
+            addCriterion("create_date not in", values, CREATE_DATE);
             return (Criteria) this;
         }
 
         public Criteria andCreateDateBetween(Date value1, Date value2) {
-            addCriterion("create_date between", value1, value2, "createDate");
+            addCriterion("create_date between", value1, value2, CREATE_DATE);
             return (Criteria) this;
         }
 
         public Criteria andCreateDateNotBetween(Date value1, Date value2) {
-            addCriterion("create_date not between", value1, value2, "createDate");
+            addCriterion("create_date not between", value1, value2, CREATE_DATE);
             return (Criteria) this;
         }
 
@@ -889,52 +908,52 @@ public class OmsCartItemExample {
         }
 
         public Criteria andModifyDateEqualTo(Date value) {
-            addCriterion("modify_date =", value, "modifyDate");
+            addCriterion("modify_date =", value, MODIFY_DATE);
             return (Criteria) this;
         }
 
         public Criteria andModifyDateNotEqualTo(Date value) {
-            addCriterion("modify_date <>", value, "modifyDate");
+            addCriterion("modify_date <>", value, MODIFY_DATE);
             return (Criteria) this;
         }
 
         public Criteria andModifyDateGreaterThan(Date value) {
-            addCriterion("modify_date >", value, "modifyDate");
+            addCriterion("modify_date >", value, MODIFY_DATE);
             return (Criteria) this;
         }
 
         public Criteria andModifyDateGreaterThanOrEqualTo(Date value) {
-            addCriterion("modify_date >=", value, "modifyDate");
+            addCriterion("modify_date >=", value, MODIFY_DATE);
             return (Criteria) this;
         }
 
         public Criteria andModifyDateLessThan(Date value) {
-            addCriterion("modify_date <", value, "modifyDate");
+            addCriterion("modify_date <", value, MODIFY_DATE);
             return (Criteria) this;
         }
 
         public Criteria andModifyDateLessThanOrEqualTo(Date value) {
-            addCriterion("modify_date <=", value, "modifyDate");
+            addCriterion("modify_date <=", value, MODIFY_DATE);
             return (Criteria) this;
         }
 
         public Criteria andModifyDateIn(List<Date> values) {
-            addCriterion("modify_date in", values, "modifyDate");
+            addCriterion("modify_date in", values, MODIFY_DATE);
             return (Criteria) this;
         }
 
         public Criteria andModifyDateNotIn(List<Date> values) {
-            addCriterion("modify_date not in", values, "modifyDate");
+            addCriterion("modify_date not in", values, MODIFY_DATE);
             return (Criteria) this;
         }
 
         public Criteria andModifyDateBetween(Date value1, Date value2) {
-            addCriterion("modify_date between", value1, value2, "modifyDate");
+            addCriterion("modify_date between", value1, value2, MODIFY_DATE);
             return (Criteria) this;
         }
 
         public Criteria andModifyDateNotBetween(Date value1, Date value2) {
-            addCriterion("modify_date not between", value1, value2, "modifyDate");
+            addCriterion("modify_date not between", value1, value2, MODIFY_DATE);
             return (Criteria) this;
         }
 
@@ -949,52 +968,52 @@ public class OmsCartItemExample {
         }
 
         public Criteria andDeleteStatusEqualTo(Integer value) {
-            addCriterion("delete_status =", value, "deleteStatus");
+            addCriterion("delete_status =", value, DELETE_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andDeleteStatusNotEqualTo(Integer value) {
-            addCriterion("delete_status <>", value, "deleteStatus");
+            addCriterion("delete_status <>", value, DELETE_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andDeleteStatusGreaterThan(Integer value) {
-            addCriterion("delete_status >", value, "deleteStatus");
+            addCriterion("delete_status >", value, DELETE_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andDeleteStatusGreaterThanOrEqualTo(Integer value) {
-            addCriterion("delete_status >=", value, "deleteStatus");
+            addCriterion("delete_status >=", value, DELETE_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andDeleteStatusLessThan(Integer value) {
-            addCriterion("delete_status <", value, "deleteStatus");
+            addCriterion("delete_status <", value, DELETE_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andDeleteStatusLessThanOrEqualTo(Integer value) {
-            addCriterion("delete_status <=", value, "deleteStatus");
+            addCriterion("delete_status <=", value, DELETE_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andDeleteStatusIn(List<Integer> values) {
-            addCriterion("delete_status in", values, "deleteStatus");
+            addCriterion("delete_status in", values, DELETE_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andDeleteStatusNotIn(List<Integer> values) {
-            addCriterion("delete_status not in", values, "deleteStatus");
+            addCriterion("delete_status not in", values, DELETE_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andDeleteStatusBetween(Integer value1, Integer value2) {
-            addCriterion("delete_status between", value1, value2, "deleteStatus");
+            addCriterion("delete_status between", value1, value2, DELETE_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andDeleteStatusNotBetween(Integer value1, Integer value2) {
-            addCriterion("delete_status not between", value1, value2, "deleteStatus");
+            addCriterion("delete_status not between", value1, value2, DELETE_STATUS);
             return (Criteria) this;
         }
 
@@ -1009,52 +1028,52 @@ public class OmsCartItemExample {
         }
 
         public Criteria andProductCategoryIdEqualTo(Long value) {
-            addCriterion("product_category_id =", value, "productCategoryId");
+            addCriterion("product_category_id =", value, PRODUCT_CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductCategoryIdNotEqualTo(Long value) {
-            addCriterion("product_category_id <>", value, "productCategoryId");
+            addCriterion("product_category_id <>", value, PRODUCT_CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductCategoryIdGreaterThan(Long value) {
-            addCriterion("product_category_id >", value, "productCategoryId");
+            addCriterion("product_category_id >", value, PRODUCT_CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductCategoryIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("product_category_id >=", value, "productCategoryId");
+            addCriterion("product_category_id >=", value, PRODUCT_CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductCategoryIdLessThan(Long value) {
-            addCriterion("product_category_id <", value, "productCategoryId");
+            addCriterion("product_category_id <", value, PRODUCT_CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductCategoryIdLessThanOrEqualTo(Long value) {
-            addCriterion("product_category_id <=", value, "productCategoryId");
+            addCriterion("product_category_id <=", value, PRODUCT_CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductCategoryIdIn(List<Long> values) {
-            addCriterion("product_category_id in", values, "productCategoryId");
+            addCriterion("product_category_id in", values, PRODUCT_CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductCategoryIdNotIn(List<Long> values) {
-            addCriterion("product_category_id not in", values, "productCategoryId");
+            addCriterion("product_category_id not in", values, PRODUCT_CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductCategoryIdBetween(Long value1, Long value2) {
-            addCriterion("product_category_id between", value1, value2, "productCategoryId");
+            addCriterion("product_category_id between", value1, value2, PRODUCT_CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andProductCategoryIdNotBetween(Long value1, Long value2) {
-            addCriterion("product_category_id not between", value1, value2, "productCategoryId");
+            addCriterion("product_category_id not between", value1, value2, PRODUCT_CATEGORY_ID);
             return (Criteria) this;
         }
 
@@ -1069,62 +1088,62 @@ public class OmsCartItemExample {
         }
 
         public Criteria andProductBrandEqualTo(String value) {
-            addCriterion("product_brand =", value, "productBrand");
+            addCriterion("product_brand =", value, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
         public Criteria andProductBrandNotEqualTo(String value) {
-            addCriterion("product_brand <>", value, "productBrand");
+            addCriterion("product_brand <>", value, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
         public Criteria andProductBrandGreaterThan(String value) {
-            addCriterion("product_brand >", value, "productBrand");
+            addCriterion("product_brand >", value, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
         public Criteria andProductBrandGreaterThanOrEqualTo(String value) {
-            addCriterion("product_brand >=", value, "productBrand");
+            addCriterion("product_brand >=", value, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
         public Criteria andProductBrandLessThan(String value) {
-            addCriterion("product_brand <", value, "productBrand");
+            addCriterion("product_brand <", value, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
         public Criteria andProductBrandLessThanOrEqualTo(String value) {
-            addCriterion("product_brand <=", value, "productBrand");
+            addCriterion("product_brand <=", value, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
         public Criteria andProductBrandLike(String value) {
-            addCriterion("product_brand like", value, "productBrand");
+            addCriterion("product_brand like", value, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
         public Criteria andProductBrandNotLike(String value) {
-            addCriterion("product_brand not like", value, "productBrand");
+            addCriterion("product_brand not like", value, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
         public Criteria andProductBrandIn(List<String> values) {
-            addCriterion("product_brand in", values, "productBrand");
+            addCriterion("product_brand in", values, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
         public Criteria andProductBrandNotIn(List<String> values) {
-            addCriterion("product_brand not in", values, "productBrand");
+            addCriterion("product_brand not in", values, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
         public Criteria andProductBrandBetween(String value1, String value2) {
-            addCriterion("product_brand between", value1, value2, "productBrand");
+            addCriterion("product_brand between", value1, value2, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
         public Criteria andProductBrandNotBetween(String value1, String value2) {
-            addCriterion("product_brand not between", value1, value2, "productBrand");
+            addCriterion("product_brand not between", value1, value2, PRODUCT_BRAND);
             return (Criteria) this;
         }
 
@@ -1139,62 +1158,62 @@ public class OmsCartItemExample {
         }
 
         public Criteria andProductSnEqualTo(String value) {
-            addCriterion("product_sn =", value, "productSn");
+            addCriterion("product_sn =", value, PRODUCT_SN);
             return (Criteria) this;
         }
 
         public Criteria andProductSnNotEqualTo(String value) {
-            addCriterion("product_sn <>", value, "productSn");
+            addCriterion("product_sn <>", value, PRODUCT_SN);
             return (Criteria) this;
         }
 
         public Criteria andProductSnGreaterThan(String value) {
-            addCriterion("product_sn >", value, "productSn");
+            addCriterion("product_sn >", value, PRODUCT_SN);
             return (Criteria) this;
         }
 
         public Criteria andProductSnGreaterThanOrEqualTo(String value) {
-            addCriterion("product_sn >=", value, "productSn");
+            addCriterion("product_sn >=", value, PRODUCT_SN);
             return (Criteria) this;
         }
 
         public Criteria andProductSnLessThan(String value) {
-            addCriterion("product_sn <", value, "productSn");
+            addCriterion("product_sn <", value, PRODUCT_SN);
             return (Criteria) this;
         }
 
         public Criteria andProductSnLessThanOrEqualTo(String value) {
-            addCriterion("product_sn <=", value, "productSn");
+            addCriterion("product_sn <=", value, PRODUCT_SN);
             return (Criteria) this;
         }
 
         public Criteria andProductSnLike(String value) {
-            addCriterion("product_sn like", value, "productSn");
+            addCriterion("product_sn like", value, PRODUCT_SN);
             return (Criteria) this;
         }
 
         public Criteria andProductSnNotLike(String value) {
-            addCriterion("product_sn not like", value, "productSn");
+            addCriterion("product_sn not like", value, PRODUCT_SN);
             return (Criteria) this;
         }
 
         public Criteria andProductSnIn(List<String> values) {
-            addCriterion("product_sn in", values, "productSn");
+            addCriterion("product_sn in", values, PRODUCT_SN);
             return (Criteria) this;
         }
 
         public Criteria andProductSnNotIn(List<String> values) {
-            addCriterion("product_sn not in", values, "productSn");
+            addCriterion("product_sn not in", values, PRODUCT_SN);
             return (Criteria) this;
         }
 
         public Criteria andProductSnBetween(String value1, String value2) {
-            addCriterion("product_sn between", value1, value2, "productSn");
+            addCriterion("product_sn between", value1, value2, PRODUCT_SN);
             return (Criteria) this;
         }
 
         public Criteria andProductSnNotBetween(String value1, String value2) {
-            addCriterion("product_sn not between", value1, value2, "productSn");
+            addCriterion("product_sn not between", value1, value2, PRODUCT_SN);
             return (Criteria) this;
         }
 
@@ -1209,62 +1228,62 @@ public class OmsCartItemExample {
         }
 
         public Criteria andProductAttrEqualTo(String value) {
-            addCriterion("product_attr =", value, "productAttr");
+            addCriterion("product_attr =", value, PRODUCT_ATTR);
             return (Criteria) this;
         }
 
         public Criteria andProductAttrNotEqualTo(String value) {
-            addCriterion("product_attr <>", value, "productAttr");
+            addCriterion("product_attr <>", value, PRODUCT_ATTR);
             return (Criteria) this;
         }
 
         public Criteria andProductAttrGreaterThan(String value) {
-            addCriterion("product_attr >", value, "productAttr");
+            addCriterion("product_attr >", value, PRODUCT_ATTR);
             return (Criteria) this;
         }
 
         public Criteria andProductAttrGreaterThanOrEqualTo(String value) {
-            addCriterion("product_attr >=", value, "productAttr");
+            addCriterion("product_attr >=", value, PRODUCT_ATTR);
             return (Criteria) this;
         }
 
         public Criteria andProductAttrLessThan(String value) {
-            addCriterion("product_attr <", value, "productAttr");
+            addCriterion("product_attr <", value, PRODUCT_ATTR);
             return (Criteria) this;
         }
 
         public Criteria andProductAttrLessThanOrEqualTo(String value) {
-            addCriterion("product_attr <=", value, "productAttr");
+            addCriterion("product_attr <=", value, PRODUCT_ATTR);
             return (Criteria) this;
         }
 
         public Criteria andProductAttrLike(String value) {
-            addCriterion("product_attr like", value, "productAttr");
+            addCriterion("product_attr like", value, PRODUCT_ATTR);
             return (Criteria) this;
         }
 
         public Criteria andProductAttrNotLike(String value) {
-            addCriterion("product_attr not like", value, "productAttr");
+            addCriterion("product_attr not like", value, PRODUCT_ATTR);
             return (Criteria) this;
         }
 
         public Criteria andProductAttrIn(List<String> values) {
-            addCriterion("product_attr in", values, "productAttr");
+            addCriterion("product_attr in", values, PRODUCT_ATTR);
             return (Criteria) this;
         }
 
         public Criteria andProductAttrNotIn(List<String> values) {
-            addCriterion("product_attr not in", values, "productAttr");
+            addCriterion("product_attr not in", values, PRODUCT_ATTR);
             return (Criteria) this;
         }
 
         public Criteria andProductAttrBetween(String value1, String value2) {
-            addCriterion("product_attr between", value1, value2, "productAttr");
+            addCriterion("product_attr between", value1, value2, PRODUCT_ATTR);
             return (Criteria) this;
         }
 
         public Criteria andProductAttrNotBetween(String value1, String value2) {
-            addCriterion("product_attr not between", value1, value2, "productAttr");
+            addCriterion("product_attr not between", value1, value2, PRODUCT_ATTR);
             return (Criteria) this;
         }
     }
@@ -1278,7 +1297,7 @@ public class OmsCartItemExample {
 
     public static class Criterion {
 
-        private String condition;
+        private final String condition;
 
         private Object value;
 
@@ -1292,7 +1311,7 @@ public class OmsCartItemExample {
 
         private boolean listValue;
 
-        private String typeHandler;
+        private final String typeHandler;
 
         public String getCondition() {
             return condition;

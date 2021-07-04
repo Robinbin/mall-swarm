@@ -1,5 +1,13 @@
 package com.macro.mall.model;
 
+import static com.macro.mall.constant.MbgConstants.CATEGORY_ID;
+import static com.macro.mall.constant.MbgConstants.CREATE_TIME;
+import static com.macro.mall.constant.MbgConstants.ICON;
+import static com.macro.mall.constant.MbgConstants.ID;
+import static com.macro.mall.constant.MbgConstants.READ_COUNT;
+import static com.macro.mall.constant.MbgConstants.SHOW_STATUS;
+import static com.macro.mall.constant.MbgConstants.TITLE;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -118,52 +126,52 @@ public class CmsHelpExample {
         }
 
         public Criteria andIdEqualTo(Long value) {
-            addCriterion("id =", value, "id");
+            addCriterion("id =", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("id <>", value, "id");
+            addCriterion("id <>", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThan(Long value) {
-            addCriterion("id >", value, "id");
+            addCriterion("id >", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("id >=", value, "id");
+            addCriterion("id >=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThan(Long value) {
-            addCriterion("id <", value, "id");
+            addCriterion("id <", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("id <=", value, "id");
+            addCriterion("id <=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdIn(List<Long> values) {
-            addCriterion("id in", values, "id");
+            addCriterion("id in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("id not in", values, "id");
+            addCriterion("id not in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("id between", value1, value2, "id");
+            addCriterion("id between", value1, value2, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("id not between", value1, value2, "id");
+            addCriterion("id not between", value1, value2, ID);
             return (Criteria) this;
         }
 
@@ -178,52 +186,52 @@ public class CmsHelpExample {
         }
 
         public Criteria andCategoryIdEqualTo(Long value) {
-            addCriterion("category_id =", value, "categoryId");
+            addCriterion("category_id =", value, CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andCategoryIdNotEqualTo(Long value) {
-            addCriterion("category_id <>", value, "categoryId");
+            addCriterion("category_id <>", value, CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andCategoryIdGreaterThan(Long value) {
-            addCriterion("category_id >", value, "categoryId");
+            addCriterion("category_id >", value, CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andCategoryIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("category_id >=", value, "categoryId");
+            addCriterion("category_id >=", value, CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andCategoryIdLessThan(Long value) {
-            addCriterion("category_id <", value, "categoryId");
+            addCriterion("category_id <", value, CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andCategoryIdLessThanOrEqualTo(Long value) {
-            addCriterion("category_id <=", value, "categoryId");
+            addCriterion("category_id <=", value, CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andCategoryIdIn(List<Long> values) {
-            addCriterion("category_id in", values, "categoryId");
+            addCriterion("category_id in", values, CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andCategoryIdNotIn(List<Long> values) {
-            addCriterion("category_id not in", values, "categoryId");
+            addCriterion("category_id not in", values, CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andCategoryIdBetween(Long value1, Long value2) {
-            addCriterion("category_id between", value1, value2, "categoryId");
+            addCriterion("category_id between", value1, value2, CATEGORY_ID);
             return (Criteria) this;
         }
 
         public Criteria andCategoryIdNotBetween(Long value1, Long value2) {
-            addCriterion("category_id not between", value1, value2, "categoryId");
+            addCriterion("category_id not between", value1, value2, CATEGORY_ID);
             return (Criteria) this;
         }
 
@@ -238,62 +246,62 @@ public class CmsHelpExample {
         }
 
         public Criteria andIconEqualTo(String value) {
-            addCriterion("icon =", value, "icon");
+            addCriterion("icon =", value, ICON);
             return (Criteria) this;
         }
 
         public Criteria andIconNotEqualTo(String value) {
-            addCriterion("icon <>", value, "icon");
+            addCriterion("icon <>", value, ICON);
             return (Criteria) this;
         }
 
         public Criteria andIconGreaterThan(String value) {
-            addCriterion("icon >", value, "icon");
+            addCriterion("icon >", value, ICON);
             return (Criteria) this;
         }
 
         public Criteria andIconGreaterThanOrEqualTo(String value) {
-            addCriterion("icon >=", value, "icon");
+            addCriterion("icon >=", value, ICON);
             return (Criteria) this;
         }
 
         public Criteria andIconLessThan(String value) {
-            addCriterion("icon <", value, "icon");
+            addCriterion("icon <", value, ICON);
             return (Criteria) this;
         }
 
         public Criteria andIconLessThanOrEqualTo(String value) {
-            addCriterion("icon <=", value, "icon");
+            addCriterion("icon <=", value, ICON);
             return (Criteria) this;
         }
 
         public Criteria andIconLike(String value) {
-            addCriterion("icon like", value, "icon");
+            addCriterion("icon like", value, ICON);
             return (Criteria) this;
         }
 
         public Criteria andIconNotLike(String value) {
-            addCriterion("icon not like", value, "icon");
+            addCriterion("icon not like", value, ICON);
             return (Criteria) this;
         }
 
         public Criteria andIconIn(List<String> values) {
-            addCriterion("icon in", values, "icon");
+            addCriterion("icon in", values, ICON);
             return (Criteria) this;
         }
 
         public Criteria andIconNotIn(List<String> values) {
-            addCriterion("icon not in", values, "icon");
+            addCriterion("icon not in", values, ICON);
             return (Criteria) this;
         }
 
         public Criteria andIconBetween(String value1, String value2) {
-            addCriterion("icon between", value1, value2, "icon");
+            addCriterion("icon between", value1, value2, ICON);
             return (Criteria) this;
         }
 
         public Criteria andIconNotBetween(String value1, String value2) {
-            addCriterion("icon not between", value1, value2, "icon");
+            addCriterion("icon not between", value1, value2, ICON);
             return (Criteria) this;
         }
 
@@ -308,62 +316,62 @@ public class CmsHelpExample {
         }
 
         public Criteria andTitleEqualTo(String value) {
-            addCriterion("title =", value, "title");
+            addCriterion("title =", value, TITLE);
             return (Criteria) this;
         }
 
         public Criteria andTitleNotEqualTo(String value) {
-            addCriterion("title <>", value, "title");
+            addCriterion("title <>", value, TITLE);
             return (Criteria) this;
         }
 
         public Criteria andTitleGreaterThan(String value) {
-            addCriterion("title >", value, "title");
+            addCriterion("title >", value, TITLE);
             return (Criteria) this;
         }
 
         public Criteria andTitleGreaterThanOrEqualTo(String value) {
-            addCriterion("title >=", value, "title");
+            addCriterion("title >=", value, TITLE);
             return (Criteria) this;
         }
 
         public Criteria andTitleLessThan(String value) {
-            addCriterion("title <", value, "title");
+            addCriterion("title <", value, TITLE);
             return (Criteria) this;
         }
 
         public Criteria andTitleLessThanOrEqualTo(String value) {
-            addCriterion("title <=", value, "title");
+            addCriterion("title <=", value, TITLE);
             return (Criteria) this;
         }
 
         public Criteria andTitleLike(String value) {
-            addCriterion("title like", value, "title");
+            addCriterion("title like", value, TITLE);
             return (Criteria) this;
         }
 
         public Criteria andTitleNotLike(String value) {
-            addCriterion("title not like", value, "title");
+            addCriterion("title not like", value, TITLE);
             return (Criteria) this;
         }
 
         public Criteria andTitleIn(List<String> values) {
-            addCriterion("title in", values, "title");
+            addCriterion("title in", values, TITLE);
             return (Criteria) this;
         }
 
         public Criteria andTitleNotIn(List<String> values) {
-            addCriterion("title not in", values, "title");
+            addCriterion("title not in", values, TITLE);
             return (Criteria) this;
         }
 
         public Criteria andTitleBetween(String value1, String value2) {
-            addCriterion("title between", value1, value2, "title");
+            addCriterion("title between", value1, value2, TITLE);
             return (Criteria) this;
         }
 
         public Criteria andTitleNotBetween(String value1, String value2) {
-            addCriterion("title not between", value1, value2, "title");
+            addCriterion("title not between", value1, value2, TITLE);
             return (Criteria) this;
         }
 
@@ -378,52 +386,52 @@ public class CmsHelpExample {
         }
 
         public Criteria andShowStatusEqualTo(Integer value) {
-            addCriterion("show_status =", value, "showStatus");
+            addCriterion("show_status =", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusNotEqualTo(Integer value) {
-            addCriterion("show_status <>", value, "showStatus");
+            addCriterion("show_status <>", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusGreaterThan(Integer value) {
-            addCriterion("show_status >", value, "showStatus");
+            addCriterion("show_status >", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusGreaterThanOrEqualTo(Integer value) {
-            addCriterion("show_status >=", value, "showStatus");
+            addCriterion("show_status >=", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusLessThan(Integer value) {
-            addCriterion("show_status <", value, "showStatus");
+            addCriterion("show_status <", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusLessThanOrEqualTo(Integer value) {
-            addCriterion("show_status <=", value, "showStatus");
+            addCriterion("show_status <=", value, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusIn(List<Integer> values) {
-            addCriterion("show_status in", values, "showStatus");
+            addCriterion("show_status in", values, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusNotIn(List<Integer> values) {
-            addCriterion("show_status not in", values, "showStatus");
+            addCriterion("show_status not in", values, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusBetween(Integer value1, Integer value2) {
-            addCriterion("show_status between", value1, value2, "showStatus");
+            addCriterion("show_status between", value1, value2, SHOW_STATUS);
             return (Criteria) this;
         }
 
         public Criteria andShowStatusNotBetween(Integer value1, Integer value2) {
-            addCriterion("show_status not between", value1, value2, "showStatus");
+            addCriterion("show_status not between", value1, value2, SHOW_STATUS);
             return (Criteria) this;
         }
 
@@ -438,52 +446,52 @@ public class CmsHelpExample {
         }
 
         public Criteria andCreateTimeEqualTo(Date value) {
-            addCriterion("create_time =", value, "createTime");
+            addCriterion("create_time =", value, CREATE_TIME);
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeNotEqualTo(Date value) {
-            addCriterion("create_time <>", value, "createTime");
+            addCriterion("create_time <>", value, CREATE_TIME);
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeGreaterThan(Date value) {
-            addCriterion("create_time >", value, "createTime");
+            addCriterion("create_time >", value, CREATE_TIME);
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("create_time >=", value, "createTime");
+            addCriterion("create_time >=", value, CREATE_TIME);
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeLessThan(Date value) {
-            addCriterion("create_time <", value, "createTime");
+            addCriterion("create_time <", value, CREATE_TIME);
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
-            addCriterion("create_time <=", value, "createTime");
+            addCriterion("create_time <=", value, CREATE_TIME);
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterion("create_time in", values, "createTime");
+            addCriterion("create_time in", values, CREATE_TIME);
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeNotIn(List<Date> values) {
-            addCriterion("create_time not in", values, "createTime");
+            addCriterion("create_time not in", values, CREATE_TIME);
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeBetween(Date value1, Date value2) {
-            addCriterion("create_time between", value1, value2, "createTime");
+            addCriterion("create_time between", value1, value2, CREATE_TIME);
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
-            addCriterion("create_time not between", value1, value2, "createTime");
+            addCriterion("create_time not between", value1, value2, CREATE_TIME);
             return (Criteria) this;
         }
 
@@ -498,52 +506,52 @@ public class CmsHelpExample {
         }
 
         public Criteria andReadCountEqualTo(Integer value) {
-            addCriterion("read_count =", value, "readCount");
+            addCriterion("read_count =", value, READ_COUNT);
             return (Criteria) this;
         }
 
         public Criteria andReadCountNotEqualTo(Integer value) {
-            addCriterion("read_count <>", value, "readCount");
+            addCriterion("read_count <>", value, READ_COUNT);
             return (Criteria) this;
         }
 
         public Criteria andReadCountGreaterThan(Integer value) {
-            addCriterion("read_count >", value, "readCount");
+            addCriterion("read_count >", value, READ_COUNT);
             return (Criteria) this;
         }
 
         public Criteria andReadCountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("read_count >=", value, "readCount");
+            addCriterion("read_count >=", value, READ_COUNT);
             return (Criteria) this;
         }
 
         public Criteria andReadCountLessThan(Integer value) {
-            addCriterion("read_count <", value, "readCount");
+            addCriterion("read_count <", value, READ_COUNT);
             return (Criteria) this;
         }
 
         public Criteria andReadCountLessThanOrEqualTo(Integer value) {
-            addCriterion("read_count <=", value, "readCount");
+            addCriterion("read_count <=", value, READ_COUNT);
             return (Criteria) this;
         }
 
         public Criteria andReadCountIn(List<Integer> values) {
-            addCriterion("read_count in", values, "readCount");
+            addCriterion("read_count in", values, READ_COUNT);
             return (Criteria) this;
         }
 
         public Criteria andReadCountNotIn(List<Integer> values) {
-            addCriterion("read_count not in", values, "readCount");
+            addCriterion("read_count not in", values, READ_COUNT);
             return (Criteria) this;
         }
 
         public Criteria andReadCountBetween(Integer value1, Integer value2) {
-            addCriterion("read_count between", value1, value2, "readCount");
+            addCriterion("read_count between", value1, value2, READ_COUNT);
             return (Criteria) this;
         }
 
         public Criteria andReadCountNotBetween(Integer value1, Integer value2) {
-            addCriterion("read_count not between", value1, value2, "readCount");
+            addCriterion("read_count not between", value1, value2, READ_COUNT);
             return (Criteria) this;
         }
     }
@@ -557,7 +565,7 @@ public class CmsHelpExample {
 
     public static class Criterion {
 
-        private String condition;
+        private final String condition;
 
         private Object value;
 
@@ -571,7 +579,7 @@ public class CmsHelpExample {
 
         private boolean listValue;
 
-        private String typeHandler;
+        private final String typeHandler;
 
         public String getCondition() {
             return condition;

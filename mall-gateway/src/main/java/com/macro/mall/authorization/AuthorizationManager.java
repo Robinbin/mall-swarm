@@ -7,6 +7,7 @@ import com.macro.mall.common.constant.AuthConstant;
 import com.macro.mall.common.domain.UserDto;
 import com.macro.mall.config.IgnoreUrlsConfig;
 import com.nimbusds.jose.JWSObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpMethod;
@@ -33,6 +34,7 @@ import java.util.stream.Collectors;
  * 鉴权管理器，用于判断是否有资源的访问权限 Created by macro on 2020/6/19.
  */
 @Component
+@Slf4j
 public class AuthorizationManager implements ReactiveAuthorizationManager<AuthorizationContext> {
 
     @Autowired
@@ -75,7 +77,7 @@ public class AuthorizationManager implements ReactiveAuthorizationManager<Author
                 return Mono.just(new AuthorizationDecision(false));
             }
         } catch (ParseException e) {
-            e.printStackTrace();
+            log.info("解释Token错误: {}", e.getMessage());
             return Mono.just(new AuthorizationDecision(false));
         }
         //非管理端路径直接放行

@@ -1,8 +1,9 @@
 package com.macro.mall.portal.service.impl;
 
+import static com.github.pagehelper.page.PageMethod.startPage;
+
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
-import com.github.pagehelper.PageHelper;
 import com.macro.mall.common.api.CommonPage;
 import com.macro.mall.common.exception.Asserts;
 import com.macro.mall.common.service.RedisService;
@@ -363,7 +364,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
     public void sendDelayMessageCancelOrder(Long orderId) {
         //获取订单超时时间
         OmsOrderSetting orderSetting = orderSettingMapper.selectByPrimaryKey(1L);
-        long delayTimes = orderSetting.getNormalOrderOvertime() * 60 * 1000;
+        long delayTimes = orderSetting.getNormalOrderOvertime() * 60 * 1000L;
         //发送延迟消息
         cancelOrderSender.sendMessage(orderId, delayTimes);
     }
@@ -390,7 +391,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
             status = null;
         }
         UmsMember member = memberService.getCurrentMember();
-        PageHelper.startPage(pageNum, pageSize);
+        startPage(pageNum, pageSize);
         OmsOrderExample orderExample = new OmsOrderExample();
         OmsOrderExample.Criteria criteria = orderExample.createCriteria();
         criteria.andDeleteStatusEqualTo(0)

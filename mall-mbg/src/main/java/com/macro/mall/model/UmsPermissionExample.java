@@ -1,5 +1,9 @@
 package com.macro.mall.model;
 
+import static com.macro.mall.constant.MbgConstants.ID;
+import static com.macro.mall.constant.MbgConstants.NAME;
+import static com.macro.mall.constant.MbgConstants.SORT;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -118,52 +122,52 @@ public class UmsPermissionExample {
         }
 
         public Criteria andIdEqualTo(Long value) {
-            addCriterion("id =", value, "id");
+            addCriterion("id =", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("id <>", value, "id");
+            addCriterion("id <>", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThan(Long value) {
-            addCriterion("id >", value, "id");
+            addCriterion("id >", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("id >=", value, "id");
+            addCriterion("id >=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThan(Long value) {
-            addCriterion("id <", value, "id");
+            addCriterion("id <", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("id <=", value, "id");
+            addCriterion("id <=", value, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdIn(List<Long> values) {
-            addCriterion("id in", values, "id");
+            addCriterion("id in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("id not in", values, "id");
+            addCriterion("id not in", values, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("id between", value1, value2, "id");
+            addCriterion("id between", value1, value2, ID);
             return (Criteria) this;
         }
 
         public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("id not between", value1, value2, "id");
+            addCriterion("id not between", value1, value2, ID);
             return (Criteria) this;
         }
 
@@ -238,62 +242,62 @@ public class UmsPermissionExample {
         }
 
         public Criteria andNameEqualTo(String value) {
-            addCriterion("name =", value, "name");
+            addCriterion("name =", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameNotEqualTo(String value) {
-            addCriterion("name <>", value, "name");
+            addCriterion("name <>", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameGreaterThan(String value) {
-            addCriterion("name >", value, "name");
+            addCriterion("name >", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("name >=", value, "name");
+            addCriterion("name >=", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameLessThan(String value) {
-            addCriterion("name <", value, "name");
+            addCriterion("name <", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("name <=", value, "name");
+            addCriterion("name <=", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameLike(String value) {
-            addCriterion("name like", value, "name");
+            addCriterion("name like", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameNotLike(String value) {
-            addCriterion("name not like", value, "name");
+            addCriterion("name not like", value, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameIn(List<String> values) {
-            addCriterion("name in", values, "name");
+            addCriterion("name in", values, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameNotIn(List<String> values) {
-            addCriterion("name not in", values, "name");
+            addCriterion("name not in", values, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("name between", value1, value2, "name");
+            addCriterion("name between", value1, value2, NAME);
             return (Criteria) this;
         }
 
         public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("name not between", value1, value2, "name");
+            addCriterion("name not between", value1, value2, NAME);
             return (Criteria) this;
         }
 
@@ -698,52 +702,52 @@ public class UmsPermissionExample {
         }
 
         public Criteria andSortEqualTo(Integer value) {
-            addCriterion("sort =", value, "sort");
+            addCriterion("sort =", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortNotEqualTo(Integer value) {
-            addCriterion("sort <>", value, "sort");
+            addCriterion("sort <>", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortGreaterThan(Integer value) {
-            addCriterion("sort >", value, "sort");
+            addCriterion("sort >", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sort >=", value, "sort");
+            addCriterion("sort >=", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortLessThan(Integer value) {
-            addCriterion("sort <", value, "sort");
+            addCriterion("sort <", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortLessThanOrEqualTo(Integer value) {
-            addCriterion("sort <=", value, "sort");
+            addCriterion("sort <=", value, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortIn(List<Integer> values) {
-            addCriterion("sort in", values, "sort");
+            addCriterion("sort in", values, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortNotIn(List<Integer> values) {
-            addCriterion("sort not in", values, "sort");
+            addCriterion("sort not in", values, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortBetween(Integer value1, Integer value2) {
-            addCriterion("sort between", value1, value2, "sort");
+            addCriterion("sort between", value1, value2, SORT);
             return (Criteria) this;
         }
 
         public Criteria andSortNotBetween(Integer value1, Integer value2) {
-            addCriterion("sort not between", value1, value2, "sort");
+            addCriterion("sort not between", value1, value2, SORT);
             return (Criteria) this;
         }
     }
@@ -757,7 +761,7 @@ public class UmsPermissionExample {
 
     public static class Criterion {
 
-        private String condition;
+        private final String condition;
 
         private Object value;
 
@@ -771,7 +775,7 @@ public class UmsPermissionExample {
 
         private boolean listValue;
 
-        private String typeHandler;
+        private final String typeHandler;
 
         public String getCondition() {
             return condition;
