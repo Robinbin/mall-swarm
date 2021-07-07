@@ -10,10 +10,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -33,7 +34,7 @@ public class OmsCartItemController {
     private UmsMemberService memberService;
 
     @ApiOperation("添加商品到购物车")
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @PostMapping("/add")
     @ResponseBody
     public CommonResult add(@RequestBody OmsCartItem cartItem) {
         int count = cartItemService.add(cartItem);
@@ -44,7 +45,7 @@ public class OmsCartItemController {
     }
 
     @ApiOperation("获取某个会员的购物车列表")
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @GetMapping("/list")
     @ResponseBody
     public CommonResult<List<OmsCartItem>> list() {
         List<OmsCartItem> cartItemList = cartItemService.list(memberService.getCurrentMember().getId());
@@ -52,7 +53,7 @@ public class OmsCartItemController {
     }
 
     @ApiOperation("获取某个会员的购物车列表,包括促销信息")
-    @RequestMapping(value = "/list/promotion", method = RequestMethod.GET)
+    @GetMapping("/list/promotion")
     @ResponseBody
     public CommonResult<List<CartPromotionItem>> listPromotion(@RequestParam(required = false) List<Long> cartIds) {
         List<CartPromotionItem>
@@ -62,7 +63,7 @@ public class OmsCartItemController {
     }
 
     @ApiOperation("修改购物车中某个商品的数量")
-    @RequestMapping(value = "/update/quantity", method = RequestMethod.GET)
+    @GetMapping("/update/quantity")
     @ResponseBody
     public CommonResult updateQuantity(@RequestParam Long id,
                                        @RequestParam Integer quantity) {
@@ -74,7 +75,7 @@ public class OmsCartItemController {
     }
 
     @ApiOperation("获取购物车中某个商品的规格,用于重选规格")
-    @RequestMapping(value = "/getProduct/{productId}", method = RequestMethod.GET)
+    @GetMapping("/getProduct/{productId}")
     @ResponseBody
     public CommonResult<CartProduct> getCartProduct(@PathVariable Long productId) {
         CartProduct cartProduct = cartItemService.getCartProduct(productId);
@@ -82,7 +83,7 @@ public class OmsCartItemController {
     }
 
     @ApiOperation("修改购物车中商品的规格")
-    @RequestMapping(value = "/update/attr", method = RequestMethod.POST)
+    @PostMapping("/update/attr")
     @ResponseBody
     public CommonResult updateAttr(@RequestBody OmsCartItem cartItem) {
         int count = cartItemService.updateAttr(cartItem);
@@ -93,7 +94,7 @@ public class OmsCartItemController {
     }
 
     @ApiOperation("删除购物车中的某个商品")
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @PostMapping("/delete")
     @ResponseBody
     public CommonResult delete(@RequestParam("ids") List<Long> ids) {
         int count = cartItemService.delete(memberService.getCurrentMember().getId(), ids);
@@ -104,7 +105,7 @@ public class OmsCartItemController {
     }
 
     @ApiOperation("清空购物车")
-    @RequestMapping(value = "/clear", method = RequestMethod.POST)
+    @PostMapping("/clear")
     @ResponseBody
     public CommonResult clear() {
         int count = cartItemService.clear(memberService.getCurrentMember().getId());

@@ -7,10 +7,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class UmsResourceCategoryController {
     private UmsResourceCategoryService resourceCategoryService;
 
     @ApiOperation("查询所有后台资源分类")
-    @RequestMapping(value = "/listAll", method = RequestMethod.GET)
+    @GetMapping("/listAll")
     @ResponseBody
     public CommonResult<List<UmsResourceCategory>> listAll() {
         List<UmsResourceCategory> resourceList = resourceCategoryService.listAll();
@@ -35,7 +36,7 @@ public class UmsResourceCategoryController {
     }
 
     @ApiOperation("添加后台资源分类")
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @PostMapping("/create")
     @ResponseBody
     public CommonResult create(@RequestBody UmsResourceCategory umsResourceCategory) {
         int count = resourceCategoryService.create(umsResourceCategory);
@@ -47,7 +48,7 @@ public class UmsResourceCategoryController {
     }
 
     @ApiOperation("修改后台资源分类")
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @PostMapping("/update/{id}")
     @ResponseBody
     public CommonResult update(@PathVariable Long id,
                                @RequestBody UmsResourceCategory umsResourceCategory) {
@@ -60,7 +61,7 @@ public class UmsResourceCategoryController {
     }
 
     @ApiOperation("根据ID删除后台资源")
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @PostMapping("/delete/{id}")
     @ResponseBody
     public CommonResult delete(@PathVariable Long id) {
         int count = resourceCategoryService.delete(id);

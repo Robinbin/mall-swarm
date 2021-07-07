@@ -8,8 +8,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -25,7 +26,7 @@ public class UmsMemberController {
     private UmsMemberService memberService;
 
     @ApiOperation("会员注册")
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @PostMapping("/register")
     @ResponseBody
     public CommonResult register(@RequestParam String username,
                                  @RequestParam String password,
@@ -36,7 +37,7 @@ public class UmsMemberController {
     }
 
     @ApiOperation("会员登录")
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @PostMapping("/login")
     @ResponseBody
     public CommonResult login(@RequestParam String username,
                               @RequestParam String password) {
@@ -44,7 +45,7 @@ public class UmsMemberController {
     }
 
     @ApiOperation("获取会员信息")
-    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    @GetMapping("/info")
     @ResponseBody
     public CommonResult info() {
         UmsMember member = memberService.getCurrentMember();
@@ -52,7 +53,7 @@ public class UmsMemberController {
     }
 
     @ApiOperation("获取验证码")
-    @RequestMapping(value = "/getAuthCode", method = RequestMethod.GET)
+    @GetMapping("/getAuthCode")
     @ResponseBody
     public CommonResult getAuthCode(@RequestParam String telephone) {
         String authCode = memberService.generateAuthCode(telephone);
@@ -60,7 +61,7 @@ public class UmsMemberController {
     }
 
     @ApiOperation("修改密码")
-    @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
+    @PostMapping("/updatePassword")
     @ResponseBody
     public CommonResult updatePassword(@RequestParam String telephone,
                                        @RequestParam String password,
@@ -70,7 +71,7 @@ public class UmsMemberController {
     }
 
     @ApiOperation("根据用户名获取通用用户信息")
-    @RequestMapping(value = "/loadByUsername", method = RequestMethod.GET)
+    @GetMapping("/loadByUsername")
     @ResponseBody
     public UserDto loadUserByUsername(@RequestParam String username) {
         return memberService.loadUserByUsername(username);

@@ -7,10 +7,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,7 +29,7 @@ public class PmsSkuStockController {
     private PmsSkuStockService skuStockService;
 
     @ApiOperation("根据商品编号及编号模糊搜索sku库存")
-    @RequestMapping(value = "/{pid}", method = RequestMethod.GET)
+    @GetMapping("/{pid}")
     @ResponseBody
     public CommonResult<List<PmsSkuStock>> getList(@PathVariable Long pid,
                                                    @RequestParam(value = "keyword", required = false) String keyword) {
@@ -37,7 +38,7 @@ public class PmsSkuStockController {
     }
 
     @ApiOperation("批量更新库存信息")
-    @RequestMapping(value = "/update/{pid}", method = RequestMethod.POST)
+    @PostMapping("/update/{pid}")
     @ResponseBody
     public CommonResult update(@PathVariable Long pid, @RequestBody List<PmsSkuStock> skuStockList) {
         int count = skuStockService.update(pid, skuStockList);

@@ -19,8 +19,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,7 +48,7 @@ public class MinioController {
     private String SECRET_KEY;
 
     @ApiOperation("文件上传")
-    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    @PostMapping("/upload")
     @ResponseBody
     public CommonResult upload(@RequestParam("file") MultipartFile file) {
         try {
@@ -105,7 +105,7 @@ public class MinioController {
     }
 
     @ApiOperation("文件删除")
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @PostMapping("/delete")
     @ResponseBody
     public CommonResult delete(@RequestParam("objectName") String objectName) {
         try {

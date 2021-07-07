@@ -11,10 +11,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -32,7 +33,7 @@ public class PmsProductController {
     private PmsProductService productService;
 
     @ApiOperation("创建商品")
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @PostMapping("/create")
     @ResponseBody
     public CommonResult create(@RequestBody PmsProductParam productParam) {
         int count = productService.create(productParam);
@@ -44,7 +45,7 @@ public class PmsProductController {
     }
 
     @ApiOperation("根据商品id获取商品编辑信息")
-    @RequestMapping(value = "/updateInfo/{id}", method = RequestMethod.GET)
+    @GetMapping("/updateInfo/{id}")
     @ResponseBody
     public CommonResult<PmsProductResult> getUpdateInfo(@PathVariable Long id) {
         PmsProductResult productResult = productService.getUpdateInfo(id);
@@ -52,7 +53,7 @@ public class PmsProductController {
     }
 
     @ApiOperation("更新商品")
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @PostMapping("/update/{id}")
     @ResponseBody
     public CommonResult update(@PathVariable Long id, @RequestBody PmsProductParam productParam) {
         int count = productService.update(id, productParam);
@@ -64,7 +65,7 @@ public class PmsProductController {
     }
 
     @ApiOperation("查询商品")
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @GetMapping("/list")
     @ResponseBody
     public CommonResult<CommonPage<PmsProduct>> getList(PmsProductQueryParam productQueryParam,
                                                         @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
@@ -74,7 +75,7 @@ public class PmsProductController {
     }
 
     @ApiOperation("根据商品名称或货号模糊查询")
-    @RequestMapping(value = "/simpleList", method = RequestMethod.GET)
+    @GetMapping("/simpleList")
     @ResponseBody
     public CommonResult<List<PmsProduct>> getList(String keyword) {
         List<PmsProduct> productList = productService.list(keyword);
@@ -82,7 +83,7 @@ public class PmsProductController {
     }
 
     @ApiOperation("批量修改审核状态")
-    @RequestMapping(value = "/update/verifyStatus", method = RequestMethod.POST)
+    @PostMapping("/update/verifyStatus")
     @ResponseBody
     public CommonResult updateVerifyStatus(@RequestParam("ids") List<Long> ids,
                                            @RequestParam("verifyStatus") Integer verifyStatus,
@@ -96,7 +97,7 @@ public class PmsProductController {
     }
 
     @ApiOperation("批量上下架")
-    @RequestMapping(value = "/update/publishStatus", method = RequestMethod.POST)
+    @PostMapping("/update/publishStatus")
     @ResponseBody
     public CommonResult updatePublishStatus(@RequestParam("ids") List<Long> ids,
                                             @RequestParam("publishStatus") Integer publishStatus) {
@@ -109,7 +110,7 @@ public class PmsProductController {
     }
 
     @ApiOperation("批量推荐商品")
-    @RequestMapping(value = "/update/recommendStatus", method = RequestMethod.POST)
+    @PostMapping("/update/recommendStatus")
     @ResponseBody
     public CommonResult updateRecommendStatus(@RequestParam("ids") List<Long> ids,
                                               @RequestParam("recommendStatus") Integer recommendStatus) {
@@ -122,7 +123,7 @@ public class PmsProductController {
     }
 
     @ApiOperation("批量设为新品")
-    @RequestMapping(value = "/update/newStatus", method = RequestMethod.POST)
+    @PostMapping("/update/newStatus")
     @ResponseBody
     public CommonResult updateNewStatus(@RequestParam("ids") List<Long> ids,
                                         @RequestParam("newStatus") Integer newStatus) {
@@ -135,7 +136,7 @@ public class PmsProductController {
     }
 
     @ApiOperation("批量修改删除状态")
-    @RequestMapping(value = "/update/deleteStatus", method = RequestMethod.POST)
+    @PostMapping("/update/deleteStatus")
     @ResponseBody
     public CommonResult updateDeleteStatus(@RequestParam("ids") List<Long> ids,
                                            @RequestParam("deleteStatus") Integer deleteStatus) {

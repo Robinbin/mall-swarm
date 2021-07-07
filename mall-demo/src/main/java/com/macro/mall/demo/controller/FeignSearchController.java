@@ -5,8 +5,9 @@ import com.macro.mall.demo.service.FeignSearchService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,7 @@ public class FeignSearchController {
     private FeignSearchService feignSearchService;
 
     @ApiOperation(value = "简单商品搜索")
-    @RequestMapping(value = "/justSearch", method = RequestMethod.GET)
+    @GetMapping("/justSearch")
     @ResponseBody
     public CommonResult search(@RequestParam(required = false) String keyword,
                                @RequestParam(required = false, defaultValue = "0") Integer pageNum,
@@ -33,7 +34,7 @@ public class FeignSearchController {
     }
 
     @ApiOperation(value = "导入商品")
-    @RequestMapping(value = "/importAll", method = RequestMethod.POST)
+    @PostMapping("/importAll")
     @ResponseBody
     public CommonResult<Integer> importAll() {
         return feignSearchService.importAllList();

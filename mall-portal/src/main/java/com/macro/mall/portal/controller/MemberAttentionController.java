@@ -9,9 +9,10 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,7 +28,7 @@ public class MemberAttentionController {
     private MemberAttentionService memberAttentionService;
 
     @ApiOperation("添加品牌关注")
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @PostMapping("/add")
     @ResponseBody
     public CommonResult add(@RequestBody MemberBrandAttention memberBrandAttention) {
         int count = memberAttentionService.add(memberBrandAttention);
@@ -39,7 +40,7 @@ public class MemberAttentionController {
     }
 
     @ApiOperation("取消关注")
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @PostMapping("/delete")
     @ResponseBody
     public CommonResult delete(Long brandId) {
         int count = memberAttentionService.delete(brandId);
@@ -51,7 +52,7 @@ public class MemberAttentionController {
     }
 
     @ApiOperation("显示关注列表")
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @GetMapping("/list")
     @ResponseBody
     public CommonResult<CommonPage<MemberBrandAttention>> list(
         @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
@@ -61,7 +62,7 @@ public class MemberAttentionController {
     }
 
     @ApiOperation("显示关注品牌详情")
-    @RequestMapping(value = "/detail", method = RequestMethod.GET)
+    @GetMapping("/detail")
     @ResponseBody
     public CommonResult<MemberBrandAttention> detail(@RequestParam Long brandId) {
         MemberBrandAttention memberBrandAttention = memberAttentionService.detail(brandId);
@@ -69,7 +70,7 @@ public class MemberAttentionController {
     }
 
     @ApiOperation("清空关注列表")
-    @RequestMapping(value = "/clear", method = RequestMethod.POST)
+    @PostMapping("/clear")
     @ResponseBody
     public CommonResult clear() {
         memberAttentionService.clear();

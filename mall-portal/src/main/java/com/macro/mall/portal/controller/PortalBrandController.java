@@ -9,9 +9,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -29,7 +29,7 @@ public class PortalBrandController {
     private PortalBrandService homeBrandService;
 
     @ApiOperation("分页获取推荐品牌")
-    @RequestMapping(value = "/recommendList", method = RequestMethod.GET)
+    @GetMapping("/recommendList")
     @ResponseBody
     public CommonResult<List<PmsBrand>> recommendList(
         @RequestParam(value = "pageSize", defaultValue = "6") Integer pageSize,
@@ -39,7 +39,7 @@ public class PortalBrandController {
     }
 
     @ApiOperation("获取品牌详情")
-    @RequestMapping(value = "/detail/{brandId}", method = RequestMethod.GET)
+    @GetMapping("/detail/{brandId}")
     @ResponseBody
     public CommonResult<PmsBrand> detail(@PathVariable Long brandId) {
         PmsBrand brand = homeBrandService.detail(brandId);
@@ -47,7 +47,7 @@ public class PortalBrandController {
     }
 
     @ApiOperation("分页获取品牌相关商品")
-    @RequestMapping(value = "/productList", method = RequestMethod.GET)
+    @GetMapping("/productList")
     @ResponseBody
     public CommonResult<CommonPage<PmsProduct>> productList(@RequestParam Long brandId,
                                                             @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,

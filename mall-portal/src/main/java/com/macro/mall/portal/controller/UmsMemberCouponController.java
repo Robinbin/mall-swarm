@@ -13,9 +13,10 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -37,7 +38,7 @@ public class UmsMemberCouponController {
     private UmsMemberService memberService;
 
     @ApiOperation("领取指定优惠券")
-    @RequestMapping(value = "/add/{couponId}", method = RequestMethod.POST)
+    @PostMapping("/add/{couponId}")
     @ResponseBody
     public CommonResult add(@PathVariable Long couponId) {
         memberCouponService.add(couponId);
@@ -47,7 +48,7 @@ public class UmsMemberCouponController {
     @ApiOperation("获取用户优惠券历史列表")
     @ApiImplicitParam(name = "useStatus", value = "优惠券筛选类型:0->未使用；1->已使用；2->已过期",
         allowableValues = "0,1,2", paramType = "query", dataType = "integer")
-    @RequestMapping(value = "/listHistory", method = RequestMethod.GET)
+    @GetMapping("/listHistory")
     @ResponseBody
     public CommonResult<List<SmsCouponHistory>> listHistory(
         @RequestParam(value = "useStatus", required = false) Integer useStatus) {
@@ -58,7 +59,7 @@ public class UmsMemberCouponController {
     @ApiOperation("获取用户优惠券列表")
     @ApiImplicitParam(name = "useStatus", value = "优惠券筛选类型:0->未使用；1->已使用；2->已过期",
         allowableValues = "0,1,2", paramType = "query", dataType = "integer")
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @GetMapping("/list")
     @ResponseBody
     public CommonResult<List<SmsCoupon>> list(@RequestParam(value = "useStatus", required = false) Integer useStatus) {
         List<SmsCoupon> couponList = memberCouponService.list(useStatus);
@@ -68,7 +69,7 @@ public class UmsMemberCouponController {
     @ApiOperation("获取登录会员购物车的相关优惠券")
     @ApiImplicitParam(name = "type", value = "使用可用:0->不可用；1->可用",
         defaultValue = "1", allowableValues = "0,1", paramType = "query", dataType = "integer")
-    @RequestMapping(value = "/list/cart/{type}", method = RequestMethod.GET)
+    @GetMapping("/list/cart/{type}")
     @ResponseBody
     public CommonResult<List<SmsCouponHistoryDetail>> listCart(@PathVariable Integer type) {
         List<CartPromotionItem>
@@ -79,7 +80,7 @@ public class UmsMemberCouponController {
     }
 
     @ApiOperation("获取当前商品相关优惠券")
-    @RequestMapping(value = "/listByProduct/{productId}", method = RequestMethod.GET)
+    @GetMapping("/listByProduct/{productId}")
     @ResponseBody
     public CommonResult<List<SmsCoupon>> listByProduct(@PathVariable Long productId) {
         List<SmsCoupon> couponHistoryList = memberCouponService.listByProduct(productId);

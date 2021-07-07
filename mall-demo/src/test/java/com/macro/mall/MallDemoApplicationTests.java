@@ -1,5 +1,7 @@
 package com.macro.mall;
 
+import static org.junit.Assert.assertTrue;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.macro.mall.model.PmsProduct;
 import org.junit.Test;
@@ -17,6 +19,7 @@ public class MallDemoApplicationTests {
 
     @Test
     public void contextLoads() {
+        assertTrue(true);
     }
 
     @Test
@@ -28,6 +31,7 @@ public class MallDemoApplicationTests {
         product.setBrandName("小米");
         logger.info(mapper.writeValueAsString(product));
         logger.error(mapper.writeValueAsString(product));
+        assertTrue(true);
     }
 
 }

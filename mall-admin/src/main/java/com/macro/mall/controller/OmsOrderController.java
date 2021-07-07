@@ -13,10 +13,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -34,7 +35,7 @@ public class OmsOrderController {
     private OmsOrderService orderService;
 
     @ApiOperation("查询订单")
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @GetMapping("/list")
     @ResponseBody
     public CommonResult<CommonPage<OmsOrder>> list(OmsOrderQueryParam queryParam,
                                                    @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
@@ -44,7 +45,7 @@ public class OmsOrderController {
     }
 
     @ApiOperation("批量发货")
-    @RequestMapping(value = "/update/delivery", method = RequestMethod.POST)
+    @PostMapping("/update/delivery")
     @ResponseBody
     public CommonResult delivery(@RequestBody List<OmsOrderDeliveryParam> deliveryParamList) {
         int count = orderService.delivery(deliveryParamList);
@@ -55,7 +56,7 @@ public class OmsOrderController {
     }
 
     @ApiOperation("批量关闭订单")
-    @RequestMapping(value = "/update/close", method = RequestMethod.POST)
+    @PostMapping("/update/close")
     @ResponseBody
     public CommonResult close(@RequestParam("ids") List<Long> ids, @RequestParam String note) {
         int count = orderService.close(ids, note);
@@ -66,7 +67,7 @@ public class OmsOrderController {
     }
 
     @ApiOperation("批量删除订单")
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @PostMapping("/delete")
     @ResponseBody
     public CommonResult delete(@RequestParam("ids") List<Long> ids) {
         int count = orderService.delete(ids);
@@ -77,7 +78,7 @@ public class OmsOrderController {
     }
 
     @ApiOperation("获取订单详情:订单信息、商品信息、操作记录")
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping("/{id}")
     @ResponseBody
     public CommonResult<OmsOrderDetail> detail(@PathVariable Long id) {
         OmsOrderDetail orderDetailResult = orderService.detail(id);
@@ -85,7 +86,7 @@ public class OmsOrderController {
     }
 
     @ApiOperation("修改收货人信息")
-    @RequestMapping(value = "/update/receiverInfo", method = RequestMethod.POST)
+    @PostMapping("/update/receiverInfo")
     @ResponseBody
     public CommonResult updateReceiverInfo(@RequestBody OmsReceiverInfoParam receiverInfoParam) {
         int count = orderService.updateReceiverInfo(receiverInfoParam);
@@ -96,7 +97,7 @@ public class OmsOrderController {
     }
 
     @ApiOperation("修改订单费用信息")
-    @RequestMapping(value = "/update/moneyInfo", method = RequestMethod.POST)
+    @PostMapping("/update/moneyInfo")
     @ResponseBody
     public CommonResult updateReceiverInfo(@RequestBody OmsMoneyInfoParam moneyInfoParam) {
         int count = orderService.updateMoneyInfo(moneyInfoParam);
@@ -107,7 +108,7 @@ public class OmsOrderController {
     }
 
     @ApiOperation("备注订单")
-    @RequestMapping(value = "/update/note", method = RequestMethod.POST)
+    @PostMapping("/update/note")
     @ResponseBody
     public CommonResult updateNote(@RequestParam("id") Long id,
                                    @RequestParam("note") String note,
