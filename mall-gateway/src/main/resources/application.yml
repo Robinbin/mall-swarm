@@ -1,6 +1,10 @@
 server:
   port: 8201
 spring:
+  profiles:
+    active: dev
+  application:
+    name: mall-gateway
   cloud:
     gateway:
       discovery:
@@ -54,11 +58,11 @@ secure:
       - "/doc.html"
       - "/swagger-resources/**"
       - "/swagger/**"
-      - "/**/v2/api-docs"
-      - "/**/*.js"
-      - "/**/*.css"
-      - "/**/*.png"
-      - "/**/*.ico"
+      - "/*/v2/api-docs"
+      - "/*/*.js"
+      - "/*/*.css"
+      - "/*/*.png"
+      - "/*/*.ico"
       - "/webjars/springfox-swagger-ui/**"
       - "/actuator/**"
       - "/mall-auth/oauth/token"

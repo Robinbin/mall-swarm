@@ -1,6 +1,10 @@
 server:
   port: 8082
 spring:
+  profiles:
+    active: dev
+  application:
+    name: mall-demo
   datasource:
     url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root

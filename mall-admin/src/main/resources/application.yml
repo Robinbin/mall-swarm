@@ -1,6 +1,10 @@
 server:
   port: 8080
 spring:
+  profiles:
+    active: dev
+  application:
+    name: mall-admin
   datasource:
     url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
@@ -70,6 +74,3 @@ feign:
 ribbon:
   ConnectTimeout: 3000 #服务请求连接超时时间（毫秒）
   ReadTimeout: 3000 #服务请求处理超时时间（毫秒）
-
-logging:
-  file: mall-admin.log
