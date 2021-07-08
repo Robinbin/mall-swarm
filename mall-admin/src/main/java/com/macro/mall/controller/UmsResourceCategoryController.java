@@ -20,8 +20,9 @@ import java.util.List;
  * 后台资源分类管理Controller Created by macro on 2020/2/5.
  */
 @Controller
-@Api(tags = "UmsResourceCategoryController", description = "后台资源分类管理")
+@Api(tags = "UmsResourceCategoryController", value = "后台资源分类管理")
 @RequestMapping("/resourceCategory")
+@SuppressWarnings("rawtypes")
 public class UmsResourceCategoryController {
 
     @Autowired

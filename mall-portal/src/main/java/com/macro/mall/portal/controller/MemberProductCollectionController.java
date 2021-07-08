@@ -20,8 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 会员收藏管理Controller Created by macro on 2018/8/2.
  */
 @Controller
-@Api(tags = "MemberCollectionController", description = "会员收藏管理")
+@Api(tags = "MemberCollectionController", value = "会员收藏管理")
 @RequestMapping("/member/productCollection")
+@SuppressWarnings("rawtypes")
 public class MemberProductCollectionController {
 
     @Autowired

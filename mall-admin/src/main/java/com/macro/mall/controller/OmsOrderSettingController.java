@@ -18,8 +18,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 订单设置Controller Created by macro on 2018/10/16.
  */
 @Controller
-@Api(tags = "OmsOrderSettingController", description = "订单设置管理")
+@Api(tags = "OmsOrderSettingController", value = "订单设置管理")
 @RequestMapping("/orderSetting")
+@SuppressWarnings("rawtypes")
 public class OmsOrderSettingController {
 
     @Autowired

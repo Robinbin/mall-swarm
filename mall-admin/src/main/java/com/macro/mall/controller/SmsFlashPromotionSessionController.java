@@ -21,8 +21,9 @@ import java.util.List;
  * 限时购场次管理Controller Created by macro on 2018/11/16.
  */
 @Controller
-@Api(tags = "SmsFlashPromotionSessionController", description = "限时购场次管理")
+@Api(tags = "SmsFlashPromotionSessionController", value = "限时购场次管理")
 @RequestMapping("/flashSession")
+@SuppressWarnings("rawtypes")
 public class SmsFlashPromotionSessionController {
 
     @Autowired

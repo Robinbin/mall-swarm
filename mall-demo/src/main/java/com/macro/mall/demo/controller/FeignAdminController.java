@@ -18,9 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Feign调用mall-admin接口示例
  */
-@Api(tags = "FeignAdminController", description = "Feign调用mall-admin接口示例")
+@Api(tags = "FeignAdminController", value = "Feign调用mall-admin接口示例")
 @RestController
 @RequestMapping("/feign/admin")
+@SuppressWarnings("rawtypes")
 public class FeignAdminController {
 
     @Autowired

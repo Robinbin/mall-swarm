@@ -18,8 +18,9 @@ import java.util.List;
  * 会员等级管理Controller Created by macro on 2018/4/26.
  */
 @Controller
-@Api(tags = "UmsMemberLevelController", description = "会员等级管理")
+@Api(tags = "UmsMemberLevelController", value = "会员等级管理")
 @RequestMapping("/memberLevel")
+@SuppressWarnings("rawtypes")
 public class UmsMemberLevelController {
 
     @Autowired

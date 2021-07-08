@@ -22,8 +22,9 @@ import java.util.List;
  * 首页轮播广告管理Controller Created by macro on 2018/11/7.
  */
 @Controller
-@Api(tags = "SmsHomeAdvertiseController", description = "首页轮播广告管理")
+@Api(tags = "SmsHomeAdvertiseController", value = "首页轮播广告管理")
 @RequestMapping("/home/advertise")
+@SuppressWarnings("rawtypes")
 public class SmsHomeAdvertiseController {
 
     @Autowired

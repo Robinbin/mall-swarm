@@ -22,8 +22,9 @@ import java.util.List;
  * 退货原因管理Controller Created by macro on 2018/10/17.
  */
 @Controller
-@Api(tags = "OmsOrderReturnReasonController", description = "退货原因管理")
+@Api(tags = "OmsOrderReturnReasonController", value = "退货原因管理")
 @RequestMapping("/returnReason")
+@SuppressWarnings("rawtypes")
 public class OmsOrderReturnReasonController {
 
     @Autowired

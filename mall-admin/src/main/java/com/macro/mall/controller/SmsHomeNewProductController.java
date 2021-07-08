@@ -22,8 +22,9 @@ import java.util.List;
  * 首页新品管理Controller Created by macro on 2018/11/6.
  */
 @Controller
-@Api(tags = "SmsHomeNewProductController", description = "首页新品管理")
+@Api(tags = "SmsHomeNewProductController", value = "首页新品管理")
 @RequestMapping("/home/newProduct")
+@SuppressWarnings("rawtypes")
 public class SmsHomeNewProductController {
 
     @Autowired

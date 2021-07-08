@@ -23,8 +23,9 @@ import java.util.Map;
  * 后台资源管理Controller Created by macro on 2020/2/4.
  */
 @Controller
-@Api(tags = "UmsResourceController", description = "后台资源管理")
+@Api(tags = "UmsResourceController", value = "后台资源管理")
 @RequestMapping("/resource")
+@SuppressWarnings("rawtypes")
 public class UmsResourceController {
 
     @Autowired

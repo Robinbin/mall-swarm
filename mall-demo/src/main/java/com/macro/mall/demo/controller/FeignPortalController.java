@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Feign调用mall-portal接口示例 Created by macro on 2019/10/18.
  */
-@Api(tags = "FeignPortalController", description = "Feign调用mall-portal接口示例")
+@Api(tags = "FeignPortalController", value = "Feign调用mall-portal接口示例")
 @RestController
 @RequestMapping("/feign/portal")
+@SuppressWarnings("rawtypes")
 public class FeignPortalController {
 
     @Autowired

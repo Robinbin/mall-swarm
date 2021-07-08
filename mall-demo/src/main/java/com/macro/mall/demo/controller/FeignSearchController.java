@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Feign调用mall-search接口示例 Created by macro on 2019/10/22.
  */
-@Api(tags = "FeignSearchController", description = "Feign调用mall-search接口示例")
+@Api(tags = "FeignSearchController", value = "Feign调用mall-search接口示例")
 @RestController
 @RequestMapping("/feign/search")
+@SuppressWarnings("rawtypes")
 public class FeignSearchController {
 
     @Autowired

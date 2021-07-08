@@ -60,7 +60,7 @@ public class SmsHomeBrandServiceImpl implements SmsHomeBrandService {
         startPage(pageNum, pageSize);
         SmsHomeBrandExample example = new SmsHomeBrandExample();
         SmsHomeBrandExample.Criteria criteria = example.createCriteria();
-        if (!StringUtils.isEmpty(brandName)) {
+        if (StringUtils.hasLength(brandName)) {
             criteria.andBrandNameLike("%" + brandName + "%");
         }
         if (recommendStatus != null) {

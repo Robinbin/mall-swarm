@@ -24,8 +24,9 @@ import java.util.List;
 /**
  * 商品管理示例Controller
  */
-@Api(tags = "DemoController", description = "商品管理示例接口")
+@Api(tags = "DemoController", value = "商品管理示例接口")
 @Controller
+@SuppressWarnings("rawtypes")
 public class DemoController {
 
     @Autowired

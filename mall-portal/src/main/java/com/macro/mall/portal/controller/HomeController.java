@@ -22,8 +22,9 @@ import java.util.List;
  * 首页内容管理Controller Created by macro on 2019/1/28.
  */
 @Controller
-@Api(tags = "HomeController", description = "首页内容管理")
+@Api(tags = "HomeController", value = "首页内容管理")
 @RequestMapping("/home")
+@SuppressWarnings("rawtypes")
 public class HomeController {
 
     @Autowired

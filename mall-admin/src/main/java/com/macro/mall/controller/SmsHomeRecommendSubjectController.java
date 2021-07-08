@@ -22,8 +22,9 @@ import java.util.List;
  * 首页专题推荐管理Controller Created by macro on 2018/11/6.
  */
 @Controller
-@Api(tags = "SmsHomeRecommendSubjectController", description = "首页专题推荐管理")
+@Api(tags = "SmsHomeRecommendSubjectController", value = "首页专题推荐管理")
 @RequestMapping("/home/recommendSubject")
+@SuppressWarnings("rawtypes")
 public class SmsHomeRecommendSubjectController {
 
     @Autowired

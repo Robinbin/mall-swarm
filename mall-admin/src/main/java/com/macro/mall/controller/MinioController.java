@@ -15,8 +15,6 @@ import io.minio.SetBucketPolicyArgs;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,20 +30,20 @@ import java.util.Date;
  * MinIO对象存储管理 Created by macro on 2019/12/25.
  */
 @Slf4j
-@Api(tags = "MinioController", description = "MinIO对象存储管理")
+@Api(tags = "MinioController", value = "MinIO对象存储管理")
 @Controller
 @RequestMapping("/minio")
+@SuppressWarnings("rawtypes")
 public class MinioController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MinioController.class);
     @Value("${minio.endpoint}")
-    private String ENDPOINT;
+    private String endpoint;
     @Value("${minio.bucketName}")
-    private String BUCKET_NAME;
+    private String bucketName;
     @Value("${minio.accessKey}")
-    private String ACCESS_KEY;
+    private String accessKey;
     @Value("${minio.secretKey}")
-    private String SECRET_KEY;
+    private String secretKey;
 
     @ApiOperation("文件上传")
     @PostMapping("/upload")
@@ -54,18 +52,18 @@ public class MinioController {
         try {
             //创建一个MinIO的Java客户端
             MinioClient minioClient = MinioClient.builder()
-                .endpoint(ENDPOINT)
-                .credentials(ACCESS_KEY, SECRET_KEY)
+                .endpoint(endpoint)
+                .credentials(accessKey, secretKey)
                 .build();
-            boolean isExist = minioClient.bucketExists(BucketExistsArgs.builder().bucket(BUCKET_NAME).build());
+            boolean isExist = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
             if (isExist) {
-                LOGGER.info("存储桶已经存在！");
+                log.info("存储桶已经存在！");
             } else {
                 //创建存储桶并设置只读权限
-                minioClient.makeBucket(MakeBucketArgs.builder().bucket(BUCKET_NAME).build());
-                BucketPolicyConfigDto bucketPolicyConfigDto = createBucketPolicyConfigDto(BUCKET_NAME);
+                minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
+                BucketPolicyConfigDto bucketPolicyConfigDto = createBucketPolicyConfigDto(bucketName);
                 SetBucketPolicyArgs setBucketPolicyArgs = SetBucketPolicyArgs.builder()
-                    .bucket(BUCKET_NAME)
+                    .bucket(bucketName)
                     .config(JSONUtil.toJsonStr(bucketPolicyConfigDto))
                     .build();
                 minioClient.setBucketPolicy(setBucketPolicyArgs);
@@ -76,18 +74,18 @@ public class MinioController {
             String objectName = sdf.format(new Date()) + "/" + filename;
             // 使用putObject上传一个文件到存储桶中
             PutObjectArgs putObjectArgs = PutObjectArgs.builder()
-                .bucket(BUCKET_NAME)
+                .bucket(bucketName)
                 .object(objectName)
                 .contentType(file.getContentType())
                 .stream(file.getInputStream(), file.getSize(), ObjectWriteArgs.MIN_MULTIPART_SIZE).build();
             minioClient.putObject(putObjectArgs);
-            LOGGER.info("文件上传成功!");
+            log.info("文件上传成功!");
             MinioUploadDto minioUploadDto = new MinioUploadDto();
             minioUploadDto.setName(filename);
-            minioUploadDto.setUrl(ENDPOINT + "/" + BUCKET_NAME + "/" + objectName);
+            minioUploadDto.setUrl(endpoint + "/" + bucketName + "/" + objectName);
             return CommonResult.success(minioUploadDto);
         } catch (Exception e) {
-            LOGGER.info("上传发生错误: {}！", e.getMessage(), e);
+            log.info("上传发生错误: {}！", e.getMessage(), e);
         }
         return CommonResult.failed();
     }
@@ -110,13 +108,13 @@ public class MinioController {
     public CommonResult delete(@RequestParam("objectName") String objectName) {
         try {
             MinioClient minioClient = MinioClient.builder()
-                .endpoint(ENDPOINT)
-                .credentials(ACCESS_KEY, SECRET_KEY)
+                .endpoint(endpoint)
+                .credentials(accessKey, secretKey)
                 .build();
-            minioClient.removeObject(RemoveObjectArgs.builder().bucket(BUCKET_NAME).object(objectName).build());
+            minioClient.removeObject(RemoveObjectArgs.builder().bucket(bucketName).object(objectName).build());
             return CommonResult.success(null);
         } catch (Exception e) {
-            LOGGER.info("删除对象错误: {}！", e.getMessage(), e);
+            log.info("删除对象错误: {}！", e.getMessage(), e);
         }
         return CommonResult.failed();
     }

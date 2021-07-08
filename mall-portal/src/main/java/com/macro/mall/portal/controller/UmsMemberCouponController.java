@@ -26,8 +26,9 @@ import java.util.List;
  * 用户优惠券管理Controller Created by macro on 2018/8/29.
  */
 @Controller
-@Api(tags = "UmsMemberCouponController", description = "用户优惠券管理")
+@Api(tags = "UmsMemberCouponController", value = "用户优惠券管理")
 @RequestMapping("/member/coupon")
+@SuppressWarnings("rawtypes")
 public class UmsMemberCouponController {
 
     @Autowired

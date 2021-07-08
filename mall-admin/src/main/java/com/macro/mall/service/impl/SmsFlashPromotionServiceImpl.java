@@ -56,7 +56,7 @@ public class SmsFlashPromotionServiceImpl implements SmsFlashPromotionService {
     public List<SmsFlashPromotion> list(String keyword, Integer pageSize, Integer pageNum) {
         startPage(pageNum, pageSize);
         SmsFlashPromotionExample example = new SmsFlashPromotionExample();
-        if (!StringUtils.isEmpty(keyword)) {
+        if (StringUtils.hasLength(keyword)) {
             example.createCriteria().andTitleLike("%" + keyword + "%");
         }
         return flashPromotionMapper.selectByExample(example);

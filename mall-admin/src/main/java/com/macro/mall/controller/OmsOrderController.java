@@ -27,8 +27,9 @@ import java.util.List;
  * 订单管理Controller Created by macro on 2018/10/11.
  */
 @Controller
-@Api(tags = "OmsOrderController", description = "订单管理")
+@Api(tags = "OmsOrderController", value = "订单管理")
 @RequestMapping("/order")
+@SuppressWarnings("rawtypes")
 public class OmsOrderController {
 
     @Autowired

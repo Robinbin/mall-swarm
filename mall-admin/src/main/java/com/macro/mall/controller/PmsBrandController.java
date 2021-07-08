@@ -24,8 +24,9 @@ import java.util.List;
  * 品牌功能Controller Created by macro on 2018/4/26.
  */
 @Controller
-@Api(tags = "PmsBrandController", description = "商品品牌管理")
+@Api(tags = "PmsBrandController", value = "商品品牌管理")
 @RequestMapping("/brand")
+@SuppressWarnings("rawtypes")
 public class PmsBrandController {
 
     @Autowired

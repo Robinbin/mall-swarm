@@ -187,7 +187,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
 
     //对输入的验证码进行校验
     private boolean verifyAuthCode(String authCode, String telephone) {
-        if (StringUtils.isEmpty(authCode)) {
+        if (!StringUtils.hasLength(authCode)) {
             return false;
         }
         String realAuthCode = memberCacheService.getAuthCode(telephone);

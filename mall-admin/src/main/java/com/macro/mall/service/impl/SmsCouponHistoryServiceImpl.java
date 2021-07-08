@@ -33,7 +33,7 @@ public class SmsCouponHistoryServiceImpl implements SmsCouponHistoryService {
         if (useStatus != null) {
             criteria.andUseStatusEqualTo(useStatus);
         }
-        if (!StringUtils.isEmpty(orderSn)) {
+        if (StringUtils.hasLength(orderSn)) {
             criteria.andOrderSnEqualTo(orderSn);
         }
         return historyMapper.selectByExample(example);

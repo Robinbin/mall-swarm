@@ -20,8 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 会员关注品牌管理Controller Created by macro on 2018/8/2.
  */
 @Controller
-@Api(tags = "MemberAttentionController", description = "会员关注品牌管理")
+@Api(tags = "MemberAttentionController", value = "会员关注品牌管理")
 @RequestMapping("/member/attention")
+@SuppressWarnings("rawtypes")
 public class MemberAttentionController {
 
     @Autowired

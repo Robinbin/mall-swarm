@@ -25,8 +25,9 @@ import java.util.List;
  * 订单退货申请管理 Created by macro on 2018/10/18.
  */
 @Controller
-@Api(tags = "OmsOrderReturnApplyController", description = "订单退货申请管理")
+@Api(tags = "OmsOrderReturnApplyController", value = "订单退货申请管理")
 @RequestMapping("/returnApply")
+@SuppressWarnings("rawtypes")
 public class OmsOrderReturnApplyController {
 
     @Autowired

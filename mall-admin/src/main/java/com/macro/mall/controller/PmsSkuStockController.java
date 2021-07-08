@@ -21,8 +21,9 @@ import java.util.List;
  * sku库存Controller Created by macro on 2018/4/27.
  */
 @Controller
-@Api(tags = "PmsSkuStockController", description = "sku商品库存管理")
+@Api(tags = "PmsSkuStockController", value = "sku商品库存管理")
 @RequestMapping("/sku")
+@SuppressWarnings("rawtypes")
 public class PmsSkuStockController {
 
     @Autowired
