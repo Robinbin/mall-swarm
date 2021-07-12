@@ -49,6 +49,7 @@ import javax.servlet.http.HttpServletRequest;
  * UmsAdminService实现类 Created by macro on 2018/4/26.
  */
 @Service
+@SuppressWarnings("rawtypes")
 public class UmsAdminServiceImpl implements UmsAdminService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UmsAdminServiceImpl.class);

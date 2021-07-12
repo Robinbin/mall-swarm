@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by macro on 2019/10/22.
  */
 @FeignClient("mall-search")
+@SuppressWarnings("rawtypes")
 public interface FeignSearchService {
 
     @GetMapping("/esProduct/search/simple")

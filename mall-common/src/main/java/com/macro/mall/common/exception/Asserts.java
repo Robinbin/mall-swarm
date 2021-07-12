@@ -14,4 +14,8 @@ public class Asserts {
     public static void fail(IErrorCode errorCode) {
         throw new ApiException(errorCode);
     }
+
+    private Asserts() {
+        throw new IllegalStateException("Asserts class");
+    }
 }

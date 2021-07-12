@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * Created by macro on 2019/10/18.
  */
 @FeignClient("mall-admin")
+@SuppressWarnings("rawtypes")
 public interface FeignAdminService {
 
     @PostMapping("/admin/login")

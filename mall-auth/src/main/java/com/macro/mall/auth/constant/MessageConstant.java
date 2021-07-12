@@ -3,7 +3,7 @@ package com.macro.mall.auth.constant;
 /**
  * 消息常量 Created by macro on 2020/6/19.
  */
-public class MessageConstant {
+public final class MessageConstant {
 
     public static final String LOGIN_SUCCESS = "登录成功!";
 
@@ -19,4 +19,7 @@ public class MessageConstant {
 
     public static final String PERMISSION_DENIED = "没有访问权限，请联系管理员!";
 
+    private MessageConstant() {
+        throw new IllegalStateException("MessageConstant class");
+    }
 }

@@ -52,4 +52,8 @@ public final class MbgConstants {
     public static final String PRODUCT_SN = "productSn";
     public static final String PRODUCT_ATTR = "productAttr";
     public static final String SUB_TITLE = "subTitle";
+
+    private MbgConstants() {
+        throw new IllegalStateException("MbgConstant class");
+    }
 }

@@ -31,12 +31,17 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <skipTests>true</skipTests>
+
         <docker.host>http://192.168.3.101:2375</docker.host>
         <docker.maven.plugin.version>1.2.2</docker.maven.plugin.version>
+
         <java.version>11</java.version>
+
         <spring-cloud.version>2020.0.3</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
+        <spring-data-commons.version>2.4.8</spring-data-commons.version>
+        <spring-cloud-security.version>2.2.5.RELEASE</spring-cloud-security.version>
+
         <pagehelper-starter.version>1.3.0</pagehelper-starter.version>
         <pagehelper.version>5.2.0</pagehelper.version>
         <druid.version>1.1.23</druid.version>
@@ -44,7 +49,6 @@
         <mybatis-generator.version>1.4.0</mybatis-generator.version>
         <mybatis.version>3.5.5</mybatis.version>
         <mysql-connector.version>8.0.20</mysql-connector.version>
-        <spring-data-commons.version>2.4.8</spring-data-commons.version>
         <jjwt.version>0.9.0</jjwt.version>
         <aliyun-oss.version>2.5.0</aliyun-oss.version>
         <logstash-logback.version>5.3</logstash-logback.version>
@@ -52,10 +56,16 @@
         <minio.version>7.1.0</minio.version>
         <knife4j.version>2.0.4</knife4j.version>
         <nimbus-jose-jwt.version>9.8.1</nimbus-jose-jwt.version>
+
         <mall-common.version>1.0-SNAPSHOT</mall-common.version>
         <mall-mbg.version>1.0-SNAPSHOT</mall-mbg.version>
+
+        <skipTests>false</skipTests>
+        <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
         <sonar.maven.plugin.verion>3.9.0.2155</sonar.maven.plugin.verion>
-        <spring-cloud-security.version>2.2.5.RELEASE</spring-cloud-security.version>
+        <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
+        <sonar.issue.ignore.multicriteria.e1.ruleKey>java:S3740</sonar.issue.ignore.multicriteria.e1.ruleKey>
+        <sonar.issue.ignore.multicriteria.e1.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e1.resourceKey>
     </properties>
 
     <dependencies>
@@ -244,15 +254,6 @@
                     <groupId>com.spotify</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <version>${docker.maven.plugin.version}</version>
-                    <!--<executions>-->
-                    <!--<execution>-->
-                    <!--<id>build-image</id>-->
-                    <!--<phase>package</phase>-->
-                    <!--<goals>-->
-                    <!--<goal>build</goal>-->
-                    <!--</goals>-->
-                    <!--</execution>-->
-                    <!--</executions>-->
                     <configuration>
                         <imageName>mall/${project.artifactId}:${project.version}</imageName>
                         <dockerHost>${docker.host}</dockerHost>
@@ -268,6 +269,38 @@
                             </resource>
                         </resources>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${jacoco-maven-plugin.version}</version>
+                    <configuration>
+                        <includes>
+                            <include>com/**/*</include>
+                        </includes>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>pre-test</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                            <configuration>
+                                <destFile>target/coverage/jacoco/jacoco.exec</destFile>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>post-test</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                            <configuration>
+                                <dataFile>target/coverage/jacoco/jacoco.exec</dataFile>
+                                <outputDirectory>target/coverage/jacoco</outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
