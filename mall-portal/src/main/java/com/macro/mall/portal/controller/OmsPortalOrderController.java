@@ -10,14 +10,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Map;
@@ -25,10 +24,9 @@ import java.util.Map;
 /**
  * 订单管理Controller Created by macro on 2018/8/30.
  */
-@Controller
+@RestController
 @Api(tags = "OmsPortalOrderController", value = "订单管理")
 @RequestMapping("/order")
-@SuppressWarnings("rawtypes")
 public class OmsPortalOrderController {
 
     @Autowired
@@ -36,15 +34,12 @@ public class OmsPortalOrderController {
 
     @ApiOperation("根据购物车信息生成确认单信息")
     @PostMapping("/generateConfirmOrder")
-    @ResponseBody
-    public CommonResult<ConfirmOrderResult> generateConfirmOrder(@RequestBody List<Long> cartIds) {
-        ConfirmOrderResult confirmOrderResult = portalOrderService.generateConfirmOrder(cartIds);
-        return CommonResult.success(confirmOrderResult);
+    public ConfirmOrderResult generateConfirmOrder(@RequestBody List<Long> cartIds) {
+        return portalOrderService.generateConfirmOrder(cartIds);
     }
 
     @ApiOperation("根据购物车信息生成订单")
     @PostMapping("/generateOrder")
-    @ResponseBody
     public CommonResult generateOrder(@RequestBody OrderParam orderParam) {
         Map<String, Object> result = portalOrderService.generateOrder(orderParam);
         return CommonResult.success(result, "下单成功");
@@ -52,7 +47,6 @@ public class OmsPortalOrderController {
 
     @ApiOperation("用户支付成功的回调")
     @PostMapping("/paySuccess")
-    @ResponseBody
     public CommonResult paySuccess(@RequestParam Long orderId, @RequestParam Integer payType) {
         Integer count = portalOrderService.paySuccess(orderId, payType);
         return CommonResult.success(count, "支付成功");
@@ -60,61 +54,47 @@ public class OmsPortalOrderController {
 
     @ApiOperation("自动取消超时订单")
     @PostMapping("/cancelTimeOutOrder")
-    @ResponseBody
-    public CommonResult cancelTimeOutOrder() {
+    public void cancelTimeOutOrder() {
         portalOrderService.cancelTimeOutOrder();
-        return CommonResult.success(null);
     }
 
     @ApiOperation("取消单个超时订单")
     @PostMapping("/cancelOrder")
-    @ResponseBody
-    public CommonResult cancelOrder(Long orderId) {
+    public void cancelOrder(Long orderId) {
         portalOrderService.sendDelayMessageCancelOrder(orderId);
-        return CommonResult.success(null);
     }
 
     @ApiOperation("按状态分页获取用户订单列表")
     @ApiImplicitParam(name = "status", value = "订单状态：-1->全部；0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭",
         defaultValue = "-1", allowableValues = "-1,0,1,2,3,4", paramType = "query", dataType = "int")
     @GetMapping("/list")
-    @ResponseBody
-    public CommonResult<CommonPage<OmsOrderDetail>> list(@RequestParam Integer status,
-                                                         @RequestParam(required = false, defaultValue = "1") Integer pageNum,
-                                                         @RequestParam(required = false, defaultValue = "5") Integer pageSize) {
-        CommonPage<OmsOrderDetail> orderPage = portalOrderService.list(status, pageNum, pageSize);
-        return CommonResult.success(orderPage);
+    public CommonPage<OmsOrderDetail> list(@RequestParam Integer status,
+                                           @RequestParam(required = false, defaultValue = "1") Integer pageNum,
+                                           @RequestParam(required = false, defaultValue = "5") Integer pageSize) {
+        return portalOrderService.list(status, pageNum, pageSize);
     }
 
     @ApiOperation("根据ID获取订单详情")
     @GetMapping("/detail/{orderId}")
-    @ResponseBody
-    public CommonResult<OmsOrderDetail> detail(@PathVariable Long orderId) {
-        OmsOrderDetail orderDetail = portalOrderService.detail(orderId);
-        return CommonResult.success(orderDetail);
+    public OmsOrderDetail detail(@PathVariable Long orderId) {
+        return portalOrderService.detail(orderId);
     }
 
     @ApiOperation("用户取消订单")
     @PostMapping("/cancelUserOrder")
-    @ResponseBody
-    public CommonResult cancelUserOrder(Long orderId) {
+    public void cancelUserOrder(Long orderId) {
         portalOrderService.cancelOrder(orderId);
-        return CommonResult.success(null);
     }
 
     @ApiOperation("用户确认收货")
     @PostMapping("/confirmReceiveOrder")
-    @ResponseBody
-    public CommonResult confirmReceiveOrder(Long orderId) {
+    public void confirmReceiveOrder(Long orderId) {
         portalOrderService.confirmReceiveOrder(orderId);
-        return CommonResult.success(null);
     }
 
     @ApiOperation("用户删除订单")
     @PostMapping("/deleteOrder")
-    @ResponseBody
-    public CommonResult deleteOrder(Long orderId) {
+    public void deleteOrder(Long orderId) {
         portalOrderService.deleteOrder(orderId);
-        return CommonResult.success(null);
     }
 }

@@ -16,11 +16,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.text.SimpleDateFormat;
@@ -31,9 +30,8 @@ import java.util.Date;
  */
 @Slf4j
 @Api(tags = "MinioController", value = "MinIO对象存储管理")
-@Controller
+@RestController
 @RequestMapping("/minio")
-@SuppressWarnings("rawtypes")
 public class MinioController {
 
     @Value("${minio.endpoint}")
@@ -47,8 +45,7 @@ public class MinioController {
 
     @ApiOperation("文件上传")
     @PostMapping("/upload")
-    @ResponseBody
-    public CommonResult upload(@RequestParam("file") MultipartFile file) {
+    public Object upload(@RequestParam("file") MultipartFile file) {
         try {
             //创建一个MinIO的Java客户端
             MinioClient minioClient = MinioClient.builder()
@@ -83,7 +80,7 @@ public class MinioController {
             MinioUploadDto minioUploadDto = new MinioUploadDto();
             minioUploadDto.setName(filename);
             minioUploadDto.setUrl(endpoint + "/" + bucketName + "/" + objectName);
-            return CommonResult.success(minioUploadDto);
+            return minioUploadDto;
         } catch (Exception e) {
             log.info("上传发生错误: {}！", e.getMessage(), e);
         }
@@ -104,15 +101,14 @@ public class MinioController {
 
     @ApiOperation("文件删除")
     @PostMapping("/delete")
-    @ResponseBody
-    public CommonResult delete(@RequestParam("objectName") String objectName) {
+    public Object delete(@RequestParam("objectName") String objectName) {
         try {
             MinioClient minioClient = MinioClient.builder()
                 .endpoint(endpoint)
                 .credentials(accessKey, secretKey)
                 .build();
             minioClient.removeObject(RemoveObjectArgs.builder().bucket(bucketName).object(objectName).build());
-            return CommonResult.success(null);
+            return null;
         } catch (Exception e) {
             log.info("删除对象错误: {}！", e.getMessage(), e);
         }

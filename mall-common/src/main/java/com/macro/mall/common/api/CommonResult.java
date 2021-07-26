@@ -1,5 +1,11 @@
 package com.macro.mall.common.api;
 
+import static com.macro.mall.common.api.ResultCode.FAILED;
+import static com.macro.mall.common.api.ResultCode.FORBIDDEN;
+import static com.macro.mall.common.api.ResultCode.SUCCESS;
+import static com.macro.mall.common.api.ResultCode.UNAUTHORIZED;
+import static com.macro.mall.common.api.ResultCode.VALIDATE_FAILED;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,7 +39,7 @@ public class CommonResult<T> {
      * @param data 获取的数据
      */
     public static <T> CommonResult<T> success(T data) {
-        return new CommonResult<T>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage(), data);
+        return new CommonResult<>(SUCCESS.getCode(), SUCCESS.getMessage(), data);
     }
 
     /**
@@ -43,7 +49,7 @@ public class CommonResult<T> {
      * @param message 提示信息
      */
     public static <T> CommonResult<T> success(T data, String message) {
-        return new CommonResult<T>(ResultCode.SUCCESS.getCode(), message, data);
+        return new CommonResult<>(SUCCESS.getCode(), message, data);
     }
 
     /**
@@ -52,7 +58,7 @@ public class CommonResult<T> {
      * @param errorCode 错误码
      */
     public static <T> CommonResult<T> failed(IErrorCode errorCode) {
-        return new CommonResult<T>(errorCode.getCode(), errorCode.getMessage());
+        return new CommonResult<>(errorCode.getCode(), errorCode.getMessage());
     }
 
     /**
@@ -62,7 +68,7 @@ public class CommonResult<T> {
      * @param message   错误信息
      */
     public static <T> CommonResult<T> failed(IErrorCode errorCode, String message) {
-        return new CommonResult<T>(errorCode.getCode(), message);
+        return new CommonResult<>(errorCode.getCode(), message);
     }
 
     /**
@@ -71,21 +77,21 @@ public class CommonResult<T> {
      * @param message 提示信息
      */
     public static <T> CommonResult<T> failed(String message) {
-        return new CommonResult<T>(ResultCode.FAILED.getCode(), message);
+        return new CommonResult<>(FAILED.getCode(), message);
     }
 
     /**
      * 失败返回结果
      */
     public static <T> CommonResult<T> failed() {
-        return failed(ResultCode.FAILED);
+        return failed(FAILED);
     }
 
     /**
      * 参数验证失败返回结果
      */
     public static <T> CommonResult<T> validateFailed() {
-        return failed(ResultCode.VALIDATE_FAILED);
+        return failed(VALIDATE_FAILED);
     }
 
     /**
@@ -94,20 +100,20 @@ public class CommonResult<T> {
      * @param message 提示信息
      */
     public static <T> CommonResult<T> validateFailed(String message) {
-        return new CommonResult<T>(ResultCode.VALIDATE_FAILED.getCode(), message);
+        return new CommonResult<>(VALIDATE_FAILED.getCode(), message);
     }
 
     /**
      * 未登录返回结果
      */
     public static <T> CommonResult<T> unauthorized(T data) {
-        return new CommonResult<T>(ResultCode.UNAUTHORIZED.getCode(), ResultCode.UNAUTHORIZED.getMessage(), data);
+        return new CommonResult<>(UNAUTHORIZED.getCode(), UNAUTHORIZED.getMessage(), data);
     }
 
     /**
      * 未授权返回结果
      */
     public static <T> CommonResult<T> forbidden(T data) {
-        return new CommonResult<T>(ResultCode.FORBIDDEN.getCode(), ResultCode.FORBIDDEN.getMessage(), data);
+        return new CommonResult<>(FORBIDDEN.getCode(), FORBIDDEN.getMessage(), data);
     }
 }

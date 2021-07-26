@@ -11,6 +11,7 @@ import com.macro.mall.common.api.ResultCode;
 import com.macro.mall.common.constant.AuthConstant;
 import com.macro.mall.common.domain.UserDto;
 import com.macro.mall.common.exception.Asserts;
+import com.macro.mall.common.exception.MallServiceException;
 import com.macro.mall.dao.UmsAdminRoleRelationDao;
 import com.macro.mall.dto.UmsAdminParam;
 import com.macro.mall.dto.UpdateAdminPasswordParam;
@@ -90,7 +91,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         example.createCriteria().andUsernameEqualTo(umsAdmin.getUsername());
         List<UmsAdmin> umsAdminList = adminMapper.selectByExample(example);
         if (umsAdminList.size() > 0) {
-            return null;
+            throw new MallServiceException(ResultCode.FAILED);
         }
         //将密码进行加密操作
         String encodePassword = BCrypt.hashpw(umsAdmin.getPassword());

@@ -1,5 +1,7 @@
 package com.macro.mall.portal.service.impl;
 
+import static java.math.BigDecimal.ZERO;
+
 import cn.hutool.core.collection.CollUtil;
 import com.macro.mall.common.exception.Asserts;
 import com.macro.mall.mapper.PmsProductMapper;
@@ -237,7 +239,7 @@ public class UmsMemberCouponServiceImpl implements UmsMemberCouponService {
     }
 
     private BigDecimal calcTotalAmount(List<CartPromotionItem> cartItemList) {
-        BigDecimal total = new BigDecimal("0");
+        BigDecimal total = ZERO;
         for (CartPromotionItem item : cartItemList) {
             BigDecimal realPrice = item.getPrice().subtract(item.getReduceAmount());
             total = total.add(realPrice.multiply(new BigDecimal(item.getQuantity())));
@@ -247,7 +249,7 @@ public class UmsMemberCouponServiceImpl implements UmsMemberCouponService {
 
     private BigDecimal calcTotalAmountByproductCategoryId(List<CartPromotionItem> cartItemList,
                                                           List<Long> productCategoryIds) {
-        BigDecimal total = new BigDecimal("0");
+        BigDecimal total = ZERO;
         for (CartPromotionItem item : cartItemList) {
             if (productCategoryIds.contains(item.getProductCategoryId())) {
                 BigDecimal realPrice = item.getPrice().subtract(item.getReduceAmount());
@@ -258,7 +260,7 @@ public class UmsMemberCouponServiceImpl implements UmsMemberCouponService {
     }
 
     private BigDecimal calcTotalAmountByProductId(List<CartPromotionItem> cartItemList, List<Long> productIds) {
-        BigDecimal total = new BigDecimal("0");
+        BigDecimal total = ZERO;
         for (CartPromotionItem item : cartItemList) {
             if (productIds.contains(item.getProductId())) {
                 BigDecimal realPrice = item.getPrice().subtract(item.getReduceAmount());

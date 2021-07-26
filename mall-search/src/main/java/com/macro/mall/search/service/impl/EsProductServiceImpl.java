@@ -1,5 +1,8 @@
 package com.macro.mall.search.service.impl;
 
+import static com.macro.mall.common.api.ResultCode.FAILED;
+
+import com.macro.mall.common.exception.MallServiceException;
 import com.macro.mall.search.dao.EsProductDao;
 import com.macro.mall.search.domain.EsProduct;
 import com.macro.mall.search.domain.EsProductRelatedInfo;
@@ -40,6 +43,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -50,6 +54,8 @@ import java.util.stream.Collectors;
 public class EsProductServiceImpl implements EsProductService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EsProductServiceImpl.class);
+    public static final String SUB_TITLE = "subTitle";
+    public static final String KEYWORDS = "keywords";
     @Autowired
     private EsProductDao productDao;
     @Autowired
@@ -83,7 +89,8 @@ public class EsProductServiceImpl implements EsProductService {
             EsProduct esProduct = esProductList.get(0);
             result = productRepository.save(esProduct);
         }
-        return result;
+
+        return Optional.ofNullable(result).orElseThrow(() -> new MallServiceException(FAILED));
     }
 
     @Override
@@ -133,11 +140,11 @@ public class EsProductServiceImpl implements EsProductService {
                                                                          ScoreFunctionBuilders
                                                                              .weightFactorFunction(10)));
             filterFunctionBuilders
-                .add(new FunctionScoreQueryBuilder.FilterFunctionBuilder(QueryBuilders.matchQuery("subTitle", keyword),
+                .add(new FunctionScoreQueryBuilder.FilterFunctionBuilder(QueryBuilders.matchQuery(SUB_TITLE, keyword),
                                                                          ScoreFunctionBuilders
                                                                              .weightFactorFunction(5)));
             filterFunctionBuilders
-                .add(new FunctionScoreQueryBuilder.FilterFunctionBuilder(QueryBuilders.matchQuery("keywords", keyword),
+                .add(new FunctionScoreQueryBuilder.FilterFunctionBuilder(QueryBuilders.matchQuery(KEYWORDS, keyword),
                                                                          ScoreFunctionBuilders
                                                                              .weightFactorFunction(2)));
             FunctionScoreQueryBuilder.FilterFunctionBuilder[]
@@ -193,11 +200,11 @@ public class EsProductServiceImpl implements EsProductService {
                                                                          ScoreFunctionBuilders
                                                                              .weightFactorFunction(8)));
             filterFunctionBuilders
-                .add(new FunctionScoreQueryBuilder.FilterFunctionBuilder(QueryBuilders.matchQuery("subTitle", keyword),
+                .add(new FunctionScoreQueryBuilder.FilterFunctionBuilder(QueryBuilders.matchQuery(SUB_TITLE, keyword),
                                                                          ScoreFunctionBuilders
                                                                              .weightFactorFunction(2)));
             filterFunctionBuilders
-                .add(new FunctionScoreQueryBuilder.FilterFunctionBuilder(QueryBuilders.matchQuery("keywords", keyword),
+                .add(new FunctionScoreQueryBuilder.FilterFunctionBuilder(QueryBuilders.matchQuery(KEYWORDS, keyword),
                                                                          ScoreFunctionBuilders
                                                                              .weightFactorFunction(2)));
             filterFunctionBuilders
@@ -243,7 +250,7 @@ public class EsProductServiceImpl implements EsProductService {
         if (!StringUtils.hasLength(keyword)) {
             builder.withQuery(QueryBuilders.matchAllQuery());
         } else {
-            builder.withQuery(QueryBuilders.multiMatchQuery(keyword, "name", "subTitle", "keywords"));
+            builder.withQuery(QueryBuilders.multiMatchQuery(keyword, "name", SUB_TITLE, KEYWORDS));
         }
         //聚合搜索品牌名称
         builder.addAggregation(AggregationBuilders.terms("brandNames").field("brandName"));

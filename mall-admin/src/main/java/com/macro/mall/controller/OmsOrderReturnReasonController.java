@@ -1,30 +1,27 @@
 package com.macro.mall.controller;
 
 import com.macro.mall.common.api.CommonPage;
-import com.macro.mall.common.api.CommonResult;
 import com.macro.mall.model.OmsOrderReturnReason;
 import com.macro.mall.service.OmsOrderReturnReasonService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 /**
  * 退货原因管理Controller Created by macro on 2018/10/17.
  */
-@Controller
+@RestController
 @Api(tags = "OmsOrderReturnReasonController", value = "退货原因管理")
 @RequestMapping("/returnReason")
-@SuppressWarnings("rawtypes")
 public class OmsOrderReturnReasonController {
 
     @Autowired
@@ -32,64 +29,40 @@ public class OmsOrderReturnReasonController {
 
     @ApiOperation("添加退货原因")
     @PostMapping("/create")
-    @ResponseBody
-    public CommonResult create(@RequestBody OmsOrderReturnReason returnReason) {
-        int count = orderReturnReasonService.create(returnReason);
-        if (count > 0) {
-            return CommonResult.success(count);
-        }
-        return CommonResult.failed();
+    public int create(@RequestBody OmsOrderReturnReason returnReason) {
+        return orderReturnReasonService.create(returnReason);
     }
 
     @ApiOperation("修改退货原因")
     @PostMapping("/update/{id}")
-    @ResponseBody
-    public CommonResult update(@PathVariable Long id, @RequestBody OmsOrderReturnReason returnReason) {
-        int count = orderReturnReasonService.update(id, returnReason);
-        if (count > 0) {
-            return CommonResult.success(count);
-        }
-        return CommonResult.failed();
+    public int update(@PathVariable Long id, @RequestBody OmsOrderReturnReason returnReason) {
+        return orderReturnReasonService.update(id, returnReason);
     }
 
     @ApiOperation("批量删除退货原因")
     @PostMapping("/delete")
-    @ResponseBody
-    public CommonResult delete(@RequestParam("ids") List<Long> ids) {
-        int count = orderReturnReasonService.delete(ids);
-        if (count > 0) {
-            return CommonResult.success(count);
-        }
-        return CommonResult.failed();
+    public int delete(@RequestParam("ids") List<Long> ids) {
+        return orderReturnReasonService.delete(ids);
     }
 
     @ApiOperation("分页查询全部退货原因")
     @GetMapping("/list")
-    @ResponseBody
-    public CommonResult<CommonPage<OmsOrderReturnReason>> list(
+    public CommonPage<OmsOrderReturnReason> list(
         @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
         @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
-        List<OmsOrderReturnReason> reasonList = orderReturnReasonService.list(pageSize, pageNum);
-        return CommonResult.success(CommonPage.restPage(reasonList));
+        return CommonPage.restPage(orderReturnReasonService.list(pageSize, pageNum));
     }
 
     @ApiOperation("获取单个退货原因详情信息")
     @GetMapping("/{id}")
-    @ResponseBody
-    public CommonResult<OmsOrderReturnReason> getItem(@PathVariable Long id) {
-        OmsOrderReturnReason reason = orderReturnReasonService.getItem(id);
-        return CommonResult.success(reason);
+    public OmsOrderReturnReason getItem(@PathVariable Long id) {
+        return orderReturnReasonService.getItem(id);
     }
 
     @ApiOperation("修改退货原因启用状态")
     @PostMapping("/update/status")
-    @ResponseBody
-    public CommonResult updateStatus(@RequestParam(value = "status") Integer status,
-                                     @RequestParam("ids") List<Long> ids) {
-        int count = orderReturnReasonService.updateStatus(ids, status);
-        if (count > 0) {
-            return CommonResult.success(count);
-        }
-        return CommonResult.failed();
+    public int updateStatus(@RequestParam(value = "status") Integer status,
+                            @RequestParam("ids") List<Long> ids) {
+        return orderReturnReasonService.updateStatus(ids, status);
     }
 }

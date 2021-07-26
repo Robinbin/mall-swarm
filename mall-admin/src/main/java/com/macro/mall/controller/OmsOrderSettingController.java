@@ -1,26 +1,23 @@
 package com.macro.mall.controller;
 
-import com.macro.mall.common.api.CommonResult;
 import com.macro.mall.model.OmsOrderSetting;
 import com.macro.mall.service.OmsOrderSettingService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 订单设置Controller Created by macro on 2018/10/16.
  */
-@Controller
+@RestController
 @Api(tags = "OmsOrderSettingController", value = "订单设置管理")
 @RequestMapping("/orderSetting")
-@SuppressWarnings("rawtypes")
 public class OmsOrderSettingController {
 
     @Autowired
@@ -28,20 +25,13 @@ public class OmsOrderSettingController {
 
     @ApiOperation("获取指定订单设置")
     @GetMapping("/{id}")
-    @ResponseBody
-    public CommonResult<OmsOrderSetting> getItem(@PathVariable Long id) {
-        OmsOrderSetting orderSetting = orderSettingService.getItem(id);
-        return CommonResult.success(orderSetting);
+    public OmsOrderSetting getItem(@PathVariable Long id) {
+        return orderSettingService.getItem(id);
     }
 
     @ApiOperation("修改指定订单设置")
     @PostMapping("/update/{id}")
-    @ResponseBody
-    public CommonResult update(@PathVariable Long id, @RequestBody OmsOrderSetting orderSetting) {
-        int count = orderSettingService.update(id, orderSetting);
-        if (count > 0) {
-            return CommonResult.success(count);
-        }
-        return CommonResult.failed();
+    public int update(@PathVariable Long id, @RequestBody OmsOrderSetting orderSetting) {
+        return orderSettingService.update(id, orderSetting);
     }
 }

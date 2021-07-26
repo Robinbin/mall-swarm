@@ -1,5 +1,7 @@
 package com.macro.mall.portal.service.impl;
 
+import static java.math.BigDecimal.ZERO;
+
 import com.macro.mall.model.OmsCartItem;
 import com.macro.mall.model.PmsProductFullReduction;
 import com.macro.mall.model.PmsProductLadder;
@@ -172,7 +174,7 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
             CartPromotionItem cartPromotionItem = new CartPromotionItem();
             BeanUtils.copyProperties(item, cartPromotionItem);
             cartPromotionItem.setPromotionMessage("无优惠");
-            cartPromotionItem.setReduceAmount(new BigDecimal(0));
+            cartPromotionItem.setReduceAmount(ZERO);
             PmsSkuStock skuStock = getOriginalPrice(promotionProduct, item.getProductSkuId());
             if (skuStock != null) {
                 cartPromotionItem.setRealStock(skuStock.getStock() - skuStock.getLockStock());
@@ -249,7 +251,7 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
      * 获取购物车中指定商品的总价
      */
     private BigDecimal getCartItemAmount(List<OmsCartItem> itemList, List<PromotionProduct> promotionProductList) {
-        BigDecimal amount = new BigDecimal(0);
+        BigDecimal amount = ZERO;
         for (OmsCartItem item : itemList) {
             //计算出商品原价
             PromotionProduct promotionProduct = getPromotionProductById(item.getProductId(), promotionProductList);
